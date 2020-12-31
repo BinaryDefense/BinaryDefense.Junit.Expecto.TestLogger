@@ -23,6 +23,10 @@ module Constants =
   [<Literal>]
   let FriendlyName = "junit"
 
+  /// If the user just does "logger:junit", this will be the file name
+  [<Literal>]
+  let DefaultFileName = "test-results.xml"
+
 type Parameters = {
   /// The raw user input parameters
   InputParameters : Map<string, string>
@@ -188,7 +192,7 @@ type JunitTestLogger() =
       Console.WriteLine($"Initializing Junit Expecto logger with the test result dir path of {testResultsDirPath}.")
       let paramsMap =
         Map.ofSeq ["TestResultsDirPath", testResultsDirPath]
-      let outputFilePath = System.IO.Path.Combine(testResultsDirPath, "test-results.xml") |> System.IO.Path.GetFullPath
+      let outputFilePath = System.IO.Path.Combine(testResultsDirPath, Constants.DefaultFileName) |> System.IO.Path.GetFullPath
       this.Parameters <- { this.Parameters with InputParameters = paramsMap; OutputFilePath = outputFilePath }
       ()
 
@@ -199,11 +203,17 @@ type JunitTestLogger() =
     /// <param name="parameters">Collection of parameters</param>
     member this.Initialize(events : TestLoggerEvents, parameters : System.Collections.Generic.Dictionary<string, string>) =
       Console.WriteLine($"Initializing Junit Expecto logger with multiple parameters.")
+      let paramsList = parameters :> seq<_> |> Seq.map (|KeyValue|)
+
+      paramsList
+      |> Seq.iter (fun (k, v) -> Console.WriteLine($"({k}, {v})"))
+
       let paramsMap =
-        (parameters :> seq<_>)
-        |> Seq.map (|KeyValue|)
+        paramsList
         |> Seq.map (fun (x, y) -> (x.ToLowerInvariant(), y))
         |> Map.ofSeq
       this.Parameters <- { this.Parameters with InputParameters = paramsMap}
+
+      this.InitializeImpl events ""
       ()
 

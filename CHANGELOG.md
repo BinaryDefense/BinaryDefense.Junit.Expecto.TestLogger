@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta009] - 2020-12-31
+* Actually wire up events
+* Print parameters
+
 ## [0.1.0-beta008] - 2020-12-31
 * Add console output to more events
 * Try/catch the xml writing
