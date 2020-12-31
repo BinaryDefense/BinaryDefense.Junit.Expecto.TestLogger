@@ -5,11 +5,23 @@ open Microsoft.VisualStudio.TestPlatform.ObjectModel
 open Microsoft.VisualStudio.TestPlatform.ObjectModel.Client
 open Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging
 
+module ParameterKeys =
+  
+  /// The path and file relative to the test project.
+  [<Literal>]
+  let LogFilePath = "LogFilePath"
+
 type Parameters = {
   /// The raw user input parameters
   InputParameters : Map<string, string>
 
-  /// The file path to write the report to
+  /// The directory the output file will go to.
+  OutputDir : string
+
+  // The name of the file to write the report to.
+  FileName : string
+
+  /// The absolute path to write the report to.
   OutputFilePath : string
 
   /// Any unrecognized parameters from the user input
@@ -17,8 +29,25 @@ type Parameters = {
 } with
     static member Empty() = {
       InputParameters = Map []
-      OutputFilePath = "./junit-report.xml"
+      OutputDir = ""
+      FileName = ""
+      OutputFilePath = ""
       UnrecognizedParameters = []
+    }
+
+module Parameters =
+
+  let tryGetValue (key : string) (map : Map<string, string>) =
+    match map.TryGetValue (key.ToLowerInvariant()) with
+    | true, value -> Some value
+    | false, _ -> None
+
+  let parseParameters (inputParameters : Parameters) =
+    let tryGet key = tryGetValue key inputParameters.InputParameters
+    let filePath = tryGet ParameterKeys.LogFilePath
+
+    { inputParameters with
+        OutputFilePath = Option.defaultValue "./" filePath
     }
 
 module XmlBuilder =
@@ -40,7 +69,7 @@ module XmlBuilder =
     |> Map.toSeq
     |> Seq.map (fun (x, y) -> xProperty x y)
 
-  let writeProperties (args: Map<string, string>) =
+  let buildProperties (args: Map<string, string>) =
     XElement(
       XName.Get "properties", [|
         xProperty "clr-version" Environment.Version
@@ -55,7 +84,7 @@ module XmlBuilder =
     )
 
   let buildDocument (args: Map<string, string>) (testSuiteList : XElement list) =
-    let properties = writeProperties args
+    let properties = buildProperties args
     let emptyTestSuites =
       XElement(
         XName.Get "testsuites", [|
@@ -76,16 +105,22 @@ module XmlWriter =
   open System.Xml.Linq
   open System.IO
 
-  let writeXml (parameters: Parameters) (doc: XDocument) =
-    //used to create directory if needed
-    // let loggerFileDirPath = Path.GetDirectoryName(".")
+  let private checkDir (path : string) =
+    //create directory if it doesn't exist
+    let dirPath = Path.GetDirectoryName(path)
+    match Directory.Exists dirPath with
+    | false -> Directory.CreateDirectory(dirPath)
+    | true -> DirectoryInfo dirPath
 
+  let writeXmlFile (parameters: Parameters) (doc: XDocument) =
     let writerSettings = XmlWriterSettings()
     writerSettings.Encoding <- System.Text.UTF8Encoding()
     writerSettings.Indent <- true
-    
 
-    use file = File.Create(parameters.OutputFilePath)
+    let path = parameters.OutputFilePath
+    checkDir path |> ignore
+
+    use file = File.Create(path)
     use writer = XmlWriter.Create(file, writerSettings)
     doc.Save(writer)
 
@@ -94,6 +129,8 @@ module XmlWriter =
 
 type JunitTestLogger() =
   
+  let defaultFileName = "junit-test-results.xml"
+
   /// <summary>
   /// Uri used to uniquely identify the logger.
   /// </summary>
@@ -106,16 +143,21 @@ type JunitTestLogger() =
   [<Literal>]
   let FriendlyName = "junit"
 
-  let mutable args : Map<string, string> = Map<_,_> []
+  //let mutable args : Map<string, string> = Map<_,_> []
 
   let mutable _parameters = Parameters.Empty()
   member this.Parameters with
     get() = _parameters
     and set(value) = _parameters <- value
 
-  member internal this.TestRunCompleteHandler(sender, e : TestRunCompleteEventArgs) =
+  member internal this.TestRunCompleteHandler(e : TestRunCompleteEventArgs) =
     let doc = XmlBuilder.buildDocument this.Parameters.InputParameters []
-    XmlWriter.writeXml this.Parameters doc
+    XmlWriter.writeXmlFile this.Parameters doc
+    ()
+
+  member internal this.InitializeImpl (events: TestLoggerEvents) (outputPath : string) =
+    //events.TestRunMessage += this.TestMessageHandler
+    events.TestRunComplete.Add(this.TestRunCompleteHandler)
     ()
 
   interface ITestLoggerWithParameters with
@@ -124,8 +166,12 @@ type JunitTestLogger() =
     /// Initializes the Test Logger with given parameters.
     /// </summary>
     /// <param name="events">Events that can be registered for.</param>
-    /// <param name="parameters">Collection of parameters</param>
+    /// <param name="testResultsDirPath">The path to the directory to output the test results.</param>
     member this.Initialize(events : TestLoggerEvents, testResultsDirPath : string) =
+      let paramsMap =
+        Map.ofSeq ["TestResultsDirPath", testResultsDirPath]
+      let outputFilePath = System.IO.Path.Combine(testResultsDirPath, defaultFileName)
+      this.Parameters <- { this.Parameters with InputParameters = paramsMap; OutputFilePath = outputFilePath }
       ()
 
     /// <summary>
@@ -134,11 +180,16 @@ type JunitTestLogger() =
     /// <param name="events">Events that can be registered for.</param>
     /// <param name="parameters">Collection of parameters</param>
     member this.Initialize(events : TestLoggerEvents, parameters : System.Collections.Generic.Dictionary<string, string>) =
-      let paramsMap = 
+      let paramsMap =
         (parameters :> seq<_>)
         |> Seq.map (|KeyValue|)
+        |> Seq.map (fun (x, y) -> (x.ToLowerInvariant(), y))
         |> Map.ofSeq
-      args <- paramsMap
+      //args <- paramsMap
+      let outputFilePath = System.IO.Path.Combine(
+        "hello",
+        "world"
+      )
       this.Parameters <- { this.Parameters with InputParameters = paramsMap}
       ()
 
