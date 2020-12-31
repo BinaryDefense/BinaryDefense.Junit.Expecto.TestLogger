@@ -2,7 +2,7 @@ module Tests
 
 open System
 open Expecto
-open Expecto.Junit.TestLogger
+open Microsoft.VisualStudio.TestPlatform.Extension.Junit.Expecto.TestLogger
 
 let force r =
   match r with

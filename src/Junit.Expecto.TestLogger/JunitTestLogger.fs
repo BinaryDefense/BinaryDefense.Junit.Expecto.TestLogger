@@ -1,11 +1,9 @@
-namespace Expecto.Junit.TestLogger
+namespace Microsoft.VisualStudio.TestPlatform.Extension.Junit.Expecto.TestLogger
 
 open System
 open Microsoft.VisualStudio.TestPlatform.ObjectModel
 open Microsoft.VisualStudio.TestPlatform.ObjectModel.Client
 open Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging
-
-
 
 module Constants =
   

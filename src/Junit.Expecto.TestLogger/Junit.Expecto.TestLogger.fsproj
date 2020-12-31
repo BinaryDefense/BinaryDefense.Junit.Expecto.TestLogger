@@ -2,12 +2,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1</TargetFrameworks>
+    <AssemblyName>Microsoft.VisualStudio.TestPlatform.Extension.Junit.Expecto.TestLogger</AssemblyName>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <RootNamespace>Microsoft.VisualStudio.TestPlatform.Extension.Junit.Expecto.TestLogger</RootNamespace>
+  </PropertyGroup>
+
   <PropertyGroup>
     <Title>ExpectoJunitTestLogger</Title>
     <Description>ExpectoJunitTestLogger does the thing!</Description>
-
   </PropertyGroup>
+
+
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
     <Optimize>true</Optimize>
     <Tailcalls>true</Tailcalls>
