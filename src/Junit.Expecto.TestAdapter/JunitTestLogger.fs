@@ -5,11 +5,25 @@ open Microsoft.VisualStudio.TestPlatform.ObjectModel
 open Microsoft.VisualStudio.TestPlatform.ObjectModel.Client
 open Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging
 
-module ParameterKeys =
+
+
+module Constants =
   
   /// The path and file relative to the test project.
   [<Literal>]
   let LogFilePath = "LogFilePath"
+
+  /// <summary>
+  /// Uri used to uniquely identify the logger.
+  /// </summary>
+  [<Literal>]
+  let ExtensionUri = "logger://Microsoft/TestPlatform/JUnitXmlLogger/v1"
+
+  /// <summary>
+  /// User friendly name to uniquely identify the console logger
+  /// </summary>
+  [<Literal>]
+  let FriendlyName = "junit"
 
 type Parameters = {
   /// The raw user input parameters
@@ -44,7 +58,7 @@ module Parameters =
 
   let parseParameters (inputParameters : Parameters) =
     let tryGet key = tryGetValue key inputParameters.InputParameters
-    let filePath = tryGet ParameterKeys.LogFilePath
+    let filePath = tryGet Constants.LogFilePath
 
     { inputParameters with
         OutputFilePath = Option.defaultValue "./" filePath
@@ -127,23 +141,11 @@ module XmlWriter =
     let resultsFileMessage = String.Format(CultureInfo.CurrentCulture, "JunitXML Logger - Results File: {0}", parameters.OutputFilePath)
     Console.WriteLine(Environment.NewLine + resultsFileMessage)
 
+[<FriendlyName(Constants.FriendlyName)>]
+[<ExtensionUri(Constants.ExtensionUri)>]
 type JunitTestLogger() =
+
   
-  let defaultFileName = "junit-test-results.xml"
-
-  /// <summary>
-  /// Uri used to uniquely identify the logger.
-  /// </summary>
-  [<Literal>]
-  let ExtensionUri = "logger://Microsoft/TestPlatform/JUnitXmlLogger/v1"
-
-  /// <summary>
-  /// User friendly name to uniquely identify the console logger
-  /// </summary>
-  [<Literal>]
-  let FriendlyName = "junit"
-
-  //let mutable args : Map<string, string> = Map<_,_> []
 
   let mutable _parameters = Parameters.Empty()
   member this.Parameters with
@@ -170,7 +172,7 @@ type JunitTestLogger() =
     member this.Initialize(events : TestLoggerEvents, testResultsDirPath : string) =
       let paramsMap =
         Map.ofSeq ["TestResultsDirPath", testResultsDirPath]
-      let outputFilePath = System.IO.Path.Combine(testResultsDirPath, defaultFileName)
+      let outputFilePath = System.IO.Path.Combine(testResultsDirPath, "test-results.xml") |> System.IO.Path.GetFullPath
       this.Parameters <- { this.Parameters with InputParameters = paramsMap; OutputFilePath = outputFilePath }
       ()
 
@@ -185,11 +187,6 @@ type JunitTestLogger() =
         |> Seq.map (|KeyValue|)
         |> Seq.map (fun (x, y) -> (x.ToLowerInvariant(), y))
         |> Map.ofSeq
-      //args <- paramsMap
-      let outputFilePath = System.IO.Path.Combine(
-        "hello",
-        "world"
-      )
       this.Parameters <- { this.Parameters with InputParameters = paramsMap}
       ()
 

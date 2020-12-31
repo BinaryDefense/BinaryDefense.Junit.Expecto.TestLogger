@@ -42,8 +42,8 @@ let environVarAsBoolOrDefault varName defaultValue =
 // Metadata and Configuration
 //-----------------------------------------------------------------------------
 
-let productName = "ExpectoJunitTestLogger"
-let sln = "ExpectoJunitTestLogger.sln"
+let productName = "Junit.Expecto.TestAdapter"
+let sln = "Junit.Expecto.TestAdapter.sln"
 
 
 let srcCodeGlob =
