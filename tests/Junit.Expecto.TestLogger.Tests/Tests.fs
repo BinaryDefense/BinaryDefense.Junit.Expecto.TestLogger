@@ -3,6 +3,9 @@ module Tests
 open System
 open Expecto
 open Microsoft.VisualStudio.TestPlatform.Extension.Junit.Expecto.TestLogger
+open Microsoft.VisualStudio.TestPlatform.ObjectModel
+open Microsoft.VisualStudio.TestPlatform.ObjectModel.Client
+open Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging
 
 let force r =
   match r with
@@ -42,6 +45,22 @@ module XmlBuilderTests =
                     |> forceO
                 let attributeValue = elementFound.Attribute(XName.Get "value").Value
                 Expect.equal attributeValue "world" $"Did not find expected value in written property. Element was {elementFound.ToString()}"
+
+            testCase "build suite does not error when given an empty list" <| fun _ -> 
+                let (args : TestResult array) = [||]
+                let output = XmlBuilder.buildSuite args
+                Expect.isNotNull output "Should not return null, ever."
+                let innerList = output.Attributes() :> seq<_>
+                Expect.isGreaterThan (Seq.length innerList) 0 "Should have more than 0 attributes."
+
+            testCase "Build suite returns structure when given a single argument" <| fun _ ->
+                let (args : TestResult array) = [| TestResult(TestCase()) |]
+                let output = XmlBuilder.buildSuite args
+                Expect.isNotNull output "Should not return null, ever."
+                let innerList = output.Attributes() :> seq<_>
+                Expect.isGreaterThan (Seq.length innerList) 0 "Should have more than 0 attributes"
+                let children = output.Elements() :> seq<_>
+                Expect.isGreaterThan (Seq.length children) 0 "Should have more than 0 children"
         ]
 
 module XmlWriterTests =

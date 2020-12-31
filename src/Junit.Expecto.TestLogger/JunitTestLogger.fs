@@ -95,7 +95,17 @@ module XmlBuilder =
   open System.Xml
   open System.Xml.Linq
 
+  let strMaybe (s : string) = if isNull s then "" else s
+
   let inline private xAttr name data = XAttribute(XName.Get name, data)
+
+  let inline xAttrMaybe k v =
+    if isNull v then 
+      [||]
+    else
+      [|
+        xAttr k v :> XObject
+      |]
 
   let inline private xProperty (name: string) value =
     let value' = if isNull value then "no value" else value
@@ -137,8 +147,8 @@ module XmlBuilder =
       | TestOutcome.None -> [||]
       | TestOutcome.Passed -> [||]
       | TestOutcome.Failed -> 
-          let msg = test.ErrorMessage
-          let msgBlock = test.ErrorStackTrace
+          let msg = test.ErrorMessage |> strMaybe
+          let msgBlock = test.ErrorStackTrace |> strMaybe
           [|
             XElement(
               XName.Get "failure", [|
@@ -157,7 +167,7 @@ module XmlBuilder =
     XElement(XName.Get "testcase",
         [|
           // yield (xAttr "classname" className) :> XObject
-          yield (xAttr "name" test.DisplayName) :> XObject
+          yield! xAttrMaybe "name" test.DisplayName
           yield (xAttr "time" test.Duration.TotalSeconds) :> XObject
           yield! content
         |]) :> XObject

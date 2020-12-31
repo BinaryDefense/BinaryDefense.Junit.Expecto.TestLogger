@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta012] - 2020-12-31
+* Fix some crashes with null values. Add more safetey rails.
+
 ## [0.1.0-beta011] - 2020-12-31
 * Fix some crashes with nulls. Many crashes remain lurking, I'm sure of it.
 
