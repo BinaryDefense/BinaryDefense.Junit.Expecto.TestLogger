@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <SourceRoot Condition="$(SourceRoot) == ''">..\..\</SourceRoot>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AssemblyName>Microsoft.VisualStudio.TestPlatform.Extension.JUnit.Expecto.TestAdapter</AssemblyName>
+
+    <!-- This project just links source code from another project. Disable static analysis. -->
+    <StylecopEnabled>false</StylecopEnabled>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\JUnit.Expecto.TestLogger\JunitTestLogger.fs">
+      <Link>JunitTestLogger.fs</Link>
+    </Compile>
+  </ItemGroup>
+
+  <!-- <ItemGroup>
+    <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="15.5.0" />
+    <PackageReference Include="System.ValueTuple" Version="4.3.0" />
+  </ItemGroup> -->
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
+</Project>

@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [0.1.0-beta004] - 2020-12-31
-* Change project name to include TestAdapter so dotnet will find it
+* Change project name to include TestLogger so dotnet will find it
 
 ## [0.1.0-beta003] - 2020-12-31
 * Add friendly name & extension url
