@@ -97,7 +97,22 @@ module XmlBuilder =
 
   let strMaybe (s : string) = if isNull s then "" else s
 
-  let inline private xAttr name data = XAttribute(XName.Get name, data)
+  let purgeString (s : string) =
+    if isNull s || s = "" then 
+      ""
+    else
+      let sb = System.Text.StringBuilder()
+      s.ToCharArray()
+      |> Seq.iter (fun c ->
+        // only permit valid xml characters
+        if XmlConvert.IsXmlChar c then 
+          sb.Append c |> ignore
+        else 
+          ()
+      )
+      sb.ToString()
+
+  let inline private xAttr name data = XAttribute(XName.Get name, (purgeString data))
 
   let inline xAttrMaybe k v =
     if isNull v then 
@@ -108,7 +123,7 @@ module XmlBuilder =
       |]
 
   let inline private xProperty (name: string) value =
-    let value' = if isNull value then "no value" else value
+    let value' = if isNull value then "no value" else purgeString value
     XElement(
       XName.Get "property", 
       [|
@@ -147,8 +162,8 @@ module XmlBuilder =
       | TestOutcome.None -> [||]
       | TestOutcome.Passed -> [||]
       | TestOutcome.Failed -> 
-          let msg = test.ErrorMessage |> strMaybe
-          let msgBlock = test.ErrorStackTrace |> strMaybe
+          let msg = test.ErrorMessage |> strMaybe |> purgeString
+          let msgBlock = test.ErrorStackTrace |> strMaybe |> purgeString
           [|
             XElement(
               XName.Get "failure", [|
@@ -168,7 +183,7 @@ module XmlBuilder =
         [|
           // yield (xAttr "classname" className) :> XObject
           yield! xAttrMaybe "name" test.DisplayName
-          yield (xAttr "time" test.Duration.TotalSeconds) :> XObject
+          yield (xAttr "time" (test.Duration.TotalSeconds.ToString())) :> XObject
           yield! content
         |]) :> XObject
 
@@ -179,7 +194,7 @@ module XmlBuilder =
         // yield (xAttr "name" assemblyName) :> XObject
         // yield (xAttr "package" assemblyName) :> XObject
         yield (xAttr "timestamp" (DateTime.UtcNow.ToString())) :> XObject
-        yield (xAttr "tests" (Seq.length reports)) :> XObject
+        yield (xAttr "tests" ((Seq.length reports).ToString())) :> XObject
         // yield (xAttr "skipped" (Seq.length summary.ignored)) :> XObject
         // yield (xAttr "failures" (Seq.length summary.failed)) :> XObject
         // yield (xAttr "errors" (Seq.length summary.errored)) :> XObject
