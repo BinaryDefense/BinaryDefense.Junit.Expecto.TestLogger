@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta005] - 2020-12-31
+* Test some changes around project names
+
 ## [0.1.0-beta004] - 2020-12-31
 * Change project name to include TestLogger so dotnet will find it
 
