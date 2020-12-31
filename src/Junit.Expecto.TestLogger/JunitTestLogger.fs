@@ -15,7 +15,7 @@ module Constants =
   /// Uri used to uniquely identify the logger.
   /// </summary>
   [<Literal>]
-  let ExtensionUri = "logger://Microsoft/TestPlatform/JUnitXmlLogger/v1"
+  let ExtensionUri = "logger://Microsoft/TestPlatform/JunitExpectoLogger/v1"
 
   /// <summary>
   /// User friendly name to uniquely identify the console logger
@@ -143,8 +143,6 @@ module XmlWriter =
 [<ExtensionUri(Constants.ExtensionUri)>]
 type JunitTestLogger() =
 
-  
-
   let mutable _parameters = Parameters.Empty()
   member this.Parameters with
     get() = _parameters
@@ -168,6 +166,7 @@ type JunitTestLogger() =
     /// <param name="events">Events that can be registered for.</param>
     /// <param name="testResultsDirPath">The path to the directory to output the test results.</param>
     member this.Initialize(events : TestLoggerEvents, testResultsDirPath : string) =
+      Console.WriteLine($"Initializing Junit Expecto logger with the test result dir path of {testResultsDirPath}.")
       let paramsMap =
         Map.ofSeq ["TestResultsDirPath", testResultsDirPath]
       let outputFilePath = System.IO.Path.Combine(testResultsDirPath, "test-results.xml") |> System.IO.Path.GetFullPath
@@ -180,6 +179,7 @@ type JunitTestLogger() =
     /// <param name="events">Events that can be registered for.</param>
     /// <param name="parameters">Collection of parameters</param>
     member this.Initialize(events : TestLoggerEvents, parameters : System.Collections.Generic.Dictionary<string, string>) =
+      Console.WriteLine($"Initializing Junit Expecto logger with multiple parameters.")
       let paramsMap =
         (parameters :> seq<_>)
         |> Seq.map (|KeyValue|)

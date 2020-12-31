@@ -2,12 +2,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1</TargetFrameworks>
-    <AssemblyName>Microsoft.VisualStudio.TestPlatform.Extension.Junit.Expecto.TestLogger</AssemblyName>
+    <!-- <AssemblyName>Microsoft.VisualStudio.TestPlatform.Extension.Junit.Expecto.TestLogger</AssemblyName> -->
   </PropertyGroup>
 
-  <PropertyGroup>
+  <!-- <PropertyGroup>
     <RootNamespace>Microsoft.VisualStudio.TestPlatform.Extension.Junit.Expecto.TestLogger</RootNamespace>
-  </PropertyGroup>
+  </PropertyGroup> -->
 
   <PropertyGroup>
     <Title>ExpectoJunitTestLogger</Title>

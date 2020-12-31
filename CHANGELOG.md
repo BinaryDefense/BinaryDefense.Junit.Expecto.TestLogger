@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta007] - 2020-12-31
+* Went back to good ol' junit namespace
+
 ## [0.1.0-beta006] - 2020-12-31
 * Move namespaces under Microsoft.VisualStudio.TestPlatform.Extension to see if that fixes "can't find the file" issues.
 
