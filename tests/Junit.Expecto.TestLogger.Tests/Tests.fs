@@ -90,3 +90,39 @@ module XmlWriterTests =
                 Expect.isTrue isFileThere "Should have written a file in relative directory"
         ]
 
+module ParametersTests =
+
+    [<Tests>]
+    let tests =
+        testList "Parameter parsing and building" [
+            testCase "build file path with None returns a string" <| fun _ ->
+                let output = Parameters.buildFilePath None
+                Expect.isNotEmpty output "Should not return empty string for path"
+            testCase "build file path with None returns an xml file" <| fun _ ->
+                let output = Parameters.buildFilePath None
+                Expect.stringEnds output ".xml" "Should have returned a path to an xml file"
+            testCase "Build file path with a path and no file returns an xml file" <| fun _ ->
+                let output = Parameters.buildFilePath (Some "./hello")
+                Expect.stringEnds output ".xml" "Should have returned a path to an xml file"
+            testCase "Build file path with a path and no file does not stack forward slashes" <| fun _ ->
+                let output = Parameters.buildFilePath (Some "./hello")
+                let doubleslash = output.IndexOf("//")
+                Expect.equal doubleslash -1 $"Should not find a double slash in the path {output}"
+            testCase "Build file path with a path and a file does not double up xml" <| fun _ ->
+                let output = Parameters.buildFilePath (Some "./hello/world.xml")
+                let firstindex = output.IndexOf(".xml")
+                let lastindex = output.LastIndexOf(".xml")
+                Expect.equal firstindex lastindex $"Should not find two .xml in output {output}"
+
+            testCase "Parameters with no path key returns a path" <| fun _ ->
+                let parameters = Parameters.Empty()
+                let input = parameters.TryGetInput (Constants.LogFilePath.ToLowerInvariant())
+                let output = Parameters.buildFilePath input
+                Expect.isNotEmpty output "Should not return empty string for path"
+            testCase "Parameters with no path key returns the default file name" <| fun _ ->
+                let parameters = Parameters.Empty()
+                let input = parameters.TryGetInput (Constants.LogFilePath.ToLowerInvariant())
+                let output = Parameters.buildFilePath input
+                let index = output.IndexOf(Constants.DefaultFileName)
+                Expect.isGreaterThan index 0 "Should contain the default file name"
+        ]

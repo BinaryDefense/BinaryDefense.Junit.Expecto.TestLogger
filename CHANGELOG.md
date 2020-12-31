@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta011] - 2020-12-31
+* Fix some crashes with nulls. Many crashes remain lurking, I'm sure of it.
+
+## [0.1.0-beta010] - 2020-12-31
+* Cleaned up Path logic to hopefully avoid crashes
+* Initial attempt at creating junit xml
+
 ## [0.1.0-beta009] - 2020-12-31
 * Actually wire up events
 * Print parameters

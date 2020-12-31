@@ -5,6 +5,13 @@ open Microsoft.VisualStudio.TestPlatform.ObjectModel
 open Microsoft.VisualStudio.TestPlatform.ObjectModel.Client
 open Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging
 
+type Report = {
+  Tests : TestResult list
+} with
+    static member Empty() = {
+      Tests = []
+    }
+
 module Constants =
   
   /// The path and file relative to the test project.
@@ -31,11 +38,11 @@ type Parameters = {
   /// The raw user input parameters
   InputParameters : Map<string, string>
 
-  /// The directory the output file will go to.
-  OutputDir : string
+  // /// The directory the output file will go to.
+  // OutputDir : string
 
-  // The name of the file to write the report to.
-  FileName : string
+  // // The name of the file to write the report to.
+  // FileName : string
 
   /// The absolute path to write the report to.
   OutputFilePath : string
@@ -45,26 +52,44 @@ type Parameters = {
 } with
     static member Empty() = {
       InputParameters = Map []
-      OutputDir = ""
-      FileName = ""
+      // OutputDir = ""
+      // FileName = ""
       OutputFilePath = ""
       UnrecognizedParameters = []
     }
 
-module Parameters =
+    member this.TryGetInput (key : string) =
+      match this.InputParameters.TryGetValue(key.ToLowerInvariant()) with
+      | true, value -> Some value
+      | false, _ -> None
 
+module Parameters =
   let tryGetValue (key : string) (map : Map<string, string>) =
     match map.TryGetValue (key.ToLowerInvariant()) with
     | true, value -> Some value
     | false, _ -> None
 
+  /// Given a possible user-entered value, construct a full file path.
+  let buildFilePath (filePathOption: string option) =
+    let filePathOption = 
+      filePathOption
+      |> Option.map (fun x -> if (x.EndsWith ".xml" |> not) then x + Constants.DefaultFileName else x)
+      |> Option.map System.IO.Path.GetFullPath
+
+    match filePathOption with
+    | Some x -> x
+    | None -> System.IO.Path.GetFullPath("./" + Constants.DefaultFileName)
+
   let parseParameters (inputParameters : Parameters) =
     let tryGet key = tryGetValue key inputParameters.InputParameters
-    let filePath = tryGet Constants.LogFilePath
+    let filePath = 
+      tryGet Constants.LogFilePath 
+      |> buildFilePath
 
     { inputParameters with
-        OutputFilePath = Option.defaultValue "./" filePath
+        OutputFilePath = filePath
     }
+
 
 module XmlBuilder =
   open System.Xml
@@ -73,12 +98,14 @@ module XmlBuilder =
   let inline private xAttr name data = XAttribute(XName.Get name, data)
 
   let inline private xProperty (name: string) value =
-    XElement(XName.Get "property", [|
-      xAttr "name" name
-      xAttr "value" value
-    |]) :> XObject
-
-  // let aggregateTestSuites suites = []
+    let value' = if isNull value then "no value" else value
+    XElement(
+      XName.Get "property", 
+      [|
+        xAttr "name" name
+        xAttr "value" value'
+      |]
+    ) :> XObject
 
   let private writeParameterProperties (args : Map<string, string>) =
     args
@@ -88,9 +115,9 @@ module XmlBuilder =
   let buildProperties (args: Map<string, string>) =
     XElement(
       XName.Get "properties", [|
-        xProperty "clr-version" Environment.Version
+        xProperty "clr-version" (Environment.Version.ToString())
         xProperty "os-version" Environment.OSVersion.VersionString
-        xProperty "platform" Environment.OSVersion.Platform
+        xProperty "platform" (Environment.OSVersion.Platform.ToString())
         xProperty "cwd" Environment.CurrentDirectory
         xProperty "machine-name" Environment.MachineName
         xProperty "user" Environment.UserName
@@ -99,14 +126,69 @@ module XmlBuilder =
       |]
     )
 
-  let buildDocument (args: Map<string, string>) (testSuiteList : XElement list) =
+  let buildTestCase (test : TestResult) =
+    let content: XObject[] =
+      let makeMessageNode messageType (message: string) =
+        XElement(
+          XName.Get messageType,
+          xAttr "message" message
+        )
+      match test.Outcome with
+      | TestOutcome.None -> [||]
+      | TestOutcome.Passed -> [||]
+      | TestOutcome.Failed -> 
+          let msg = test.ErrorMessage
+          let msgBlock = test.ErrorStackTrace
+          [|
+            XElement(
+              XName.Get "failure", [|
+                xAttr "message" msg :> XObject
+                XText $"{msg}\n{msgBlock}" :> XObject
+              |]
+            )
+          |]
+      | TestOutcome.Skipped -> [|
+            XElement(
+              XName.Get "skipped"
+            )
+        |]
+      | TestOutcome.NotFound -> [||]
+    
+    XElement(XName.Get "testcase",
+        [|
+          // yield (xAttr "classname" className) :> XObject
+          yield (xAttr "name" test.DisplayName) :> XObject
+          yield (xAttr "time" test.Duration.TotalSeconds) :> XObject
+          yield! content
+        |]) :> XObject
+
+  let buildSuite (reports : TestResult array) =
+    XElement(XName.Get "testsuite",
+      [|
+        // yield (xAttr "id" assemblyName) :> XObject
+        // yield (xAttr "name" assemblyName) :> XObject
+        // yield (xAttr "package" assemblyName) :> XObject
+        yield (xAttr "timestamp" (DateTime.UtcNow.ToString())) :> XObject
+        yield (xAttr "tests" (Seq.length reports)) :> XObject
+        // yield (xAttr "skipped" (Seq.length summary.ignored)) :> XObject
+        // yield (xAttr "failures" (Seq.length summary.failed)) :> XObject
+        // yield (xAttr "errors" (Seq.length summary.errored)) :> XObject
+        // yield (xAttr "time" (time summary.duration.TotalSeconds)) :> XObject
+        yield (xAttr "hostname" Environment.UserDomainName) :> XObject
+        //yield properties :> XObject
+        yield! (reports |> Seq.map buildTestCase)
+      |])
+
+  let buildDocument (args: Map<string, string>) (testSuite : XElement) =
     let properties = buildProperties args
     let emptyTestSuites =
       XElement(
         XName.Get "testsuites", [|
           properties,
           XElement(
-            XName.Get "testsuite", [||]
+            XName.Get "testsuite", [|
+              testSuite
+            |]
           )
         |]
       )
@@ -146,6 +228,9 @@ module XmlWriter =
 [<FriendlyName(Constants.FriendlyName)>]
 [<ExtensionUri(Constants.ExtensionUri)>]
 type JunitTestLogger() =
+  
+  let mutable report = Report.Empty()
+  let mutable reportList = ResizeArray<TestResult>()
 
   let mutable _parameters = Parameters.Empty()
   member this.Parameters with
@@ -161,12 +246,15 @@ type JunitTestLogger() =
     ()
 
   member internal this.TestResultHandler(e : TestResultEventArgs) =
-    Console.WriteLine($"Got test result event of {e.ToString()}")
+    //Console.WriteLine($"Got test result event of {e.ToString()}")
+    reportList.Add(e.Result)
     ()
 
   member internal this.TestRunCompleteHandler(e : TestRunCompleteEventArgs) =
     try
-      let doc = XmlBuilder.buildDocument this.Parameters.InputParameters []
+      if (isNull reportList) || reportList.Count = 0 then printfn "Report list contains 0 tests results."
+      let suites = XmlBuilder.buildSuite (reportList.ToArray())
+      let doc = XmlBuilder.buildDocument this.Parameters.InputParameters suites
       XmlWriter.writeXmlFile this.Parameters doc
     with
     | ex ->
@@ -205,8 +293,9 @@ type JunitTestLogger() =
       Console.WriteLine($"Initializing Junit Expecto logger with multiple parameters.")
       let paramsList = parameters :> seq<_> |> Seq.map (|KeyValue|)
 
+      printf "\n"
       paramsList
-      |> Seq.iter (fun (k, v) -> Console.WriteLine($"({k}, {v})"))
+      |> Seq.iter (fun (k, v) -> Console.WriteLine($"parameter: ({k}, {v})\n"))
 
       let paramsMap =
         paramsList

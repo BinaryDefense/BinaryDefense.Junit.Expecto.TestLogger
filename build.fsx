@@ -437,6 +437,7 @@ let dotnetTest ctx =
             sprintf "/p:AltCoverThreshold=%d" coverageThresholdPercent
             sprintf "/p:AltCoverAssemblyExcludeFilter=%s" excludeCoverage
             "/p:AltCoverLocalSource=true"
+            "/p:AltCoverForce=true"
         ]
     DotNet.test(fun c ->
 
