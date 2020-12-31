@@ -145,17 +145,36 @@ type JunitTestLogger() =
 
   let mutable _parameters = Parameters.Empty()
   member this.Parameters with
-    get() = _parameters
-    and set(value) = _parameters <- value
+      get() = _parameters
+      and set(value) = _parameters <- value
+
+  member internal this.TestRunMessageHandler(e : TestRunMessageEventArgs) =
+    Console.WriteLine($"Got test run event of {e.ToString()}")
+    ()
+
+  member internal this.TestRunStartHandler(e: TestRunStartEventArgs) =
+    Console.WriteLine($"Got test run start event: {e.ToString()}")
+    ()
+
+  member internal this.TestResultHandler(e : TestResultEventArgs) =
+    Console.WriteLine($"Got test result event of {e.ToString()}")
+    ()
 
   member internal this.TestRunCompleteHandler(e : TestRunCompleteEventArgs) =
-    let doc = XmlBuilder.buildDocument this.Parameters.InputParameters []
-    XmlWriter.writeXmlFile this.Parameters doc
+    try
+      let doc = XmlBuilder.buildDocument this.Parameters.InputParameters []
+      XmlWriter.writeXmlFile this.Parameters doc
+    with
+    | ex ->
+      Console.WriteLine($"Error writing junit report: {ex.Message}\n{ex.StackTrace}")
     ()
 
   member internal this.InitializeImpl (events: TestLoggerEvents) (outputPath : string) =
     //events.TestRunMessage += this.TestMessageHandler
     events.TestRunComplete.Add(this.TestRunCompleteHandler)
+    events.TestResult.Add(this.TestResultHandler)
+    events.TestRunMessage.Add(this.TestRunMessageHandler)
+    events.TestRunStart.Add(this.TestRunStartHandler)
     ()
 
   interface ITestLoggerWithParameters with
