@@ -1,6 +1,51 @@
-# ExpectoJunitTestLogger
+# Junit.Expecto.TestLogger
 
-[Enter useful description for ExpectoJunitTestLogger]
+A `dotnet test --logger` designed to work with Expecto test output.
+
+Here is an example of the XML produced by this logger:
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+  <properties>
+    <property name="clr-version" value="5.0.0" />
+    <property name="os-version" value="Unix 10.15.7" />
+  </properties>
+  <testsuite>
+    <testsuite timestamp="1/4/2021 6:38:02 PM" tests="3" hostname="Maxs-MacBook-Pro">
+      <testcase classname="samples" name="I'm always fail (should fail)" time="0.007">
+        <failure message="This was expected..." type="failure">
+This was expected...
+   at Tests.Samples.tests@21-3.Invoke(Unit _arg4) in /Users/maxpaige/git/ExpectoJunitTestLogger/tests/Example.Tests/Sample.fs:line 22
+   at Expecto.Impl.execTestAsync@692-1.Invoke(Unit unitVar)
+   at Microsoft.FSharp.Control.AsyncPrimitives.CallThenInvoke[T,TResult](AsyncActivation`1 ctxt, TResult result1, FSharpFunc`2 part2) in F:\workspace\_work\1\s\src\fsharp\FSharp.Core\async.fs:line 386
+   at &lt;StartupCode$FSharp-Core&gt;.$Async.StartChild@1663-5.Invoke(AsyncActivation`1 ctxt) in F:\workspace\_work\1\s\src\fsharp\FSharp.Core\async.fs:line 1663
+   at Microsoft.FSharp.Control.Trampoline.Execute(FSharpFunc`2 firstAction) in F:\workspace\_work\1\s\src\fsharp\FSharp.Core\async.fs:line 105</failure>
+      </testcase>
+            <testcase classname="samples" name="I'm skipped (should skip)" time="0">
+        <skipped message="Skipped: Yup, waiting for a sunny day..." />
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testsuites>
+```
+
+## Parameters
+
+Note that as Expecto doesn't do the usual class/method testing and handles test results differently, the common junit options for `MethodClassName` and `FailureBodyFormat` do not apply. Instead, there are different input options.
+
+
+### Name Format
+
+If you use `testList`, you may want to put the test list name in the `classname` or in the `name` of a test case.
+
+```
+/// The classname of the test will be the root list, or, if there is not one, the test name. The name will be all lists the test is in, separated by a '/', and the test case name.
+NameFormat=RootList
+/// The name of the test will be the test case. The classname will be all the lists the testcase is in, separated by a '/'.
+NameFormat=List
+```
+
 
 ---
 

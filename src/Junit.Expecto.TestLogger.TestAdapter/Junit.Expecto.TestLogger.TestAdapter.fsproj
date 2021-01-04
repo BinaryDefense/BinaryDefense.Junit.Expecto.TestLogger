@@ -15,6 +15,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="..\JUnit.Expecto.TestLogger\Parameters.fs">
+      <Link>Parameters.fs</Link>
+    </Compile>
+        <Compile Include="..\JUnit.Expecto.TestLogger\TestReporting.fs">
+    <Link>TestReporting.fs</Link>
+    </Compile>
+    <Compile Include="..\JUnit.Expecto.TestLogger\Xml.fs">
+      <Link>Xml.fs</Link>
+    </Compile>
     <Compile Include="..\JUnit.Expecto.TestLogger\JunitTestLogger.fs">
       <Link>JunitTestLogger.fs</Link>
     </Compile>

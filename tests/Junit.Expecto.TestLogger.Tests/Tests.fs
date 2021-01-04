@@ -1,7 +1,9 @@
-module Tests
+module JUnit.Expecto.Tests
 
 open System
 open Expecto
+open Junit.Expecto.TestLogger
+open Junit.Expecto.TestLogger.Xml
 open Microsoft.VisualStudio.TestPlatform.Extension.Junit.Expecto.TestLogger
 open Microsoft.VisualStudio.TestPlatform.ObjectModel
 open Microsoft.VisualStudio.TestPlatform.ObjectModel.Client
@@ -17,12 +19,13 @@ let forceO o =
     | Some x -> x
     | None -> failwithf "Expected to find value in Option, but found None."
 
+let parameters = Parameters.Empty()
+
 module XmlBuilderTests =
     open System.Xml.Linq
 
-    [<Tests>]
-    let tests =
-        testList "XmlBuilder tests" [
+    let buildPropertiesTests =
+        testList "buildProperties tests" [
             testCase "buildProperties writes at least 1 property" <| fun _ ->
                 let args = Map ["hello", "world"]
                 let output = XmlBuilder.buildProperties args
@@ -45,22 +48,31 @@ module XmlBuilderTests =
                     |> forceO
                 let attributeValue = elementFound.Attribute(XName.Get "value").Value
                 Expect.equal attributeValue "world" $"Did not find expected value in written property. Element was {elementFound.ToString()}"
+        ]
 
+    let buildSuiteTests =
+        testList "buildSuite tests" [
             testCase "build suite does not error when given an empty list" <| fun _ -> 
-                let (args : TestResult array) = [||]
-                let output = XmlBuilder.buildSuite args
+                let (results : TestReportBuilder.TestReport array) = [||]
+                let output = XmlBuilder.buildSuite parameters results
                 Expect.isNotNull output "Should not return null, ever."
                 let innerList = output.Attributes() :> seq<_>
                 Expect.isGreaterThan (Seq.length innerList) 0 "Should have more than 0 attributes."
-
             testCase "Build suite returns structure when given a single argument" <| fun _ ->
-                let (args : TestResult array) = [| TestResult(TestCase()) |]
-                let output = XmlBuilder.buildSuite args
+                let (results : TestReportBuilder.TestReport array) = [| TestReportBuilder.TestReport.Empty() |]
+                let output = XmlBuilder.buildSuite parameters results
                 Expect.isNotNull output "Should not return null, ever."
                 let innerList = output.Attributes() :> seq<_>
                 Expect.isGreaterThan (Seq.length innerList) 0 "Should have more than 0 attributes"
                 let children = output.Elements() :> seq<_>
                 Expect.isGreaterThan (Seq.length children) 0 "Should have more than 0 children"
+        ]
+
+    [<Tests>]
+    let tests =
+        testList "XmlBuilder tests" [
+            yield buildPropertiesTests
+            yield buildSuiteTests
         ]
 
 module XmlWriterTests =
@@ -73,17 +85,27 @@ module XmlWriterTests =
     [<Literal>]
     let RelativeDirName = "test-reports"
 
-    let parameters = Parameters.Empty()
-
     let doc name = XDocument(XElement(XName.Get "test-document", [
         XAttribute(XName.Get "testname", name)
     ]))
+
+    let docWithTest() =
+        let test = TestReportBuilder.TestReport.Empty()
+        let suite = XmlBuilder.buildSuite parameters [| test |]
+        let doc = XmlBuilder.buildDocument parameters suite
+        doc
 
     let testCleanup() =
         if Directory.Exists(RelativeDirName) then Directory.Delete(RelativeDirName, true)
         if File.Exists(FileName) then File.Delete(FileName)
 
     let path (vals : string []) = Path.GetFullPath(Path.Combine(vals))
+    
+    let readFile path = seq {
+        use sr = File.OpenText(path)
+        while not sr.EndOfStream do
+            yield sr.ReadLine()
+    }
 
 
     [<Tests>]
@@ -98,15 +120,24 @@ module XmlWriterTests =
             yield! testWithCleanup "Writes a file" <| fun _ ->
                 let path = path([|FileName|])
                 let parameters = { parameters with OutputFilePath = path }
-                XmlWriter.writeXmlFile parameters (doc "Writes a file" )
+                XmlWriter.writeXmlFile parameters (doc "Writes a file" ) |> ignore
                 let isFileThere = File.Exists(path)
                 Expect.isTrue isFileThere "Should have written a file in current directory"
             yield! testWithCleanup "Writes a directory" <| fun _ ->
                 let path = path [| RelativeDirName; FileName |]
                 let parameters = { parameters with OutputFilePath = path }
-                XmlWriter.writeXmlFile parameters (doc "Writes a directory")
+                XmlWriter.writeXmlFile parameters (doc "Writes a directory") |> ignore
                 let isFileThere = File.Exists(path)
                 Expect.isTrue isFileThere "Should have written a file in relative directory"
+            yield! testWithCleanup "Does not write &lt; (an escaped < symbol)" <| fun _ ->
+                let path = path([|FileName|])
+                let parameters = { parameters with OutputFilePath = path }
+                XmlWriter.writeXmlFile parameters (docWithTest()) |> ignore
+                let fileLines = readFile path
+                fileLines |> Seq.iter (fun line ->
+                    let contains = line.Contains("%lt;")
+                    Expect.isFalse contains "File printed &lt; instead of <"
+                )
         ]
 
 module ParametersTests =
@@ -134,14 +165,57 @@ module ParametersTests =
                 Expect.equal firstindex lastindex $"Should not find two .xml in output {output}"
 
             testCase "Parameters with no path key returns a path" <| fun _ ->
-                let parameters = Parameters.Empty()
                 let input = parameters.TryGetInput (Constants.LogFilePath.ToLowerInvariant())
                 let output = Parameters.buildFilePath input
                 Expect.isNotEmpty output "Should not return empty string for path"
             testCase "Parameters with no path key returns the default file name" <| fun _ ->
-                let parameters = Parameters.Empty()
                 let input = parameters.TryGetInput (Constants.LogFilePath.ToLowerInvariant())
                 let output = Parameters.buildFilePath input
                 let index = output.IndexOf(Constants.DefaultFileName)
                 Expect.isGreaterThan index 0 "Should contain the default file name"
+        ]
+
+module TestResultsTests =
+    open Junit.Expecto.TestLogger
+
+    type Nesting =
+    | NoNesting
+    | SomeNesting
+    | LotsOfNesting
+        with
+            member this.value =
+                match this with
+                | NoNesting -> "No Nesting"
+                | SomeNesting -> "Some Nesting/A Test"
+                | LotsOfNesting -> "More Nesting/Lots of Nesting/So much Nesting/A Test"
+            member this.name =
+                match this with
+                | NoNesting -> "No Nesting"
+                | SomeNesting -> "Some Nesting"
+                | LotsOfNesting -> "Lots of Nesting"
+
+    let noNesting = "No Nesting"
+    let someNesting = "Some Nesting/A Test"
+    let lotsOfNesting = "More Nesting/Lots of Nesting/So much Nesting/A Test"
+
+    let buildTestCase (nesting : Nesting) (nameFormat : NameFormat) (classname : string) (name : string) =
+        testCase (sprintf "%s-%s" (string nameFormat) (nesting.name)) <| fun _ ->
+            let classnameR, nameR = TestReportBuilder.splitClassName nameFormat nesting.value
+            Expect.equal classnameR classname "Should build the expected class name"
+            Expect.equal nameR name "Should build the expected test name"
+
+    let splitClassNameTests =
+        testList "Split Class Name tests" [
+            buildTestCase Nesting.NoNesting NameFormat.RootList "" NoNesting.value
+            buildTestCase Nesting.NoNesting NameFormat.AllLists NoNesting.value NoNesting.value
+            buildTestCase Nesting.SomeNesting NameFormat.RootList "Some Nesting" "A Test"
+            buildTestCase Nesting.SomeNesting NameFormat.AllLists "Some Nesting" "A Test"
+            buildTestCase Nesting.LotsOfNesting NameFormat.RootList "More Nesting" "Lots of Nesting/So much NestingA Test"
+            buildTestCase Nesting.LotsOfNesting NameFormat.AllLists "More Nesting/Lots of Nesting/So much Nesting" "A Test"
+        ]
+
+    [<Tests>]
+    let tests =
+        testList "Test Result Builder tests" [
+            yield splitClassNameTests
         ]

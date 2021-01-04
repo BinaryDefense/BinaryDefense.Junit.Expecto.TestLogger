@@ -10,7 +10,7 @@ nuget YoloDev.Expecto.TestSdk
 nuget Microsoft.NET.Test.Sdk 
 nuget altcover ~> 6
 
-nuget Microsoft.TestPlatform.ObjectModel
+nuget Microsoft.TestPlatform.ObjectModel 16.8.3
 
 // [ FAKE GROUP ]
 group Build

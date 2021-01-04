@@ -10,8 +10,8 @@
   </PropertyGroup> -->
 
   <PropertyGroup>
-    <Title>ExpectoJunitTestLogger</Title>
-    <Description>ExpectoJunitTestLogger does the thing!</Description>
+    <Title>Junit.Expecto.TestLogger</Title>
+    <Description>Dotnet test logger with special handling cases for Expecto tests</Description>
   </PropertyGroup>
 
 
@@ -22,6 +22,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Parameters.fs" />
+    <Compile Include="TestReporting.fs" />
+    <Compile Include="Xml.fs" />
     <Compile Include="JunitTestLogger.fs" />
   </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
