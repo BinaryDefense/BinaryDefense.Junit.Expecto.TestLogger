@@ -99,7 +99,7 @@ module XmlBuilder =
         |]
       | NoOutcome -> [|
         XElement(
-              XName.Get "Unknown", [|
+              XName.Get "unknown", [|
                 xAttr "message" "Unknown test result" :> XObject
               |]
             )
@@ -110,7 +110,7 @@ module XmlBuilder =
         yield! xAttrMaybe "name" test.TestName
         yield (xAttr "time" (test.Duration.TotalSeconds.ToString())) :> XObject
         yield! content
-      |]) :> XObject
+      |])
 
   let buildSuite (parameters: Parameters) (reports : TestReport array) =
     XElement(XName.Get "testsuite",
@@ -126,7 +126,7 @@ module XmlBuilder =
         // yield (xAttr "time" (time summary.duration.TotalSeconds)) :> XObject
         yield (xAttr "hostname" Environment.UserDomainName) :> XObject
         //yield properties :> XObject
-        yield! reports |> Seq.map buildTestCase
+        yield! reports |> Seq.map (fun t -> buildTestCase t :> XObject)
       |])
 
   let buildDocument (parameters: Parameters) (testSuite : XElement) =

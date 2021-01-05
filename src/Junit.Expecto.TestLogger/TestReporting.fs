@@ -35,6 +35,10 @@ module TestReportBuilder =
         CodeFilePath = ""
       }
 
+  let ifNullThen fallback s = if isNull s then fallback else s
+
+  let split (splitter : string) (source: string) = source.Split(splitter)
+
   /// Splits a test into classname, name
   let splitClassName (nf : NameFormat) (name : string) =
     let firstSlash = name.IndexOf("/")
@@ -48,16 +52,12 @@ module TestReportBuilder =
     match nf with
     | NameFormat.RootList -> maybeSplit firstSlash
     | NameFormat.AllLists -> maybeSplit lastSlash
-    // | TestCase -> maybeSplit lastSlash
-    // | List -> "", name
-    // | NoList ->
-    //   let name = maybeSplit lastSlash |> snd
-    //   "", name
 
   let parseTestOutcome (test : TestResult) =
     let tryFirstTestLine() =
-      let split = test.ErrorMessage.Split("\n")
-      //the first line of the message is always a blank line. the 2nd line contains the unit test message
+      let split = test.ErrorMessage |> ifNullThen "" |> split "\n"
+      //the first line of the Expecto error message is always a blank line. the 2nd line contains the unit test message (ie, the "should have [...]")
+      //the remaining lines are the full error message, like `expected` and the stack trace.
       if split.Length >= 2 then split.[1] else ""
     
     let tryFirstMessage() =
@@ -74,12 +74,12 @@ module TestReportBuilder =
 
   let buildTestReport (parameters: Parameters) (test : TestResult) =
     let outcome = parseTestOutcome test
-    let classname, name = splitClassName parameters.NameFormat test.TestCase.DisplayName
+    let classname, name = test.TestCase.DisplayName |> ifNullThen "" |> splitClassName parameters.NameFormat 
     { TestReport.Empty() with
         ClassName = classname
         TestName = name
         TestOutcome = outcome
         Duration = test.Duration
-        Source = test.TestCase.Source
-        CodeFilePath = test.TestCase.CodeFilePath
+        Source = test.TestCase.Source |> ifNullThen ""
+        CodeFilePath = test.TestCase.CodeFilePath |> ifNullThen ""
     }

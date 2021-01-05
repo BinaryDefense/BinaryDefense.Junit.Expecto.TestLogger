@@ -1,10 +1,5 @@
 namespace Junit.Expecto.TestLogger
 
-open System
-open Microsoft.VisualStudio.TestPlatform.ObjectModel
-open Microsoft.VisualStudio.TestPlatform.ObjectModel.Client
-open Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging
-
 module Constants =
   
   /// The path and file relative to the test project.
@@ -56,14 +51,10 @@ type Parameters = {
 
   /// The format to use to name the classname and name fields of a testcase in the XML.
   NameFormat : NameFormat
-
-  /// Any unrecognized parameters from the user input
-  UnrecognizedParameters : (string * string) list
 } with
     static member Empty() = {
       InputParameters = Map []
       OutputFilePath = ""
-      UnrecognizedParameters = []
       NameFormat = NameFormat.RootList
     }
 
@@ -91,17 +82,11 @@ module Parameters =
     | Constants.AllListsLI -> NameFormat.AllLists
     | _ -> NameFormat.RootList
 
-  let parseParameters (inputParameters : Parameters) =
-    let tryGetValue (key : string) (map : Map<string, string>) =
-      match map.TryGetValue (key.ToLowerInvariant()) with
-      | true, value -> Some value
-      | false, _ -> None
+  let parseParameters (parameters : Parameters) =
+    let filePath = parameters.TryGetInput Constants.LogFilePath |> buildFilePath
+    let nameformat = parameters.TryGetInput Constants.NameFormat |> Option.defaultValue "" |> getNameFormat
 
-    let tryGet key = tryGetValue key inputParameters.InputParameters
-    let filePath = tryGet Constants.LogFilePath |> buildFilePath
-    let nameformat = tryGet Constants.NameFormat |> Option.defaultValue "" |> getNameFormat
-
-    { inputParameters with
+    { parameters with
         OutputFilePath = filePath
         NameFormat = nameformat
     }
