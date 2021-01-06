@@ -43,11 +43,32 @@ If you use `testList`, you may want to put the test list name in the `classname`
 /// The classname of the test will be the root list, or, if there is not one, the test name. The name will be all lists the test is in, separated by a '/', and the test case name.
 NameFormat=RootList
 /// The name of the test will be the test case. The classname will be all the lists the testcase is in, separated by a '/'.
-NameFormat=List
+NameFormat=AllLists
+```
+
+Given this structure
+```
+testList "A TestList" [
+  testList "A Nested TestList" [
+    testCase "A Test" [...]
+  ]
+  testCase "Another Test" [...]
+]
+```
+
+`RootList` would produce
+```
+<testcase classname="A TestList" name="A Nested Testlist/A Test" />
+<testcase classname="A TestList" name="Another Test" />
+```
+
+And `AllLists` would produce
+```
+<testcase classname="A TestList/A Nested Testlist" name="A Test" />
+<testcase classname="A TestList" name="Another Test" />
 ```
 
 
----
 
 ## Builds
 
@@ -69,7 +90,6 @@ ExpectoJunitTestLogger | [![NuGet Badge](https://buildstats.info/nuget/ExpectoJu
 Make sure the following **requirements** are installed on your system:
 
 - [dotnet SDK](https://www.microsoft.com/net/download/core) 3.0 or higher
-- [Mono](http://www.mono-project.com/) if you're on Linux or macOS.
 
 or
 

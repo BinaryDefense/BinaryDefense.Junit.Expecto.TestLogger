@@ -329,7 +329,8 @@ let updateChangelog ctx =
     changelog.Entries
     |> List.tryFind (fun entry -> entry.SemVer = newVersion)
     |> Option.iter (fun entry ->
-        Trace.traceErrorfn "Version %s already exists in %s, released on %s" verStr changelogFilename (if entry.Date.IsSome then entry.Date.Value.ToString("yyyy-MM-dd") else "(no date specified)")
+        let releaseDate = if entry.Date.IsSome then entry.Date.Value.ToString("yyyy-MM-dd") else "(no date specified)"
+        Trace.traceErrorfn "Version %s already exists in %s, released on %s" verStr changelogFilename releaseDate // (if entry.Date.IsSome then entry.Date.Value.ToString("yyyy-MM-dd") else "(no date specified)")
         failwith "Can't release with a duplicate version number"
     )
     changelog.Entries
@@ -425,28 +426,81 @@ let fsharpAnalyzers ctx =
         dotnet.fsharpAnalyzer id args
     )
 
+/// Executes `altcover.sh`, which runs unit tests & sets parameters accurately for altcover
+let runAltCover (ctx : TargetParameter) =
+    let excludeCoverage =
+        !! testsGlob
+        |> Seq.map IO.Path.GetFileNameWithoutExtension
+        |> String.concat "||"
+
+    let cmd = "./altcover.sh"
+    let args : string list = [
+        (string (not disableCodeCoverage))
+        (string coverageThresholdPercent)
+        //(sprintf "\"%s\"" excludeCoverage)
+        excludeCoverage
+        sln
+        "Debug"
+    ]
+    
+    let argsStr = args |> String.concat " "
+
+    let result = Shell.Exec(cmd, argsStr)
+    if result <> 0 then 
+        failwithf "AltCover encountered an error with exit code %i" result
+    else ()
+
 let dotnetTest ctx =
     let excludeCoverage =
         !! testsGlob
         |> Seq.map IO.Path.GetFileNameWithoutExtension
         |> String.concat "|"
-    let args =
+    //exclude JunitTestLogger (the main file / wire up point) because it's hard to write useful tests for it.
+    let fileFilter = """\.*JunitTestLogger\.*"""
+
+    let baseArgs = [ "--no-build", "" ]
+
+    let altArgsOriginal =
         [
             "--no-build"
-            sprintf "/p:AltCover=%b" (not disableCodeCoverage)
-            sprintf "/p:AltCoverThreshold=%d" coverageThresholdPercent
-            sprintf "/p:AltCoverAssemblyExcludeFilter=%s" excludeCoverage
-            "/p:AltCoverLocalSource=true"
-            "/p:AltCoverForce=true"
+            // sprintf "/p:AltCover=%b" (not disableCodeCoverage)
+            // "/p:AltCoverForce=true"
+            // sprintf "/p:AltCoverThreshold=%d" coverageThresholdPercent
+            // // sprintf "/p:AltCoverFileFilter=%s" fileFilterv2
+            // sprintf "/p:AltCoverAssemblyExcludeFilter=%s" excludeCoverage
+            // "/p:AltCoverLocalSource=true"
         ]
-    DotNet.test(fun c ->
 
+    let altArgsTupled = [
+        "AltCover", (string (not disableCodeCoverage))
+        "AltCoverForce", "true"
+        "AltCoverThreshold", (sprintf "%d" coverageThresholdPercent)
+        "AltCoverFileFilter", fileFilter
+        "AltCoverAssemblyExcludeFilter", excludeCoverage
+        "AltCoverLocalSource", "true"
+    ]
+
+    let args = 
+        if (disableCodeCoverage) then
+            []
+        else
+            altArgsTupled
+    DotNet.test(fun c ->
+        // { c with
+        //         Configuration = configuration (ctx.Context.AllExecutingTargets)
+        //         Common = c.Common |> DotNet.Options.withAdditionalArgs [ "--no-build" ]
+        //         MSBuildParams = {
+        //             c.MSBuildParams with
+        //                 Properties = c.MSBuildParams.Properties @ args
+        //         }
+        // }
         { c with
             Configuration = configuration (ctx.Context.AllExecutingTargets)
             Common =
                 c.Common
-                |> DotNet.Options.withAdditionalArgs args
-            }) sln
+                |> DotNet.Options.withAdditionalArgs altArgsOriginal
+        }
+    ) sln
 
 let generateCoverageReport _ =
     let coverageReports =
@@ -651,6 +705,7 @@ Target.createBuildFailure "RevertChangelog" revertChangelog  // Do NOT put this 
 Target.createFinal "DeleteChangelogBackupFile" deleteChangelogBackupFile  // Do NOT put this in the dependency chain
 Target.create "DotnetBuild" dotnetBuild
 Target.create "FSharpAnalyzers" fsharpAnalyzers
+Target.create "AltCover" runAltCover
 Target.create "DotnetTest" dotnetTest
 Target.create "GenerateCoverageReport" generateCoverageReport
 Target.create "WatchTests" watchTests
@@ -697,7 +752,8 @@ Target.create "ReleaseDocs" releaseDocs
 "DotnetRestore"
     ==> "DotnetBuild"
     ==> "FSharpAnalyzers"
-    ==> "DotnetTest"
+    //==> "DotnetTest"
+    ==> "AltCover"
     =?> ("GenerateCoverageReport", not disableCodeCoverage)
     ==> "DotnetPack"
     ==> "SourceLinkTest"
