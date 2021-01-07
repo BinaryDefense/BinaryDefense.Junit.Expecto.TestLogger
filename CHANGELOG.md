@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0-beta014] - 2021-01-07
+* Produce full XML reports.
+
 ## [0.1.0-beta013] - 2020-12-31
 * Add some invalid xml character purging.
 
