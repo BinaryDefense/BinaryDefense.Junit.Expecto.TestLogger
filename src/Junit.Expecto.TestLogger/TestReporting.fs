@@ -40,9 +40,9 @@ module TestReportBuilder =
   let split (splitter : string) (source: string) = source.Split(splitter)
 
   /// Splits a test into classname, name
-  let splitClassName (nf : NameFormat) (name : string) =
-    let firstSlash = name.IndexOf("/")
-    let lastSlash = name.LastIndexOf("/")
+  let splitClassName (splitOn : string) (nf : NameFormat) (name : string) =
+    let firstSlash = name.IndexOf(splitOn)
+    let lastSlash = name.LastIndexOf(splitOn)
     let maybeSplit i =
       if i > 0 then
         name.Substring(0, i), name.Substring(i + 1)
@@ -74,7 +74,7 @@ module TestReportBuilder =
 
   let buildTestReport (parameters: Parameters) (test : TestResult) =
     let outcome = parseTestOutcome test
-    let classname, name = test.TestCase.DisplayName |> ifNullThen "" |> splitClassName parameters.NameFormat 
+    let classname, name = test.TestCase.DisplayName |> ifNullThen "" |> splitClassName parameters.SplitOn parameters.NameFormat 
     { TestReport.Empty() with
         ClassName = classname
         TestName = name

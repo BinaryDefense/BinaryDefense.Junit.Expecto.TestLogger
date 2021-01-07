@@ -34,6 +34,9 @@ module Constants =
   [<Literal>]
   let AllListsLI = "alllists"
 
+  [<Literal>]
+  let SplitOnLI = "spliton"
+
 
 type NameFormat =
 /// The root list name will appear as the classname. The name will contain the rest of the lists and the test case name. 
@@ -51,11 +54,15 @@ type Parameters = {
 
   /// The format to use to name the classname and name fields of a testcase in the XML.
   NameFormat : NameFormat
+
+  /// The separator to use to split test lists.
+  SplitOn : string
 } with
     static member Empty() = {
       InputParameters = Map []
       OutputFilePath = ""
       NameFormat = NameFormat.RootList
+      SplitOn = "."
     }
 
     member this.TryGetInput (key : string) =
@@ -85,6 +92,7 @@ module Parameters =
   let parseParameters (parameters : Parameters) =
     let filePath = parameters.TryGetInput Constants.LogFilePath |> buildFilePath
     let nameformat = parameters.TryGetInput Constants.NameFormat |> Option.defaultValue "" |> getNameFormat
+    let splitOn = parameters.TryGetInput Constants.SplitOnLI |> Option.defaultValue "."
 
     { parameters with
         OutputFilePath = filePath

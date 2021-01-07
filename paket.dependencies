@@ -5,7 +5,7 @@ storage: none
 nuget FSharp.Core ~> 5
 nuget Microsoft.SourceLink.GitHub prerelease copy_local: true
 # nuget Microsoft.NETFramework.ReferenceAssemblies copy_local: true
-nuget Expecto
+nuget Expecto ~> 9
 nuget YoloDev.Expecto.TestSdk
 nuget Microsoft.NET.Test.Sdk 
 nuget altcover ~> 6
