@@ -502,6 +502,20 @@ let dotnetTest ctx =
         }
     ) sln
 
+let reportLocalTests ctx =
+    let args = [
+        "--no-build"
+        "--logger:\"junit;NameFormat=AllLists;LogFilePath=./build-script-test-report.xml;SplitOn=.\""
+    ]
+
+    DotNet.test(fun c -> 
+        { c with
+            Configuration = configuration (ctx.Context.AllExecutingTargets)
+            Common =
+                c.Common
+                |> DotNet.Options.withAdditionalArgs args
+        }) sln
+
 let generateCoverageReport _ =
     let coverageReports =
         !!"tests/**/coverage*.xml"
@@ -707,6 +721,7 @@ Target.create "DotnetBuild" dotnetBuild
 Target.create "FSharpAnalyzers" fsharpAnalyzers
 Target.create "AltCover" runAltCover
 Target.create "DotnetTest" dotnetTest
+Target.create "ReportLocalTests" reportLocalTests
 Target.create "GenerateCoverageReport" generateCoverageReport
 Target.create "WatchTests" watchTests
 Target.create "GenerateAssemblyInfo" generateAssemblyInfo
@@ -748,6 +763,8 @@ Target.create "ReleaseDocs" releaseDocs
 "DotnetPack" ?=> "BuildDocs"
 "GenerateCoverageReport" ?=> "ReleaseDocs"
 
+"DotnetBuild"
+    ==> "ReportLocalTests"
 
 "DotnetRestore"
     ==> "DotnetBuild"
