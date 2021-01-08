@@ -45,6 +45,8 @@ let environVarAsBoolOrDefault varName defaultValue =
 let productName = "BinaryDefense.Junit.Expecto.TestLogger"
 let sln = "BinaryDefense.Junit.Expecto.TestLogger.sln"
 
+let isInCI = Environment.environVarAsBool "CI"
+let isWindows = Environment.environVarAsBool "WINDOWS"
 
 let srcCodeGlob =
     !! (__SOURCE_DIRECTORY__  @@ "src/**/*.fs")
@@ -428,28 +430,29 @@ let fsharpAnalyzers ctx =
 
 /// Executes `altcover.sh`, which runs unit tests & sets parameters accurately for altcover
 let runAltCover (ctx : TargetParameter) =
-    //There were some issues getting `DotNet.test` to pass the correct parameters for excluding
-    //the main event-wire-up file, which isn't currently tested.
-    let excludeCoverage =
-        !! testsGlob
-        |> Seq.map IO.Path.GetFileNameWithoutExtension
-        |> String.concat "||"
+    if isWindows |> not then
+        //There were some issues getting `DotNet.test` to pass the correct parameters for excluding
+        //the main event-wire-up file, which isn't currently tested.
+        let excludeCoverage =
+            !! testsGlob
+            |> Seq.map IO.Path.GetFileNameWithoutExtension
+            |> String.concat "||"
 
-    let cmd = "./altcover.sh"
-    let args : string list = [
-        (string (not disableCodeCoverage))
-        (string coverageThresholdPercent)
-        excludeCoverage
-        sln
-        "Debug"
-    ]
-    
-    let argsStr = args |> String.concat " "
+        let cmd = "./altcover.sh"
+        let args : string list = [
+            (string (not disableCodeCoverage))
+            (string coverageThresholdPercent)
+            excludeCoverage
+            sln
+            "Debug"
+        ]
+        
+        let argsStr = args |> String.concat " "
 
-    let result = Shell.Exec(cmd, argsStr)
-    if result <> 0 then 
-        failwithf "AltCover encountered an error with exit code %i" result
-    else ()
+        let result = Shell.Exec(cmd, argsStr)
+        if result <> 0 then 
+            failwithf "AltCover encountered an error with exit code %i" result
+        else ()
 
 let dotnetTest ctx =
     DotNet.test(fun c ->
