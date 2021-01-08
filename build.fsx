@@ -732,6 +732,8 @@ Target.create "ReleaseDocs" releaseDocs
 "DotnetBuild"
     ==> "ReportLocalTests"
 
+"ReleaseDocs" ==> "Release"
+
 "DotnetRestore"
     ==> "DotnetBuild"
     ==> "FSharpAnalyzers"
