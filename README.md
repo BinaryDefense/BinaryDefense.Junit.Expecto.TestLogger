@@ -118,25 +118,6 @@ or
 $ ./build.sh  <optional buildtarget>// on unix
 ```
 
-The bin of your library should look similar to:
-
-```
-$ tree src/MyCoolNewLib/bin/
-src/MyCoolNewLib/bin/
-└── Debug
-    ├── net461
-    │   ├── FSharp.Core.dll
-    │   ├── MyCoolNewLib.dll
-    │   ├── MyCoolNewLib.pdb
-    │   ├── MyCoolNewLib.xml
-    └── netstandard2.1
-        ├── MyCoolNewLib.deps.json
-        ├── MyCoolNewLib.dll
-        ├── MyCoolNewLib.pdb
-        └── MyCoolNewLib.xml
-
-```
-
 ---
 
 ### Build Targets
@@ -145,6 +126,7 @@ src/MyCoolNewLib/bin/
 - `DotnetRestore` - Runs [dotnet restore](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-restore?tabs=netcore2x) on the [solution file](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file?view=vs-2019).
 - [`DotnetBuild`](#Building) - Runs [dotnet build](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build?tabs=netcore2x) on the [solution file](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file?view=vs-2019).
 - `DotnetTest` - Runs [dotnet test](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test?tabs=netcore21) on the [solution file](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file?view=vs-2019).
+- `AltCover` - Runs [dotnet test](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test?tabs=netcore21) on the [solution file](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file?view=vs-2019) with flags for [altcover](https://github.com/SteveGilham/altcover) turned on. This step will fail if there is not enough test coverage.
 - `GenerateCoverageReport` - Code coverage is run during `DotnetTest` and this generates a report via [ReportGenerator](https://github.com/danielpalme/ReportGenerator).
 - `WatchTests` - Runs [dotnet watch](https://docs.microsoft.com/en-us/aspnet/core/tutorials/dotnet-watch?view=aspnetcore-3.0) with the test projects. Useful for rapid feedback loops.
 - `GenerateAssemblyInfo` - Generates [AssemblyInfo](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualbasic.applicationservices.assemblyinfo?view=netframework-4.8) for libraries.

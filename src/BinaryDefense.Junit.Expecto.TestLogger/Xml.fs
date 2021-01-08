@@ -1,11 +1,11 @@
-namespace Junit.Expecto.TestLogger.Xml
+namespace BinaryDefense.Junit.Expecto.TestLogger.Xml
 
 open System
 open System.Xml
 open System.Xml.Linq
-open Junit.Expecto.TestLogger
-open Junit.Expecto.TestLogger.TestReportBuilder
-open Junit.Expecto.TestLogger.Parameters
+open BinaryDefense.Junit.Expecto.TestLogger
+open BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder
+open BinaryDefense.Junit.Expecto.TestLogger.Parameters
 
 module XmlBuilder =
   open Microsoft.VisualStudio.TestPlatform.ObjectModel

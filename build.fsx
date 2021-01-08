@@ -42,8 +42,8 @@ let environVarAsBoolOrDefault varName defaultValue =
 // Metadata and Configuration
 //-----------------------------------------------------------------------------
 
-let productName = "Junit.Expecto.TestLogger"
-let sln = "Junit.Expecto.TestLogger.sln"
+let productName = "BinaryDefense.Junit.Expecto.TestLogger"
+let sln = "BinaryDefense.Junit.Expecto.TestLogger.sln"
 
 
 let srcCodeGlob =
@@ -428,6 +428,8 @@ let fsharpAnalyzers ctx =
 
 /// Executes `altcover.sh`, which runs unit tests & sets parameters accurately for altcover
 let runAltCover (ctx : TargetParameter) =
+    //There were some issues getting `DotNet.test` to pass the correct parameters for excluding
+    //the main event-wire-up file, which isn't currently tested.
     let excludeCoverage =
         !! testsGlob
         |> Seq.map IO.Path.GetFileNameWithoutExtension
@@ -437,7 +439,6 @@ let runAltCover (ctx : TargetParameter) =
     let args : string list = [
         (string (not disableCodeCoverage))
         (string coverageThresholdPercent)
-        //(sprintf "\"%s\"" excludeCoverage)
         excludeCoverage
         sln
         "Debug"
@@ -451,54 +452,12 @@ let runAltCover (ctx : TargetParameter) =
     else ()
 
 let dotnetTest ctx =
-    let excludeCoverage =
-        !! testsGlob
-        |> Seq.map IO.Path.GetFileNameWithoutExtension
-        |> String.concat "|"
-    //exclude JunitTestLogger (the main file / wire up point) because it's hard to write useful tests for it.
-    let fileFilter = """\.*JunitTestLogger\.*"""
-
-    let baseArgs = [ "--no-build", "" ]
-
-    let altArgsOriginal =
-        [
-            "--no-build"
-            // sprintf "/p:AltCover=%b" (not disableCodeCoverage)
-            // "/p:AltCoverForce=true"
-            // sprintf "/p:AltCoverThreshold=%d" coverageThresholdPercent
-            // // sprintf "/p:AltCoverFileFilter=%s" fileFilterv2
-            // sprintf "/p:AltCoverAssemblyExcludeFilter=%s" excludeCoverage
-            // "/p:AltCoverLocalSource=true"
-        ]
-
-    let altArgsTupled = [
-        "AltCover", (string (not disableCodeCoverage))
-        "AltCoverForce", "true"
-        "AltCoverThreshold", (sprintf "%d" coverageThresholdPercent)
-        "AltCoverFileFilter", fileFilter
-        "AltCoverAssemblyExcludeFilter", excludeCoverage
-        "AltCoverLocalSource", "true"
-    ]
-
-    let args = 
-        if (disableCodeCoverage) then
-            []
-        else
-            altArgsTupled
     DotNet.test(fun c ->
-        // { c with
-        //         Configuration = configuration (ctx.Context.AllExecutingTargets)
-        //         Common = c.Common |> DotNet.Options.withAdditionalArgs [ "--no-build" ]
-        //         MSBuildParams = {
-        //             c.MSBuildParams with
-        //                 Properties = c.MSBuildParams.Properties @ args
-        //         }
-        // }
         { c with
             Configuration = configuration (ctx.Context.AllExecutingTargets)
             Common =
                 c.Common
-                |> DotNet.Options.withAdditionalArgs altArgsOriginal
+                |> DotNet.Options.withAdditionalArgs ["--no-build"]
         }
     ) sln
 
@@ -769,7 +728,6 @@ Target.create "ReleaseDocs" releaseDocs
 "DotnetRestore"
     ==> "DotnetBuild"
     ==> "FSharpAnalyzers"
-    //==> "DotnetTest"
     ==> "AltCover"
     =?> ("GenerateCoverageReport", not disableCodeCoverage)
     ==> "DotnetPack"

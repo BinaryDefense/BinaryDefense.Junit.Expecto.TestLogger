@@ -1,10 +1,11 @@
-module JUnit.Expecto.Tests
+module BinaryDefense.JUnit.Expecto.Tests
 
 open System
 open Expecto
-open Junit.Expecto.TestLogger
-open Junit.Expecto.TestLogger.Xml
-open Microsoft.VisualStudio.TestPlatform.Extension.Junit.Expecto.TestLogger
+open BinaryDefense.Junit.Expecto.TestLogger
+open BinaryDefense.Junit.Expecto.TestLogger.Xml
+
+//open Microsoft.VisualStudio.TestPlatform.Extension.Junit.Expecto.TestLogger
 open Microsoft.VisualStudio.TestPlatform.ObjectModel
 open Microsoft.VisualStudio.TestPlatform.ObjectModel.Client
 open Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging
@@ -278,7 +279,7 @@ module ParametersTests =
         ]
 
 module TestReportingTests =
-    open Junit.Expecto.TestLogger
+    open BinaryDefense.Junit.Expecto.TestLogger
 
     type Nesting =
     | NoNesting
@@ -394,26 +395,3 @@ module TestReportingTests =
             yield splitClassNameTests
             yield parseOutcomeTests
         ]
-
-// module JunitTestLoggerTests =
-//     open  Microsoft.VisualStudio.TestPlatform.ObjectModel.Client
-
-//     type Events() =
-//         inherit TestLoggerEvents()
-
-//         //let testRunMessageEvent = new Event<TestRunMessageEventArgs>()
-//         //override this.TestRunMessage : EventHandler = new EventHandler<TestRunMessageEventArgs>()
-
-
-
-
-//     let testlogger = JunitTestLogger() :> ITestLoggerWithParameters
-//     let events = Events()
-
-//     [<Tests>]
-//     let tests =
-//         testList "JunitTestLogger object tests" [
-//             testCase "Initialize with path returns new instance" <| fun _ ->
-//                 testlogger.Initialize(events, "hello/world.xml")
-//                 Expect.isNotNull testlogger "Should have created an instance of the logger"
-//         ]

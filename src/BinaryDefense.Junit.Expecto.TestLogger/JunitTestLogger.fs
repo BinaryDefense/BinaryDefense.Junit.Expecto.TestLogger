@@ -1,9 +1,10 @@
-namespace Microsoft.VisualStudio.TestPlatform.Extension.Junit.Expecto.TestLogger
+//namespace Microsoft.VisualStudio.TestPlatform.Extension.Junit.Expecto.TestLogger
+namespace BinaryDefense.Junit.Expecto.TestLogger
 
-open Junit.Expecto.TestLogger
-open Junit.Expecto.TestLogger.TestReportBuilder
-open Junit.Expecto.TestLogger.Parameters
-open Junit.Expecto.TestLogger.Xml
+open BinaryDefense.Junit.Expecto.TestLogger
+open BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder
+open BinaryDefense.Junit.Expecto.TestLogger.Parameters
+open BinaryDefense.Junit.Expecto.TestLogger.Xml
 open Microsoft.VisualStudio.TestPlatform.ObjectModel
 open Microsoft.VisualStudio.TestPlatform.ObjectModel.Client
 open Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging

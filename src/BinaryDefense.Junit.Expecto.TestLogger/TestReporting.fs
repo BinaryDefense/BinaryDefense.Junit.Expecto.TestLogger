@@ -1,7 +1,7 @@
-namespace Junit.Expecto.TestLogger
+namespace BinaryDefense.Junit.Expecto.TestLogger
 
 module TestReportBuilder =
-  open Junit.Expecto.TestLogger.Parameters
+  open BinaryDefense.Junit.Expecto.TestLogger.Parameters
   open Microsoft.VisualStudio.TestPlatform.ObjectModel
   open Microsoft.VisualStudio.TestPlatform.ObjectModel.Client
   open Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging

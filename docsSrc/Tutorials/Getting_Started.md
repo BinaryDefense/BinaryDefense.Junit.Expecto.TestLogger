@@ -1,15 +1,12 @@
 # Getting Started
 
-```fsharp
-open ExpectoJunitTestLogger
-let foo = ()
-let myAge = 21
-let color = Say.FavoriteColor.Red
+```bash
+dotnet test --logger:"junit"
 ```
 
 ## Here is the path to downloading
 
     [lang=bash]
-    paket install ExpectoJunitTestLogger
+    paket install BinaryDefense.Junit.Expecto.TestLogger
 
 

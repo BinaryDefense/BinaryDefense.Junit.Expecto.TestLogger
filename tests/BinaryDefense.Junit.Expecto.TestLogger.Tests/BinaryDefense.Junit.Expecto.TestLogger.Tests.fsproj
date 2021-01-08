@@ -10,7 +10,7 @@
         <Compile Include="Main.fs" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="../../src/Junit.Expecto.TestLogger/Junit.Expecto.TestLogger.fsproj" />
+        <ProjectReference Include="../../src/BinaryDefense.Junit.Expecto.TestLogger/BinaryDefense.Junit.Expecto.TestLogger.fsproj" />
     </ItemGroup>
     <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

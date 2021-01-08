@@ -1,4 +1,4 @@
-namespace Junit.Expecto.TestLogger
+namespace BinaryDefense.Junit.Expecto.TestLogger
 
 module Constants =
   

@@ -4,11 +4,13 @@
 
 ## What is ExpectoJunitTestLogger?
 
-ExpectoJunitTestLogger is a library that does this specific thing.  
+BinaryDefense.Junit.Expecto.TestLogger is a logger for `dotnet test` that accepts expecto-formatted `TestResult`s and generates a gitlab-compatible junit xml report.
 
 ## Why use ExpectoJunitTestLogger?
 
-I created it because I had to solve an issue with this other thing.
+This logger runs during the `dotnet test` step and is designed to specifically work with Expecto. It is also designed specifically to be combatible with Gitlab. Existing junit loggers or formatters, such as `Junit.Xml.TestLogger`, or Expecto's `--junit-summary` flag, either don't play well with Expecto or don't play well with Gitlab. 
+
+In a more general sense, use this project if you want junit formatted reports in Gitlab and your test library outputs tests in a delimited format instead of the usual "class method" format.
 
 ---
 

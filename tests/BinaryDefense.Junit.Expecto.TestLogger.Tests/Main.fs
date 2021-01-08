@@ -1,4 +1,4 @@
-module ExpectoTemplate
+//module ExpectoTemplate
 
 open Expecto
 
