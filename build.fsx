@@ -591,7 +591,7 @@ let publishToNuget _ =
             ToolType = ToolType.CreateLocalTool()
             PublishUrl = publishUrl
             WorkingDir = "dist"
-            ApiKey = match nugetToken with
+            ApiKey = match nugetApiKey with
                      | Some s -> s
                      | _ -> c.ApiKey // assume paket-config was set properly
         }
@@ -608,6 +608,7 @@ let gitRelease _ =
         |> ignore
 
     !! "src/**/AssemblyInfo.fs"
+    ++ "tests/**/AssemblyInfo.fs"
         |> Seq.iter (Git.Staging.stageFile "" >> ignore)
 
     Git.Commit.exec "" (sprintf "Bump version to %s\n\n%s" latestEntry.NuGetVersion releaseNotesGitCommitFormat)
