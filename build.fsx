@@ -732,7 +732,7 @@ Target.create "ReleaseDocs" releaseDocs
     ==> "DotnetBuild"
     ==> "FSharpAnalyzers"
     ==> "AltCover"
-    =?> ("GenerateCoverageReport", not disableCodeCoverage)
+    =?> ("GenerateCoverageReport", not disableCodeCoverage && not isWindows)
     ==> "DotnetPack"
     ==> "SourceLinkTest"
     ==> "PublishToNuGet"
