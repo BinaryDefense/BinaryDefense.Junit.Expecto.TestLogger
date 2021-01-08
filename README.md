@@ -16,7 +16,7 @@ Here is an example of the XML produced by this logger:
       <testcase classname="samples" name="I'm always fail (should fail)" time="0.007">
         <failure message="This was expected..." type="failure">
 This was expected...
-   at Tests.Samples.tests@21-3.Invoke(Unit _arg4) in /Users/maxpaige/git/ExpectoJunitTestLogger/tests/Example.Tests/Sample.fs:line 22
+   at Tests.Samples.tests@21-3.Invoke(Unit _arg4) in /Users/maxpaige/git/BinaryDefense.Junit.Expecto.TestLogger/tests/Example.Tests/Sample.fs:line 22
    at Expecto.Impl.execTestAsync@692-1.Invoke(Unit unitVar)
    at Microsoft.FSharp.Control.AsyncPrimitives.CallThenInvoke[T,TResult](AsyncActivation`1 ctxt, TResult result1, FSharpFunc`2 part2) in F:\workspace\_work\1\s\src\fsharp\FSharp.Core\async.fs:line 386
    at &lt;StartupCode$FSharp-Core&gt;.$Async.StartChild@1663-5.Invoke(AsyncActivation`1 ctxt) in F:\workspace\_work\1\s\src\fsharp\FSharp.Core\async.fs:line 1663
@@ -84,14 +84,14 @@ Expecto introduced the ability to specify the delimiter for test list names, wit
 
 GitHub Actions |
 :---: |
-[![GitHub Actions](https://github.com/paigem89/ExpectoJunitTestLogger/workflows/Build%20master/badge.svg)](https://github.com/paigem89/ExpectoJunitTestLogger/actions?query=branch%3Amaster) |
-[![Build History](https://buildstats.info/github/chart/paigem89/ExpectoJunitTestLogger)](https://github.com/paigem89/ExpectoJunitTestLogger/actions?query=branch%3Amaster) |
+[![GitHub Actions](https://github.com/BinaryDefense/BinaryDefense.Junit.Expecto.TestLogger/workflows/Build%20master/badge.svg)](https://github.com/BinaryDefense/BinaryDefense.Junit.Expecto.TestLogger/actions?query=branch%3Amaster) |
+[![Build History](https://buildstats.info/github/chart/BinaryDefense/BinaryDefense.Junit.Expecto.TestLogger)](https://github.com/BinaryDefense/BinaryDefense.Junit.Expecto.TestLogger/actions?query=branch%3Amaster) |
 
 ## NuGet 
 
 Package | Stable | Prerelease
 --- | --- | ---
-ExpectoJunitTestLogger | [![NuGet Badge](https://buildstats.info/nuget/ExpectoJunitTestLogger)](https://www.nuget.org/packages/ExpectoJunitTestLogger/) | [![NuGet Badge](https://buildstats.info/nuget/ExpectoJunitTestLogger?includePreReleases=true)](https://www.nuget.org/packages/ExpectoJunitTestLogger/)
+BinaryDefense.Junit.Expecto.TestLogger | [![NuGet Badge](https://buildstats.info/nuget/BinaryDefense.Junit.Expecto.TestLogger)](https://www.nuget.org/packages/BinaryDefense.Junit.Expecto.TestLogger/) | [![NuGet Badge](https://buildstats.info/nuget/BinaryDefense.Junit.Expecto.TestLogger?includePreReleases=true)](https://www.nuget.org/packages/BinaryDefense.Junit.Expecto.TestLogger/)
 
 ---
 

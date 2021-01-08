@@ -90,7 +90,7 @@ let renderFooter (cfg : MasterTemplateConfig) (pageSource : string option) =
                 div [Class "col text-center"] [
                     small [Class "text-light"] [
                         i [Class "fas fa-copyright mr-1"] []
-                        str (sprintf "%s ExpectoJunitTestLogger, All rights reserved" (DateTimeOffset.UtcNow.ToString("yyyy")))
+                        str (sprintf "%s BinaryDefense.Junit.Expecto.TestLogger, All rights reserved" (DateTimeOffset.UtcNow.ToString("yyyy")))
                     ]
                 ]
             ]

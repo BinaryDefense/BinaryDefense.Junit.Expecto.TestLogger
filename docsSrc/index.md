@@ -1,12 +1,12 @@
-# ExpectoJunitTestLogger
+# BinaryDefense.Junit.Expecto.TestLogger
 
 ---
 
-## What is ExpectoJunitTestLogger?
+## What is BinaryDefense.Junit.Expecto.TestLogger?
 
 BinaryDefense.Junit.Expecto.TestLogger is a logger for `dotnet test` that accepts expecto-formatted `TestResult`s and generates a gitlab-compatible junit xml report.
 
-## Why use ExpectoJunitTestLogger?
+## Why use BinaryDefense.Junit.Expecto.TestLogger?
 
 This logger runs during the `dotnet test` step and is designed to specifically work with Expecto. It is also designed specifically to be combatible with Gitlab. Existing junit loggers or formatters, such as `Junit.Xml.TestLogger`, or Expecto's `--junit-summary` flag, either don't play well with Expecto or don't play well with Gitlab. 
 
@@ -55,7 +55,7 @@ In a more general sense, use this project if you want junit formatted reports in
         <p class="card-text">Contain technical reference for APIs.</p>
       </div>
       <div class="card-footer text-right   border-top-0">
-        <a href="{{siteBaseUrl}}/Api_Reference/ExpectoJunitTestLogger/ExpectoJunitTestLogger.html" class="btn btn-primary">Read Api Docs</a>
+        <a href="{{siteBaseUrl}}/Api_Reference/BinaryDefense.Junit.Expecto.TestLogger/BinaryDefense.Junit.Expecto.TestLogger.html" class="btn btn-primary">Read Api Docs</a>
       </div>
     </div>
   </div>
