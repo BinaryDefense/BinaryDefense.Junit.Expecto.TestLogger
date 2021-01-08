@@ -196,16 +196,33 @@ module GenerateDocs =
         )
         |> Seq.toList
 
+    open System.Linq
+
+    let getTargetFramework (projectPath : string) =
+        let xml = new System.Xml.XmlDocument()
+        xml.Load(projectPath) |> ignore
+        let frameworks = xml.GetElementsByTagName("TargetFrameworks").Cast<System.Xml.XmlNode>()
+        let framework = xml.GetElementsByTagName("TargetFramework").Cast<System.Xml.XmlNode>()
+        let allNodes = [
+                yield! frameworks
+                yield! framework
+            ]
+        let firstFrameworkNode =
+            allNodes
+            |> Seq.head
+        firstFrameworkNode.InnerText
+
     /// The reason we do dotnet publish is because it will put all the referenced dlls into one folder. This makes it easy for tools to find the reference and we don't have to use FCS or any dotnet tools to try to analyze the project file and find where all the references are.
     let dotnetPublish (cfg : Configuration) =
         cfg.ProjectFilesGlob
         |> Seq.iter(fun p ->
+            let framework = getTargetFramework p
             Fake.DotNet.DotNet.publish
                 (fun opts ->
                     { opts
                         with
                             OutputPath = Some cfg.PublishPath.FullName
-                            Framework = Some "netstandard2.1"
+                            Framework = Some framework
                     })
                 p
         )
@@ -262,6 +279,7 @@ module GenerateDocs =
             [ indexDoc ] @ moduleDocs @ typeDocs
         cfg.ProjectFilesGlob
         |> Seq.toArray
+        |> Array.filter (fun x -> x.Contains("/tests/") |> not && x.Contains("/docs") |> not)
         |> Array.Parallel.collect(generate >> List.toArray)
         |> Array.toList
 

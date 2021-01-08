@@ -30,6 +30,14 @@ This was expected...
 </testsuites>
 ```
 
+## To install
+
+Reference `BinaryDefense.Junit.Expecto.TestLogger` in your `paket.dependencies`, add it to your unit test project references, then run it during `dotnet test`:
+
+```
+dotnet test --logger:"junit"
+```
+
 ## Parameters
 
 Note that as Expecto doesn't do the usual class/method testing and handles test results differently, the common junit options for `MethodClassName` and `FailureBodyFormat` do not apply. Instead, there are different input options.
@@ -40,11 +48,13 @@ Note that as Expecto doesn't do the usual class/method testing and handles test 
 If you use `testList`, you may want to put the test list name in the `classname` or in the `name` of a test case.
 
 ```
-/// The classname of the test will be the root list, or, if there is not one, the test name. The name will be all lists the test is in, separated by a '/', and the test case name.
 NameFormat=RootList
-/// The name of the test will be the test case. The classname will be all the lists the testcase is in, separated by a '/'.
 NameFormat=AllLists
 ```
+
+For RootList, the classname of the test will be the root list, or, if there is not one, the test name. The name will be all lists the test is in, separated by a '.', and the test case name.
+
+For AllLists,  name of the test will be the test case. The classname will be all the lists the testcase is in, separated by a '/'.
 
 Given this structure
 ```

@@ -59,6 +59,8 @@ let testsCodeGlob =
 let srcGlob =__SOURCE_DIRECTORY__  @@ "src/**/*.??proj"
 let testsGlob = __SOURCE_DIRECTORY__  @@ "tests/**/*.??proj"
 
+let allGlob = __SOURCE_DIRECTORY__ @@ "*/**/*.??proj"
+
 let srcAndTest =
     !! srcGlob
     ++ testsGlob
@@ -250,7 +252,7 @@ module DocsTool =
     let buildCLI () =
         [
             BuildArgs.SiteBaseUrl docsSiteBaseUrl
-            BuildArgs.ProjectGlob srcGlob
+            BuildArgs.ProjectGlob allGlob // (srcGlob)
             BuildArgs.DocsOutputDirectory docsDir
             BuildArgs.DocsSourceDirectory docsSrcDir
             BuildArgs.GitHubRepoUrl gitHubRepoUrl
@@ -268,7 +270,7 @@ module DocsTool =
     let watchparser = ArgumentParser.Create<WatchArgs>(programName = "docstool")
     let watchCLI () =
         [
-            WatchArgs.ProjectGlob srcGlob
+            WatchArgs.ProjectGlob allGlob
             WatchArgs.DocsSourceDirectory docsSrcDir
             WatchArgs.GitHubRepoUrl gitHubRepoUrl
             WatchArgs.ProjectName gitRepoName
