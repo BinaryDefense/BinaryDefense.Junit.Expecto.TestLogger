@@ -68,7 +68,17 @@ And `AllLists` would produce
 <testcase classname="A TestList" name="Another Test" />
 ```
 
+### LogFilePath
 
+```
+--logger:"junit;LogFilePath=<some-path>"
+```
+
+This can be a relative or absolute path to a directory or specific file. If no specific file name is given, then it will use a default file name. Be aware that this could cause issues if multiple test projects drop reports in the same directory with the default file name.
+
+### Split On
+
+Expecto introduced the ability to specify the delimiter for test list names, with the options of `/` and `.`. This argumente lets you specify _any_ string as the delimiter to use to split test list names.
 
 ## Builds
 
@@ -126,6 +136,7 @@ $ ./build.sh  <optional buildtarget>// on unix
 - `DotnetRestore` - Runs [dotnet restore](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-restore?tabs=netcore2x) on the [solution file](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file?view=vs-2019).
 - [`DotnetBuild`](#Building) - Runs [dotnet build](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build?tabs=netcore2x) on the [solution file](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file?view=vs-2019).
 - `DotnetTest` - Runs [dotnet test](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test?tabs=netcore21) on the [solution file](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file?view=vs-2019).
+- `ReportLocalTests` - Runs [dotnet test](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test?tabs=netcore21) on the [solution file](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file?view=vs-2019) with the flag enabled to generate a junit report inside the project file. This can be used to quickly check if the project still writes the correct reports.
 - `AltCover` - Runs [dotnet test](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test?tabs=netcore21) on the [solution file](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file?view=vs-2019) with flags for [altcover](https://github.com/SteveGilham/altcover) turned on. This step will fail if there is not enough test coverage.
 - `GenerateCoverageReport` - Code coverage is run during `DotnetTest` and this generates a report via [ReportGenerator](https://github.com/danielpalme/ReportGenerator).
 - `WatchTests` - Runs [dotnet watch](https://docs.microsoft.com/en-us/aspnet/core/tutorials/dotnet-watch?view=aspnetcore-3.0) with the test projects. Useful for rapid feedback loops.
