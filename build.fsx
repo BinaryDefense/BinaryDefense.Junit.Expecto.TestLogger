@@ -102,8 +102,9 @@ let githubToken = Environment.environVarOrNone "GITHUB_TOKEN"
 Option.iter(TraceSecrets.register "<GITHUB_TOKEN>" )
 
 
-let nugetToken = Environment.environVarOrNone "NUGET_TOKEN"
-Option.iter(TraceSecrets.register "<NUGET_TOKEN>")
+let ``BD_NUGET_TOKEN`` = "BD_NUGET_TOKEN"
+let nugetApiKey = Environment.environVarOrNone ``BD_NUGET_TOKEN``
+nugetApiKey |> Option.iter (fun n -> TraceSecrets.register ``BD_NUGET_TOKEN`` n)
 
 //-----------------------------------------------------------------------------
 // Helpers
@@ -444,7 +445,7 @@ let runAltCover (ctx : TargetParameter) =
             (string coverageThresholdPercent)
             excludeCoverage
             sln
-            "Debug"
+            (configuration (ctx.Context.AllExecutingTargets)).ToString()
         ]
         
         let argsStr = args |> String.concat " "

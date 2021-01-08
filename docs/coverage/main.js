@@ -228,10 +228,10 @@ var assemblies = [
       { "name": "BinaryDefense.Junit.Expecto.TestLogger.JunitTestLogger", "rp": "BinaryDefense.Junit.Expecto.TestLogger_JunitTestLogger.htm", "cl": 0, "ucl": 0, "cal": 0, "tl": 0, "ct": "MethodCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "BinaryDefense.Junit.Expecto.TestLogger.NameFormat", "rp": "BinaryDefense.Junit.Expecto.TestLogger_NameFormat.htm", "cl": 0, "ucl": 0, "cal": 0, "tl": 0, "ct": "MethodCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
       { "name": "BinaryDefense.Junit.Expecto.TestLogger.Parameters", "rp": "BinaryDefense.Junit.Expecto.TestLogger_Parameters.htm", "cl": 8, "ucl": 1, "cal": 9, "tl": 100, "ct": "LineCoverage", "mc": "-", "cb": 1, "tb": 2, "lch": [], "bch": [], "hc": [] },
-      { "name": "BinaryDefense.Junit.Expecto.TestLogger.ParametersModule", "rp": "BinaryDefense.Junit.Expecto.TestLogger_ParametersModule.htm", "cl": 11, "ucl": 7, "cal": 18, "tl": 100, "ct": "LineCoverage", "mc": "-", "cb": 8, "tb": 8, "lch": [], "bch": [], "hc": [] },
-      { "name": "BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder", "rp": "BinaryDefense.Junit.Expecto.TestLogger_TestReportBuilder.htm", "cl": 37, "ucl": 1, "cal": 38, "tl": 85, "ct": "LineCoverage", "mc": "-", "cb": 14, "tb": 14, "lch": [], "bch": [], "hc": [] },
-      { "name": "BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder", "rp": "BinaryDefense.Junit.Expecto.TestLogger_XmlBuilder.htm", "cl": 91, "ucl": 18, "cal": 109, "tl": 174, "ct": "LineCoverage", "mc": "-", "cb": 13, "tb": 18, "lch": [], "bch": [], "hc": [] },
-      { "name": "BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlWriter", "rp": "BinaryDefense.Junit.Expecto.TestLogger_XmlWriter.htm", "cl": 14, "ucl": 0, "cal": 14, "tl": 174, "ct": "LineCoverage", "mc": "-", "cb": 2, "tb": 2, "lch": [], "bch": [], "hc": [] },
+      { "name": "BinaryDefense.Junit.Expecto.TestLogger.ParametersModule", "rp": "BinaryDefense.Junit.Expecto.TestLogger_ParametersModule.htm", "cl": 10, "ucl": 7, "cal": 17, "tl": 100, "ct": "LineCoverage", "mc": "-", "cb": 8, "tb": 8, "lch": [], "bch": [], "hc": [] },
+      { "name": "BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder", "rp": "BinaryDefense.Junit.Expecto.TestLogger_TestReportBuilder.htm", "cl": 26, "ucl": 11, "cal": 37, "tl": 85, "ct": "LineCoverage", "mc": "-", "cb": 11, "tb": 14, "lch": [], "bch": [], "hc": [] },
+      { "name": "BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder", "rp": "BinaryDefense.Junit.Expecto.TestLogger_XmlBuilder.htm", "cl": 87, "ucl": 15, "cal": 102, "tl": 174, "ct": "LineCoverage", "mc": "-", "cb": 15, "tb": 22, "lch": [], "bch": [], "hc": [] },
+      { "name": "BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlWriter", "rp": "BinaryDefense.Junit.Expecto.TestLogger_XmlWriter.htm", "cl": 13, "ucl": 0, "cal": 13, "tl": 174, "ct": "LineCoverage", "mc": "-", "cb": 2, "tb": 2, "lch": [], "bch": [], "hc": [] },
       { "name": "System.AssemblyVersionInformation", "rp": "BinaryDefense.Junit.Expecto.TestLogger_AssemblyVersionInformation.htm", "cl": 0, "ucl": 0, "cal": 0, "tl": 0, "ct": "MethodCoverage", "mc": "-", "cb": 0, "tb": 0, "lch": [], "bch": [], "hc": [] },
     ]},
 ];
@@ -248,9 +248,9 @@ var riskHotspots = [
   {
     "assembly": "BinaryDefense.Junit.Expecto.TestLogger", "class": "BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder", "reportPath": "BinaryDefense.Junit.Expecto.TestLogger_XmlBuilder.htm", "methodName": "System.Int32 BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildProperties@61::GenerateNext(System.Collections.Generic.IEnumerable`1<System.Xml.Linq.XObject>&)", "methodShortName": "GenerateNext(...)", "fileIndex": 0, "line": 61,
     "metrics": [
-      { "value": 25, "exceeded": false },
+      { "value": 17, "exceeded": false },
       { "value": 0, "exceeded": false },
-      { "value": 25, "exceeded": true },
+      { "value": 17, "exceeded": true },
     ]},
 ];
 
