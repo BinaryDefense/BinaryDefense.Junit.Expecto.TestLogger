@@ -5,7 +5,6 @@ open Expecto
 open BinaryDefense.Junit.Expecto.TestLogger
 open BinaryDefense.Junit.Expecto.TestLogger.Xml
 
-//open Microsoft.VisualStudio.TestPlatform.Extension.Junit.Expecto.TestLogger
 open Microsoft.VisualStudio.TestPlatform.ObjectModel
 open Microsoft.VisualStudio.TestPlatform.ObjectModel.Client
 open Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging

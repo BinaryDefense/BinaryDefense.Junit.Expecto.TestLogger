@@ -2,22 +2,22 @@
 namespace System
 open System.Reflection
 
-[<assembly: AssemblyTitleAttribute("Junit.Expecto.TestLogger.Tests")>]
-[<assembly: AssemblyProductAttribute("Junit.Expecto.TestLogger")>]
+[<assembly: AssemblyTitleAttribute("BinaryDefense.Junit.Expecto.TestLogger.Tests")>]
+[<assembly: AssemblyProductAttribute("BinaryDefense.Junit.Expecto.TestLogger")>]
 [<assembly: AssemblyVersionAttribute("0.1.0")>]
-[<assembly: AssemblyMetadataAttribute("ReleaseDate","2017-03-17T00:00:00.0000000")>]
+[<assembly: AssemblyMetadataAttribute("ReleaseDate","2021-01-08T00:00:00.0000000-05:00")>]
 [<assembly: AssemblyFileVersionAttribute("0.1.0")>]
 [<assembly: AssemblyInformationalVersionAttribute("0.1.0")>]
 [<assembly: AssemblyMetadataAttribute("ReleaseChannel","release")>]
-[<assembly: AssemblyMetadataAttribute("GitHash","bb8964b54bee133e9af64d316dc2cfee16df7f72")>]
+[<assembly: AssemblyMetadataAttribute("GitHash","73ea120df3fbcdbd07099554c1bd0f9943fb74c8")>]
 do ()
 
 module internal AssemblyVersionInformation =
-    let [<Literal>] AssemblyTitle = "Junit.Expecto.TestLogger.Tests"
-    let [<Literal>] AssemblyProduct = "Junit.Expecto.TestLogger"
+    let [<Literal>] AssemblyTitle = "BinaryDefense.Junit.Expecto.TestLogger.Tests"
+    let [<Literal>] AssemblyProduct = "BinaryDefense.Junit.Expecto.TestLogger"
     let [<Literal>] AssemblyVersion = "0.1.0"
-    let [<Literal>] AssemblyMetadata_ReleaseDate = "2017-03-17T00:00:00.0000000"
+    let [<Literal>] AssemblyMetadata_ReleaseDate = "2021-01-08T00:00:00.0000000-05:00"
     let [<Literal>] AssemblyFileVersion = "0.1.0"
     let [<Literal>] AssemblyInformationalVersion = "0.1.0"
     let [<Literal>] AssemblyMetadata_ReleaseChannel = "release"
-    let [<Literal>] AssemblyMetadata_GitHash = "bb8964b54bee133e9af64d316dc2cfee16df7f72"
+    let [<Literal>] AssemblyMetadata_GitHash = "73ea120df3fbcdbd07099554c1bd0f9943fb74c8"

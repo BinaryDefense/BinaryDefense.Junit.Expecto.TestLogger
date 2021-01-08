@@ -1,4 +1,3 @@
-//namespace Microsoft.VisualStudio.TestPlatform.Extension.Junit.Expecto.TestLogger
 namespace BinaryDefense.Junit.Expecto.TestLogger
 
 open BinaryDefense.Junit.Expecto.TestLogger

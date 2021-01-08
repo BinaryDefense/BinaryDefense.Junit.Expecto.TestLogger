@@ -1,0 +1,1254 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<CoverageSession xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Summary numSequencePoints="125" visitedSequencePoints="108" numBranchPoints="80" visitedBranchPoints="54" sequenceCoverage="86.4" branchCoverage="67.5" maxCyclomaticComplexity="25" minCyclomaticComplexity="1" visitedClasses="17" numClasses="18" visitedMethods="30" numMethods="70" minCrapScore="1" maxCrapScore="25" />
+  <Modules>
+    <Module hash="4A-64-B2-DA-F5-83-14-B0-19-AA-58-12-0F-E9-D9-9D-E3-B1-AD-DE">
+      <Summary numSequencePoints="125" visitedSequencePoints="108" numBranchPoints="80" visitedBranchPoints="54" sequenceCoverage="86.4" branchCoverage="67.5" maxCyclomaticComplexity="25" minCyclomaticComplexity="1" visitedClasses="17" numClasses="18" visitedMethods="30" numMethods="70" minCrapScore="1" maxCrapScore="25" />
+      <ModulePath>/Users/maxpaige/git/ExpectoJunitTestLogger/tests/BinaryDefense.Junit.Expecto.TestLogger.Tests/bin/Debug/netcoreapp3.1/__Saved/BinaryDefense.Junit.Expecto.TestLogger.dll</ModulePath>
+      <ModuleTime>2021-01-08T19:19:58.7502033Z</ModuleTime>
+      <ModuleName>BinaryDefense.Junit.Expecto.TestLogger</ModuleName>
+      <Files>
+        <File uid="1" fullPath="/Users/maxpaige/git/ExpectoJunitTestLogger/src/BinaryDefense.Junit.Expecto.TestLogger/Parameters.fs" />
+        <File uid="2" fullPath="/Users/maxpaige/git/ExpectoJunitTestLogger/src/BinaryDefense.Junit.Expecto.TestLogger/Xml.fs" />
+        <File uid="3" fullPath="/Users/maxpaige/git/ExpectoJunitTestLogger/src/BinaryDefense.Junit.Expecto.TestLogger/TestReporting.fs" />
+      </Files>
+      <Classes>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;Module&gt;</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.NameFormat</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.NameFormat/Tags</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="4" visitedSequencePoints="3" numBranchPoints="4" visitedBranchPoints="2" sequenceCoverage="75" branchCoverage="50" maxCyclomaticComplexity="2" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="2" numMethods="2" minCrapScore="1" maxCrapScore="2.15" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.Parameters</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="1">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="1" maxCrapScore="1" />
+              <MetadataToken>100663326</MetadataToken>
+              <Name>BinaryDefense.Junit.Expecto.TestLogger.Parameters BinaryDefense.Junit.Expecto.TestLogger.Parameters::Empty()</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="2" uspid="0" ordinal="0" offset="0" sl="61" sc="29" el="66" ec="6" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="2" uspid="0" ordinal="0" offset="0" sl="61" sc="29" el="66" ec="6" bec="0" bev="0" fileid="1" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="66.67" branchCoverage="66.67" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="2.15">
+              <Summary numSequencePoints="3" visitedSequencePoints="2" numBranchPoints="3" visitedBranchPoints="2" sequenceCoverage="66.67" branchCoverage="66.67" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="2.15" maxCrapScore="2.15" />
+              <MetadataToken>100663327</MetadataToken>
+              <Name>Microsoft.FSharp.Core.FSharpOption`1&lt;System.String&gt; BinaryDefense.Junit.Expecto.TestLogger.Parameters::TryGetInput(System.String)</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="2" uspid="3" ordinal="0" offset="0" sl="69" sc="7" el="69" ec="74" bec="2" bev="1" fileid="1" />
+                <SequencePoint vc="0" uspid="2" ordinal="1" offset="47" sl="70" sc="24" el="70" ec="34" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="2" uspid="1" ordinal="2" offset="54" sl="71" sc="21" el="71" ec="25" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="0" uspid="0" ordinal="0" offset="34" sl="69" path="0" offsetchain="36" offsetend="40" fileid="1" />
+                <BranchPoint vc="2" uspid="1" ordinal="1" offset="34" sl="69" path="1" offsetchain="38" offsetend="54" fileid="1" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="2" uspid="3" ordinal="0" offset="0" sl="69" sc="7" el="69" ec="74" bec="2" bev="0" fileid="1" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="6" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="10" minCrapScore="0" maxCrapScore="0" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.JunitTestLogger</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="true" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663330</MetadataToken>
+              <Name>System.Void BinaryDefense.Junit.Expecto.TestLogger.JunitTestLogger::.ctor()</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663330" ordinal="0" offset="0" />
+            </Method>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="true" isSetter="false" crapScore="0">
+              <MetadataToken>100663331</MetadataToken>
+              <Name>BinaryDefense.Junit.Expecto.TestLogger.Parameters BinaryDefense.Junit.Expecto.TestLogger.JunitTestLogger::get_Parameters()</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663331" ordinal="0" offset="0" />
+            </Method>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="true" crapScore="0">
+              <MetadataToken>100663332</MetadataToken>
+              <Name>System.Void BinaryDefense.Junit.Expecto.TestLogger.JunitTestLogger::set_Parameters(BinaryDefense.Junit.Expecto.TestLogger.Parameters)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663332" ordinal="0" offset="0" />
+            </Method>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663333</MetadataToken>
+              <Name>System.Void BinaryDefense.Junit.Expecto.TestLogger.JunitTestLogger::TestRunMessageHandler(Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestRunMessageEventArgs)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663333" ordinal="0" offset="0" />
+            </Method>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663334</MetadataToken>
+              <Name>System.Void BinaryDefense.Junit.Expecto.TestLogger.JunitTestLogger::TestRunStartHandler(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunStartEventArgs)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663334" ordinal="0" offset="0" />
+            </Method>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663335</MetadataToken>
+              <Name>System.Void BinaryDefense.Junit.Expecto.TestLogger.JunitTestLogger::TestResultHandler(Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestResultEventArgs)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663335" ordinal="0" offset="0" />
+            </Method>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="6" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663336</MetadataToken>
+              <Name>System.Void BinaryDefense.Junit.Expecto.TestLogger.JunitTestLogger::TestRunCompleteHandler(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunCompleteEventArgs)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663336" ordinal="0" offset="0" />
+            </Method>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663337</MetadataToken>
+              <Name>System.Void BinaryDefense.Junit.Expecto.TestLogger.JunitTestLogger::InitializeImpl(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestLoggerEvents)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663337" ordinal="0" offset="0" />
+            </Method>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663338</MetadataToken>
+              <Name>System.Void BinaryDefense.Junit.Expecto.TestLogger.JunitTestLogger::Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.ITestLogger.Initialize(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestLoggerEvents,System.String)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663338" ordinal="0" offset="0" />
+            </Method>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663339</MetadataToken>
+              <Name>System.Void BinaryDefense.Junit.Expecto.TestLogger.JunitTestLogger::Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.ITestLoggerWithParameters.Initialize(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestLoggerEvents,System.Collections.Generic.Dictionary`2&lt;System.String,System.String&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663339" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/reports@41</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663341</MetadataToken>
+              <Name>BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestReport &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/reports@41::Invoke(Microsoft.VisualStudio.TestPlatform.ObjectModel.TestResult)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663341" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@51</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663343</MetadataToken>
+              <Name>Microsoft.FSharp.Core.Unit &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@51::Invoke(System.EventHandler`1&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunCompleteEventArgs&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663343" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@51-1</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663345</MetadataToken>
+              <Name>Microsoft.FSharp.Core.Unit &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@51-1::Invoke(System.EventHandler`1&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunCompleteEventArgs&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663345" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@51-3</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="true" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663346</MetadataToken>
+              <Name>System.Void &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@51-3::.ctor(Microsoft.FSharp.Core.FSharpFunc`2&lt;System.Object,Microsoft.FSharp.Core.FSharpFunc`2&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunCompleteEventArgs,Microsoft.FSharp.Core.Unit&gt;&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663346" ordinal="0" offset="0" />
+            </Method>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663347</MetadataToken>
+              <Name>System.Void &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@51-3::Invoke(System.Object,Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunCompleteEventArgs)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663347" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@51-2</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663349</MetadataToken>
+              <Name>System.EventHandler`1&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunCompleteEventArgs&gt; &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@51-2::Invoke(Microsoft.FSharp.Core.FSharpFunc`2&lt;System.Object,Microsoft.FSharp.Core.FSharpFunc`2&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunCompleteEventArgs,Microsoft.FSharp.Core.Unit&gt;&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663349" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@51-4</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663351</MetadataToken>
+              <Name>Microsoft.FSharp.Core.Unit &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@51-4::Invoke(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunCompleteEventArgs)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663351" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@52-5</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663353</MetadataToken>
+              <Name>Microsoft.FSharp.Core.Unit &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@52-5::Invoke(System.EventHandler`1&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestResultEventArgs&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663353" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@52-6</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663355</MetadataToken>
+              <Name>Microsoft.FSharp.Core.Unit &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@52-6::Invoke(System.EventHandler`1&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestResultEventArgs&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663355" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@52-8</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="true" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663356</MetadataToken>
+              <Name>System.Void &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@52-8::.ctor(Microsoft.FSharp.Core.FSharpFunc`2&lt;System.Object,Microsoft.FSharp.Core.FSharpFunc`2&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestResultEventArgs,Microsoft.FSharp.Core.Unit&gt;&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663356" ordinal="0" offset="0" />
+            </Method>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663357</MetadataToken>
+              <Name>System.Void &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@52-8::Invoke(System.Object,Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestResultEventArgs)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663357" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@52-7</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663359</MetadataToken>
+              <Name>System.EventHandler`1&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestResultEventArgs&gt; &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@52-7::Invoke(Microsoft.FSharp.Core.FSharpFunc`2&lt;System.Object,Microsoft.FSharp.Core.FSharpFunc`2&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestResultEventArgs,Microsoft.FSharp.Core.Unit&gt;&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663359" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@52-9</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663361</MetadataToken>
+              <Name>Microsoft.FSharp.Core.Unit &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@52-9::Invoke(Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestResultEventArgs)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663361" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@53-10</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663363</MetadataToken>
+              <Name>Microsoft.FSharp.Core.Unit &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@53-10::Invoke(System.EventHandler`1&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestRunMessageEventArgs&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663363" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@53-11</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663365</MetadataToken>
+              <Name>Microsoft.FSharp.Core.Unit &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@53-11::Invoke(System.EventHandler`1&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestRunMessageEventArgs&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663365" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@53-13</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="true" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663366</MetadataToken>
+              <Name>System.Void &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@53-13::.ctor(Microsoft.FSharp.Core.FSharpFunc`2&lt;System.Object,Microsoft.FSharp.Core.FSharpFunc`2&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestRunMessageEventArgs,Microsoft.FSharp.Core.Unit&gt;&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663366" ordinal="0" offset="0" />
+            </Method>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663367</MetadataToken>
+              <Name>System.Void &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@53-13::Invoke(System.Object,Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestRunMessageEventArgs)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663367" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@53-12</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663369</MetadataToken>
+              <Name>System.EventHandler`1&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestRunMessageEventArgs&gt; &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@53-12::Invoke(Microsoft.FSharp.Core.FSharpFunc`2&lt;System.Object,Microsoft.FSharp.Core.FSharpFunc`2&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestRunMessageEventArgs,Microsoft.FSharp.Core.Unit&gt;&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663369" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@53-14</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663371</MetadataToken>
+              <Name>Microsoft.FSharp.Core.Unit &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@53-14::Invoke(Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging.TestRunMessageEventArgs)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663371" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@54-15</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663373</MetadataToken>
+              <Name>Microsoft.FSharp.Core.Unit &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@54-15::Invoke(System.EventHandler`1&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunStartEventArgs&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663373" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@54-16</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663375</MetadataToken>
+              <Name>Microsoft.FSharp.Core.Unit &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@54-16::Invoke(System.EventHandler`1&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunStartEventArgs&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663375" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@54-18</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="true" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663376</MetadataToken>
+              <Name>System.Void &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@54-18::.ctor(Microsoft.FSharp.Core.FSharpFunc`2&lt;System.Object,Microsoft.FSharp.Core.FSharpFunc`2&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunStartEventArgs,Microsoft.FSharp.Core.Unit&gt;&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663376" ordinal="0" offset="0" />
+            </Method>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663377</MetadataToken>
+              <Name>System.Void &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@54-18::Invoke(System.Object,Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunStartEventArgs)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663377" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@54-17</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663379</MetadataToken>
+              <Name>System.EventHandler`1&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunStartEventArgs&gt; &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@54-17::Invoke(Microsoft.FSharp.Core.FSharpFunc`2&lt;System.Object,Microsoft.FSharp.Core.FSharpFunc`2&lt;Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunStartEventArgs,Microsoft.FSharp.Core.Unit&gt;&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663379" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@54-19</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663381</MetadataToken>
+              <Name>Microsoft.FSharp.Core.Unit &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/InitializeImpl@54-19::Invoke(Microsoft.VisualStudio.TestPlatform.ObjectModel.Client.TestRunStartEventArgs)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663381" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/paramsList@81</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663383</MetadataToken>
+              <Name>System.Tuple`2&lt;System.String,System.String&gt; &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/paramsList@81::Invoke(System.Collections.Generic.KeyValuePair`2&lt;System.String,System.String&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663383" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/Microsoft-VisualStudio-TestPlatform-ObjectModel-Client-ITestLoggerWithParameters-Initialize@85</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663385</MetadataToken>
+              <Name>Microsoft.FSharp.Core.Unit &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/Microsoft-VisualStudio-TestPlatform-ObjectModel-Client-ITestLoggerWithParameters-Initialize@85::Invoke(System.Tuple`2&lt;System.String,System.String&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663385" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/paramsMap@89</FullName>
+          <Methods>
+            <Method skippedDueTo="File" visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <MetadataToken>100663387</MetadataToken>
+              <Name>System.Tuple`2&lt;System.String,System.String&gt; &lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$JunitTestLogger/paramsMap@89::Invoke(System.Tuple`2&lt;System.String,System.String&gt;)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663387" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="14" visitedSequencePoints="14" numBranchPoints="4" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="75" maxCyclomaticComplexity="3" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="2" numMethods="2" minCrapScore="2" maxCrapScore="3" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlWriter</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="2">
+              <Summary numSequencePoints="4" visitedSequencePoints="4" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="2" maxCrapScore="2" />
+              <MetadataToken>100663388</MetadataToken>
+              <Name>System.IO.DirectoryInfo BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlWriter::checkDir(System.String)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="3" uspid="70" ordinal="0" offset="0" sl="156" sc="5" el="156" ec="46" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="69" ordinal="1" offset="7" sl="157" sc="5" el="157" ec="40" bec="2" bev="2" fileid="2" />
+                <SequencePoint vc="1" uspid="68" ordinal="2" offset="17" sl="158" sc="16" el="158" ec="50" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="2" uspid="67" ordinal="3" offset="24" sl="159" sc="15" el="159" ec="36" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="2" uspid="8" ordinal="0" offset="13" sl="157" path="0" offsetchain="15" offsetend="24" fileid="2" />
+                <BranchPoint vc="1" uspid="9" ordinal="1" offset="13" sl="157" path="1" offsetend="17" fileid="2" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="70" ordinal="0" offset="0" sl="156" sc="5" el="156" ec="46" bec="0" bev="0" fileid="2" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="3" nPathComplexity="0" sequenceCoverage="100" branchCoverage="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="3">
+              <Summary numSequencePoints="10" visitedSequencePoints="10" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="3" minCyclomaticComplexity="3" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="3" maxCrapScore="3" />
+              <MetadataToken>100663389</MetadataToken>
+              <Name>System.String BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlWriter::writeXmlFile(BinaryDefense.Junit.Expecto.TestLogger.Parameters,System.Xml.Linq.XDocument)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="3" uspid="80" ordinal="0" offset="0" sl="162" sc="5" el="162" ec="45" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="79" ordinal="1" offset="6" sl="163" sc="5" el="163" ec="58" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="78" ordinal="2" offset="17" sl="164" sc="5" el="164" ec="34" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="77" ordinal="3" offset="24" sl="166" sc="5" el="166" ec="41" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="76" ordinal="4" offset="31" sl="167" sc="5" el="167" ec="28" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="75" ordinal="5" offset="40" sl="169" sc="5" el="169" ec="33" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="74" ordinal="6" offset="48" sl="170" sc="5" el="170" ec="56" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="73" ordinal="7" offset="58" sl="171" sc="5" el="171" ec="21" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="72" ordinal="8" offset="66" sl="173" sc="5" el="173" ec="137" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="71" ordinal="9" offset="89" sl="174" sc="5" el="174" ec="23" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="80" ordinal="0" offset="0" sl="162" sc="5" el="162" ec="45" bec="0" bev="0" fileid="2" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="34" visitedSequencePoints="25" numBranchPoints="22" visitedBranchPoints="10" sequenceCoverage="73.53" branchCoverage="45.45" maxCyclomaticComplexity="4" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="7" numMethods="10" minCrapScore="1" maxCrapScore="4" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="3" nPathComplexity="2" sequenceCoverage="66.67" branchCoverage="66.67" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="3.33">
+              <Summary numSequencePoints="3" visitedSequencePoints="2" numBranchPoints="3" visitedBranchPoints="2" sequenceCoverage="66.67" branchCoverage="66.67" maxCyclomaticComplexity="3" minCyclomaticComplexity="3" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="3.33" maxCrapScore="3.33" />
+              <MetadataToken>100663390</MetadataToken>
+              <Name>System.String BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder::strMaybe(System.String)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="8" uspid="83" ordinal="0" offset="0" sl="15" sc="31" el="15" ec="47" bec="2" bev="1" fileid="2" />
+                <SequencePoint vc="0" uspid="82" ordinal="1" offset="17" sl="15" sc="48" el="15" ec="50" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="8" uspid="81" ordinal="2" offset="23" sl="15" sc="56" el="15" ec="57" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="0" uspid="10" ordinal="0" offset="11" sl="15" path="0" offsetchain="13" offsetend="17" fileid="2" />
+                <BranchPoint vc="8" uspid="11" ordinal="1" offset="11" sl="15" path="1" offsetchain="15" offsetend="23" fileid="2" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="8" uspid="83" ordinal="0" offset="0" sl="15" sc="31" el="15" ec="47" bec="2" bev="0" fileid="2" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="4" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="4">
+              <Summary numSequencePoints="5" visitedSequencePoints="5" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="4" minCyclomaticComplexity="4" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="4" maxCrapScore="4" />
+              <MetadataToken>100663391</MetadataToken>
+              <Name>System.String BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder::purgeString(System.String)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="116" uspid="88" ordinal="0" offset="0" sl="18" sc="5" el="18" ec="31" bec="2" bev="2" fileid="2" />
+                <SequencePoint vc="6" uspid="87" ordinal="1" offset="39" sl="19" sc="7" el="19" ec="9" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="110" uspid="86" ordinal="2" offset="45" sl="21" sc="7" el="21" ec="43" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="110" uspid="85" ordinal="3" offset="51" sl="22" sc="7" el="29" ec="8" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="110" uspid="84" ordinal="4" offset="75" sl="30" sc="7" el="30" ec="20" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="6" uspid="12" ordinal="0" offset="33" sl="18" path="0" offsetchain="35" offsetend="39" fileid="2" />
+                <BranchPoint vc="110" uspid="13" ordinal="1" offset="33" sl="18" path="1" offsetchain="37" offsetend="45" fileid="2" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="116" uspid="88" ordinal="0" offset="0" sl="18" sc="5" el="18" ec="31" bec="2" bev="0" fileid="2" />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663392</MetadataToken>
+              <Name>System.Xml.Linq.XAttribute BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder::xAttr(System.String,System.String)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="89" ordinal="0" offset="0" sl="32" sc="52" el="32" ec="99" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="0" uspid="89" ordinal="0" offset="0" sl="32" sc="52" el="32" ec="99" bec="0" bev="0" fileid="2" />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="3" nPathComplexity="2" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="3" visitedSequencePoints="0" numBranchPoints="3" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="3" minCyclomaticComplexity="3" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663393</MetadataToken>
+              <Name>System.Xml.Linq.XObject[] BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder::xAttrMaybe(System.String,System.String)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="92" ordinal="0" offset="0" sl="36" sc="5" el="36" ec="21" bec="2" bev="0" fileid="2" />
+                <SequencePoint vc="0" uspid="91" ordinal="1" offset="17" sl="37" sc="7" el="37" ec="11" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="0" uspid="90" ordinal="2" offset="24" sl="39" sc="7" el="41" ec="9" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="0" uspid="14" ordinal="0" offset="11" sl="36" path="0" offsetchain="13" offsetend="17" fileid="2" />
+                <BranchPoint vc="0" uspid="15" ordinal="1" offset="11" sl="36" path="1" offsetchain="15" offsetend="24" fileid="2" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="0" uspid="92" ordinal="0" offset="0" sl="36" sc="5" el="36" ec="21" bec="2" bev="0" fileid="2" />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="3" nPathComplexity="2" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="4" visitedSequencePoints="0" numBranchPoints="3" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="3" minCyclomaticComplexity="3" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663394</MetadataToken>
+              <Name>System.Xml.Linq.XObject BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder::xProperty(System.String,System.String)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="96" ordinal="0" offset="0" sl="44" sc="18" el="44" ec="38" bec="2" bev="0" fileid="2" />
+                <SequencePoint vc="0" uspid="95" ordinal="1" offset="17" sl="44" sc="39" el="44" ec="49" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="0" uspid="94" ordinal="2" offset="25" sl="44" sc="55" el="44" ec="60" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="0" uspid="93" ordinal="3" offset="28" sl="45" sc="5" el="51" ec="17" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="0" uspid="16" ordinal="0" offset="11" sl="44" path="0" offsetchain="13" offsetend="17" fileid="2" />
+                <BranchPoint vc="0" uspid="17" ordinal="1" offset="11" sl="44" path="1" offsetchain="15" offsetend="25" fileid="2" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="0" uspid="96" ordinal="0" offset="0" sl="44" sc="18" el="44" ec="38" bec="2" bev="0" fileid="2" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="1">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="1" maxCrapScore="1" />
+              <MetadataToken>100663395</MetadataToken>
+              <Name>System.Collections.Generic.IEnumerable`1&lt;System.Xml.Linq.XObject&gt; BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder::writeParameterProperties(Microsoft.FSharp.Collections.FSharpMap`2&lt;System.String,System.String&gt;)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="3" uspid="97" ordinal="0" offset="0" sl="54" sc="5" el="56" ec="45" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="97" ordinal="0" offset="0" sl="54" sc="5" el="56" ec="45" bec="0" bev="0" fileid="2" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="1">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="1" maxCrapScore="1" />
+              <MetadataToken>100663396</MetadataToken>
+              <Name>System.Xml.Linq.XElement BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder::buildProperties(Microsoft.FSharp.Collections.FSharpMap`2&lt;System.String,System.String&gt;)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="3" uspid="98" ordinal="0" offset="0" sl="59" sc="5" el="70" ec="6" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="98" ordinal="0" offset="0" sl="59" sc="5" el="70" ec="6" bec="0" bev="0" fileid="2" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="4" nPathComplexity="4" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="4">
+              <Summary numSequencePoints="11" visitedSequencePoints="11" numBranchPoints="5" visitedBranchPoints="5" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="4" minCyclomaticComplexity="4" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="4" maxCrapScore="4" />
+              <MetadataToken>100663397</MetadataToken>
+              <Name>System.Xml.Linq.XElement BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder::buildTestCase(BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestReport)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="14" uspid="109" ordinal="0" offset="0" sl="107" sc="5" el="113" ec="10" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="14" uspid="108" ordinal="1" offset="6" sl="79" sc="7" el="79" ec="34" bec="4" bev="4" fileid="2" />
+                <SequencePoint vc="7" uspid="107" ordinal="2" offset="54" sl="80" sc="19" el="80" ec="23" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="4" uspid="106" ordinal="3" offset="66" sl="79" sc="7" el="79" ec="34" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="4" uspid="105" ordinal="4" offset="89" sl="82" sc="11" el="82" ec="52" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="4" uspid="104" ordinal="5" offset="103" sl="83" sc="11" el="83" ec="56" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="4" uspid="103" ordinal="6" offset="117" sl="84" sc="11" el="92" ec="13" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="2" uspid="102" ordinal="7" offset="282" sl="79" sc="7" el="79" ec="34" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="2" uspid="101" ordinal="8" offset="299" sl="93" sc="24" el="99" ec="11" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="1" uspid="100" ordinal="9" offset="373" sl="100" sc="22" el="106" ec="11" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="14" uspid="99" ordinal="10" offset="449" sl="107" sc="5" el="113" ec="10" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="7" uspid="18" ordinal="0" offset="19" sl="79" path="0" offsetchain="40" offsetend="54" fileid="2" />
+                <BranchPoint vc="4" uspid="19" ordinal="1" offset="19" sl="79" path="1" offsetchain="42" offsetend="66" fileid="2" />
+                <BranchPoint vc="2" uspid="20" ordinal="2" offset="19" sl="79" path="2" offsetchain="44" offsetend="282" fileid="2" />
+                <BranchPoint vc="1" uspid="21" ordinal="3" offset="19" sl="79" path="3" offsetchain="49" offsetend="373" fileid="2" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="14" uspid="109" ordinal="0" offset="0" sl="107" sc="5" el="113" ec="10" bec="0" bev="0" fileid="2" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="1">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="1" maxCrapScore="1" />
+              <MetadataToken>100663398</MetadataToken>
+              <Name>System.Xml.Linq.XElement BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder::buildSuite(BinaryDefense.Junit.Expecto.TestLogger.Parameters,BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestReport[])</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="3" uspid="110" ordinal="0" offset="0" sl="116" sc="5" el="130" ec="10" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="110" ordinal="0" offset="0" sl="116" sc="5" el="130" ec="10" bec="0" bev="0" fileid="2" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="1">
+              <Summary numSequencePoints="4" visitedSequencePoints="4" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="1" maxCrapScore="1" />
+              <MetadataToken>100663399</MetadataToken>
+              <Name>System.Xml.Linq.XDocument BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder::buildDocument(BinaryDefense.Junit.Expecto.TestLogger.Parameters,System.Xml.Linq.XElement)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="1" uspid="114" ordinal="0" offset="0" sl="133" sc="5" el="133" ec="64" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="1" uspid="113" ordinal="1" offset="12" sl="134" sc="5" el="144" ec="8" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="1" uspid="112" ordinal="2" offset="78" sl="145" sc="5" el="145" ec="36" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="1" uspid="111" ordinal="3" offset="98" sl="146" sc="5" el="146" ec="8" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="1" uspid="114" ordinal="0" offset="0" sl="133" sc="5" el="133" ec="64" bec="0" bev="0" fileid="2" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" minCrapScore="2" maxCrapScore="2" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/purgeString@23</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="2">
+              <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="2" maxCrapScore="2" />
+              <MetadataToken>100663401</MetadataToken>
+              <Name>Microsoft.FSharp.Core.Unit BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/purgeString@23::Invoke(System.Char)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="1328" uspid="117" ordinal="0" offset="0" sl="25" sc="9" el="25" ec="39" bec="2" bev="2" fileid="2" />
+                <SequencePoint vc="1320" uspid="116" ordinal="1" offset="12" sl="26" sc="11" el="26" ec="32" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="8" uspid="115" ordinal="2" offset="29" sl="28" sc="11" el="28" ec="13" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="1320" uspid="22" ordinal="0" offset="6" sl="25" path="0" offsetchain="8" offsetend="12" fileid="2" />
+                <BranchPoint vc="8" uspid="23" ordinal="1" offset="6" sl="25" path="1" offsetchain="10" offsetend="29" fileid="2" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="1328" uspid="117" ordinal="0" offset="0" sl="25" sc="9" el="25" ec="39" bec="2" bev="0" fileid="2" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="3" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" minCrapScore="3" maxCrapScore="3" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/writeParameterProperties@56</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="3" nPathComplexity="0" sequenceCoverage="100" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="3">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="3" minCyclomaticComplexity="3" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="3" maxCrapScore="3" />
+              <MetadataToken>100663403</MetadataToken>
+              <Name>System.Xml.Linq.XObject BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/writeParameterProperties@56::Invoke(System.Tuple`2&lt;System.String,System.String&gt;)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="2" uspid="118" ordinal="0" offset="14" sl="56" sc="31" el="56" ec="44" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="2" uspid="118" ordinal="0" offset="14" sl="56" sc="31" el="56" ec="44" bec="0" bev="0" fileid="2" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="8" visitedSequencePoints="8" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="25" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" minCrapScore="25" maxCrapScore="25" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildProperties@61</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="true" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663404</MetadataToken>
+              <Name>System.Void BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildProperties@61::.ctor(Microsoft.FSharp.Collections.FSharpMap`2&lt;System.String,System.String&gt;,System.Int32,System.Xml.Linq.XObject)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="6" uspid="100663404" ordinal="0" offset="0" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="25" nPathComplexity="0" sequenceCoverage="100" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="25">
+              <Summary numSequencePoints="8" visitedSequencePoints="8" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="25" minCyclomaticComplexity="25" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="25" maxCrapScore="25" />
+              <MetadataToken>100663405</MetadataToken>
+              <Name>System.Int32 BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildProperties@61::GenerateNext(System.Collections.Generic.IEnumerable`1&lt;System.Xml.Linq.XObject&gt;&amp;)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="3" uspid="126" ordinal="0" offset="131" sl="61" sc="9" el="61" ec="71" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="125" ordinal="1" offset="282" sl="62" sc="9" el="62" ec="73" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="124" ordinal="2" offset="442" sl="63" sc="9" el="63" ec="79" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="123" ordinal="3" offset="617" sl="64" sc="9" el="64" ec="59" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="122" ordinal="4" offset="772" sl="65" sc="9" el="65" ec="63" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="121" ordinal="5" offset="927" sl="66" sc="9" el="66" ec="52" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="120" ordinal="6" offset="1082" sl="67" sc="9" el="67" ec="65" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="119" ordinal="7" offset="1237" sl="68" sc="16" el="68" ec="45" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="126" ordinal="0" offset="131" sl="61" sc="9" el="61" ec="71" bec="0" bev="0" fileid="2" />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663406</MetadataToken>
+              <Name>System.Void BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildProperties@61::Close()</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="3" uspid="100663406" ordinal="0" offset="0" />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="12" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="12" minCyclomaticComplexity="12" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663407</MetadataToken>
+              <Name>System.Boolean BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildProperties@61::get_CheckClose()</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663407" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/makeMessageNode@75</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663411</MetadataToken>
+              <Name>System.Xml.Linq.XElement BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/makeMessageNode@75::Invoke(System.String,System.String)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="127" ordinal="0" offset="0" sl="75" sc="9" el="78" ec="10" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="0" uspid="127" ordinal="0" offset="0" sl="75" sc="9" el="78" ec="10" bec="0" bev="0" fileid="2" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="11" visitedSequencePoints="10" numBranchPoints="6" visitedBranchPoints="5" sequenceCoverage="90.91" branchCoverage="83.33" maxCyclomaticComplexity="15" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="2" minCrapScore="15" maxCrapScore="15" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildTestCase@109</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="true" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663412</MetadataToken>
+              <Name>System.Void BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildTestCase@109::.ctor(BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestReport,System.Xml.Linq.XObject[],System.Collections.Generic.IEnumerator`1&lt;System.Xml.Linq.XObject&gt;,System.Collections.Generic.IEnumerator`1&lt;System.Xml.Linq.XObject&gt;,System.Int32,System.Xml.Linq.XObject)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="28" uspid="100663412" ordinal="0" offset="0" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="15" nPathComplexity="4" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="15">
+              <Summary numSequencePoints="10" visitedSequencePoints="10" numBranchPoints="5" visitedBranchPoints="5" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="15" minCyclomaticComplexity="15" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="15" maxCrapScore="15" />
+              <MetadataToken>100663413</MetadataToken>
+              <Name>System.Int32 BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildTestCase@109::GenerateNext(System.Collections.Generic.IEnumerable`1&lt;System.Xml.Linq.XObject&gt;&amp;)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="14" uspid="137" ordinal="0" offset="100" sl="109" sc="9" el="109" ec="53" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="28" uspid="136" ordinal="1" offset="197" sl="109" sc="9" el="109" ec="53" bec="2" bev="2" fileid="2" />
+                <SequencePoint vc="14" uspid="135" ordinal="2" offset="230" sl="109" sc="9" el="109" ec="53" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="14" uspid="134" ordinal="3" offset="250" sl="109" sc="9" el="109" ec="53" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="14" uspid="133" ordinal="4" offset="269" sl="110" sc="9" el="110" ec="47" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="28" uspid="132" ordinal="5" offset="375" sl="110" sc="9" el="110" ec="47" bec="2" bev="2" fileid="2" />
+                <SequencePoint vc="14" uspid="131" ordinal="6" offset="408" sl="110" sc="9" el="110" ec="47" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="14" uspid="130" ordinal="7" offset="428" sl="110" sc="9" el="110" ec="47" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="14" uspid="129" ordinal="8" offset="454" sl="111" sc="9" el="111" ec="80" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="14" uspid="128" ordinal="9" offset="528" sl="112" sc="9" el="112" ec="23" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="14" uspid="32" ordinal="0" offset="208" sl="109" path="0" offsetend="210" fileid="2" />
+                <BranchPoint vc="15" uspid="33" ordinal="1" offset="208" sl="109" path="1" offsetend="243" fileid="2" />
+                <BranchPoint vc="19" uspid="34" ordinal="2" offset="386" sl="110" path="0" offsetend="388" fileid="2" />
+                <BranchPoint vc="18" uspid="35" ordinal="3" offset="386" sl="110" path="1" offsetend="421" fileid="2" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="14" uspid="137" ordinal="0" offset="100" sl="109" sc="9" el="109" ec="53" bec="0" bev="0" fileid="2" />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="13" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="13" minCyclomaticComplexity="13" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663414</MetadataToken>
+              <Name>System.Void BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildTestCase@109::Close()</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="138" ordinal="0" offset="186" sl="109" sc="9" el="109" ec="53" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="0" uspid="138" ordinal="0" offset="186" sl="109" sc="9" el="109" ec="53" bec="0" bev="0" fileid="2" />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="10" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="10" minCyclomaticComplexity="10" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663415</MetadataToken>
+              <Name>System.Boolean BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildTestCase@109::get_CheckClose()</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663415" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" minCrapScore="1" maxCrapScore="1" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildSuite@129-1</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="1">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="1" maxCrapScore="1" />
+              <MetadataToken>100663419</MetadataToken>
+              <Name>System.Xml.Linq.XObject BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildSuite@129-1::Invoke(BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestReport)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="2" uspid="139" ordinal="0" offset="0" sl="129" sc="45" el="129" ec="71" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="2" uspid="139" ordinal="0" offset="0" sl="129" sc="45" el="129" ec="71" bec="0" bev="0" fileid="2" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="4" visitedSequencePoints="4" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="7" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" minCrapScore="7" maxCrapScore="7" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildSuite@121</FullName>
+          <Methods>
+            <Method visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="true" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663420</MetadataToken>
+              <Name>System.Void BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildSuite@121::.ctor(BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestReport[],System.Int32,System.Xml.Linq.XObject)</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="6" uspid="100663420" ordinal="0" offset="0" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="7" nPathComplexity="0" sequenceCoverage="100" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="7">
+              <Summary numSequencePoints="4" visitedSequencePoints="4" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="7" minCyclomaticComplexity="7" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="7" maxCrapScore="7" />
+              <MetadataToken>100663421</MetadataToken>
+              <Name>System.Int32 BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildSuite@121::GenerateNext(System.Collections.Generic.IEnumerable`1&lt;System.Xml.Linq.XObject&gt;&amp;)</Name>
+              <FileRef uid="2" />
+              <SequencePoints>
+                <SequencePoint vc="3" uspid="143" ordinal="0" offset="80" sl="121" sc="9" el="121" ec="74" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="142" ordinal="1" offset="138" sl="122" sc="9" el="122" ec="75" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="141" ordinal="2" offset="205" sl="127" sc="9" el="127" ec="71" bec="0" bev="0" fileid="2" />
+                <SequencePoint vc="3" uspid="140" ordinal="3" offset="272" sl="129" sc="27" el="129" ec="71" bec="0" bev="0" fileid="2" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="143" ordinal="0" offset="80" sl="121" sc="9" el="121" ec="74" bec="0" bev="0" fileid="2" />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663422</MetadataToken>
+              <Name>System.Void BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildSuite@121::Close()</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="3" uspid="100663422" ordinal="0" offset="0" />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="8" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="8" minCyclomaticComplexity="8" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663423</MetadataToken>
+              <Name>System.Boolean BinaryDefense.Junit.Expecto.TestLogger.Xml.XmlBuilder/buildSuite@121::get_CheckClose()</Name>
+              <SequencePoints />
+              <BranchPoints />
+              <MethodPoint vc="0" uspid="100663423" ordinal="0" offset="0" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$Xml</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="17" visitedSequencePoints="16" numBranchPoints="13" visitedBranchPoints="11" sequenceCoverage="94.12" branchCoverage="84.62" maxCyclomaticComplexity="5" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="5" numMethods="5" minCrapScore="1" maxCrapScore="5.2" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="3" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="3">
+              <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="3" minCyclomaticComplexity="3" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="3" maxCrapScore="3" />
+              <MetadataToken>100663426</MetadataToken>
+              <Name>a BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder::ifNullThen(a,a)</Name>
+              <FileRef uid="3" />
+              <SequencePoints>
+                <SequencePoint vc="8" uspid="146" ordinal="0" offset="0" sl="38" sc="31" el="38" ec="47" bec="2" bev="2" fileid="3" />
+                <SequencePoint vc="3" uspid="145" ordinal="1" offset="22" sl="38" sc="48" el="38" ec="56" bec="0" bev="0" fileid="3" />
+                <SequencePoint vc="5" uspid="144" ordinal="2" offset="24" sl="38" sc="62" el="38" ec="63" bec="0" bev="0" fileid="3" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="3" uspid="28" ordinal="0" offset="16" sl="38" path="0" offsetchain="18" offsetend="22" fileid="3" />
+                <BranchPoint vc="5" uspid="29" ordinal="1" offset="16" sl="38" path="1" offsetchain="20" offsetend="24" fileid="3" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="8" uspid="146" ordinal="0" offset="0" sl="38" sc="31" el="38" ec="47" bec="2" bev="0" fileid="3" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="1">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="1" maxCrapScore="1" />
+              <MetadataToken>100663427</MetadataToken>
+              <Name>System.String[] BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder::split(System.String,System.String)</Name>
+              <FileRef uid="3" />
+              <SequencePoints>
+                <SequencePoint vc="5" uspid="147" ordinal="0" offset="0" sl="40" sc="52" el="40" ec="74" bec="0" bev="0" fileid="3" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="5" uspid="147" ordinal="0" offset="0" sl="40" sc="52" el="40" ec="74" bec="0" bev="0" fileid="3" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="2">
+              <Summary numSequencePoints="5" visitedSequencePoints="5" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="2" maxCrapScore="2" />
+              <MetadataToken>100663428</MetadataToken>
+              <Name>System.Tuple`2&lt;System.String,System.String&gt; BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder::splitClassName(System.String,BinaryDefense.Junit.Expecto.TestLogger.NameFormat,System.String)</Name>
+              <FileRef uid="3" />
+              <SequencePoints>
+                <SequencePoint vc="9" uspid="152" ordinal="0" offset="0" sl="44" sc="5" el="44" ec="43" bec="0" bev="0" fileid="3" />
+                <SequencePoint vc="9" uspid="151" ordinal="1" offset="8" sl="45" sc="5" el="45" ec="46" bec="0" bev="0" fileid="3" />
+                <SequencePoint vc="9" uspid="150" ordinal="2" offset="23" sl="52" sc="5" el="52" ec="18" bec="2" bev="2" fileid="3" />
+                <SequencePoint vc="5" uspid="149" ordinal="3" offset="34" sl="53" sc="30" el="53" ec="51" bec="0" bev="0" fileid="3" />
+                <SequencePoint vc="4" uspid="148" ordinal="4" offset="42" sl="54" sc="30" el="54" ec="50" bec="0" bev="0" fileid="3" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="4" uspid="30" ordinal="0" offset="30" sl="52" path="0" offsetchain="32" offsetend="42" fileid="3" />
+                <BranchPoint vc="5" uspid="31" ordinal="1" offset="30" sl="52" path="1" offsetend="34" fileid="3" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="9" uspid="152" ordinal="0" offset="0" sl="44" sc="5" el="44" ec="43" bec="0" bev="0" fileid="3" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="5" nPathComplexity="4" sequenceCoverage="80" branchCoverage="100" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="5.2">
+              <Summary numSequencePoints="5" visitedSequencePoints="4" numBranchPoints="5" visitedBranchPoints="5" sequenceCoverage="80" branchCoverage="100" maxCyclomaticComplexity="5" minCyclomaticComplexity="5" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="5.2" maxCrapScore="5.2" />
+              <MetadataToken>100663429</MetadataToken>
+              <Name>BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestOutcome BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder::parseTestOutcome(Microsoft.VisualStudio.TestPlatform.ObjectModel.TestResult)</Name>
+              <FileRef uid="3" />
+              <SequencePoints>
+                <SequencePoint vc="10" uspid="157" ordinal="0" offset="14" sl="67" sc="5" el="67" ec="28" bec="4" bev="4" fileid="3" />
+                <SequencePoint vc="1" uspid="156" ordinal="1" offset="47" sl="68" sc="77" el="68" ec="95" bec="0" bev="0" fileid="3" />
+                <SequencePoint vc="5" uspid="155" ordinal="2" offset="53" sl="69" sc="77" el="69" ec="135" bec="0" bev="0" fileid="3" />
+                <SequencePoint vc="4" uspid="154" ordinal="3" offset="72" sl="70" sc="78" el="70" ec="117" bec="0" bev="0" fileid="3" />
+                <SequencePoint vc="0" uspid="153" ordinal="4" offset="85" sl="72" sc="12" el="72" ec="33" bec="0" bev="0" fileid="3" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="14" uspid="32" ordinal="0" offset="22" sl="67" path="0" offsetchain="39" offsetend="85" fileid="3" />
+                <BranchPoint vc="15" uspid="33" ordinal="1" offset="22" sl="67" path="1" offsetchain="41" offsetend="47" fileid="3" />
+                <BranchPoint vc="19" uspid="34" ordinal="2" offset="22" sl="67" path="2" offsetchain="43" offsetend="53" fileid="3" />
+                <BranchPoint vc="18" uspid="35" ordinal="3" offset="22" sl="67" path="3" offsetchain="45" offsetend="72" fileid="3" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="10" uspid="157" ordinal="0" offset="14" sl="67" sc="5" el="67" ec="28" bec="4" bev="0" fileid="3" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="1">
+              <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="1" maxCrapScore="1" />
+              <MetadataToken>100663430</MetadataToken>
+              <Name>BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestReport BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder::buildTestReport(BinaryDefense.Junit.Expecto.TestLogger.Parameters,Microsoft.VisualStudio.TestPlatform.ObjectModel.TestResult)</Name>
+              <FileRef uid="3" />
+              <SequencePoints>
+                <SequencePoint vc="1" uspid="160" ordinal="0" offset="0" sl="76" sc="5" el="76" ec="40" bec="0" bev="0" fileid="3" />
+                <SequencePoint vc="1" uspid="159" ordinal="1" offset="7" sl="77" sc="5" el="77" ec="128" bec="0" bev="0" fileid="3" />
+                <SequencePoint vc="1" uspid="158" ordinal="2" offset="60" sl="78" sc="5" el="85" ec="6" bec="0" bev="0" fileid="3" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="1" uspid="160" ordinal="0" offset="0" sl="76" sc="5" el="76" ec="40" bec="0" bev="0" fileid="3" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestOutcome</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestOutcome/Tags</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestOutcome/Failed</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestOutcome/Skipped</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestOutcome/Failed@DebugTypeProxy</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestOutcome/Skipped@DebugTypeProxy</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" minCrapScore="1" maxCrapScore="1" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestReport</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="1">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="1" maxCrapScore="1" />
+              <MetadataToken>100663476</MetadataToken>
+              <Name>BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestReport BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/TestReport::Empty()</Name>
+              <FileRef uid="3" />
+              <SequencePoints>
+                <SequencePoint vc="16" uspid="161" ordinal="0" offset="0" sl="29" sc="31" el="36" ec="8" bec="0" bev="0" fileid="3" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="16" uspid="161" ordinal="0" offset="0" sl="29" sc="31" el="36" ec="8" bec="0" bev="0" fileid="3" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" minCrapScore="2" maxCrapScore="2" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/maybeSplit@47</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="2">
+              <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="2" maxCrapScore="2" />
+              <MetadataToken>100663480</MetadataToken>
+              <Name>System.Tuple`2&lt;System.String,System.String&gt; BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/maybeSplit@47::Invoke(System.Int32)</Name>
+              <FileRef uid="3" />
+              <SequencePoints>
+                <SequencePoint vc="9" uspid="164" ordinal="0" offset="0" sl="47" sc="7" el="47" ec="20" bec="2" bev="2" fileid="3" />
+                <SequencePoint vc="4" uspid="163" ordinal="1" offset="8" sl="48" sc="9" el="48" ec="52" bec="0" bev="0" fileid="3" />
+                <SequencePoint vc="5" uspid="162" ordinal="2" offset="41" sl="50" sc="9" el="50" ec="19" bec="0" bev="0" fileid="3" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="4" uspid="36" ordinal="0" offset="2" sl="47" path="0" offsetchain="4" offsetend="8" fileid="3" />
+                <BranchPoint vc="5" uspid="37" ordinal="1" offset="2" sl="47" path="1" offsetchain="6" offsetend="41" fileid="3" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="9" uspid="164" ordinal="0" offset="0" sl="47" sc="7" el="47" ec="20" bec="2" bev="0" fileid="3" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="4" visitedSequencePoints="4" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" minCrapScore="2" maxCrapScore="2" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/tryFirstTestLine@58</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="2">
+              <Summary numSequencePoints="4" visitedSequencePoints="4" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="2" maxCrapScore="2" />
+              <MetadataToken>100663482</MetadataToken>
+              <Name>System.String BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/tryFirstTestLine@58::Invoke(Microsoft.FSharp.Core.Unit)</Name>
+              <FileRef uid="3" />
+              <SequencePoints>
+                <SequencePoint vc="5" uspid="168" ordinal="0" offset="0" sl="58" sc="7" el="58" ec="67" bec="0" bev="0" fileid="3" />
+                <SequencePoint vc="5" uspid="167" ordinal="1" offset="32" sl="61" sc="7" el="61" ec="32" bec="2" bev="2" fileid="3" />
+                <SequencePoint vc="2" uspid="166" ordinal="2" offset="42" sl="61" sc="33" el="61" ec="42" bec="0" bev="0" fileid="3" />
+                <SequencePoint vc="3" uspid="165" ordinal="3" offset="50" sl="61" sc="48" el="61" ec="50" bec="0" bev="0" fileid="3" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="2" uspid="38" ordinal="0" offset="36" sl="61" path="0" offsetchain="38" offsetend="42" fileid="3" />
+                <BranchPoint vc="3" uspid="39" ordinal="1" offset="36" sl="61" path="1" offsetchain="40" offsetend="50" fileid="3" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="5" uspid="168" ordinal="0" offset="0" sl="58" sc="7" el="58" ec="67" bec="0" bev="0" fileid="3" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" minCrapScore="2" maxCrapScore="2" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/tryFirstMessage@64</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="2">
+              <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="2" maxCrapScore="2" />
+              <MetadataToken>100663484</MetadataToken>
+              <Name>System.String BinaryDefense.Junit.Expecto.TestLogger.TestReportBuilder/tryFirstMessage@64::Invoke(Microsoft.FSharp.Core.Unit)</Name>
+              <FileRef uid="3" />
+              <SequencePoints>
+                <SequencePoint vc="4" uspid="171" ordinal="0" offset="0" sl="64" sc="7" el="64" ec="43" bec="2" bev="2" fileid="3" />
+                <SequencePoint vc="2" uspid="170" ordinal="1" offset="31" sl="65" sc="19" el="65" ec="25" bec="0" bev="0" fileid="3" />
+                <SequencePoint vc="2" uspid="169" ordinal="2" offset="38" sl="66" sc="17" el="66" ec="19" bec="0" bev="0" fileid="3" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="2" uspid="40" ordinal="0" offset="18" sl="64" path="0" offsetchain="20" offsetend="38" fileid="3" />
+                <BranchPoint vc="2" uspid="41" ordinal="1" offset="18" sl="64" path="1" offsetend="22" fileid="3" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="4" uspid="171" ordinal="0" offset="0" sl="64" sc="7" el="64" ec="43" bec="2" bev="0" fileid="3" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$TestReporting</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="12" visitedSequencePoints="8" numBranchPoints="9" visitedBranchPoints="8" sequenceCoverage="66.67" branchCoverage="88.89" maxCyclomaticComplexity="3" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="2" numMethods="3" minCrapScore="2" maxCrapScore="3" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.ParametersModule</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="2">
+              <Summary numSequencePoints="4" visitedSequencePoints="4" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="2" maxCrapScore="2" />
+              <MetadataToken>100663485</MetadataToken>
+              <Name>System.String BinaryDefense.Junit.Expecto.TestLogger.ParametersModule::buildFilePath(Microsoft.FSharp.Core.FSharpOption`1&lt;System.String&gt;)</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="7" uspid="175" ordinal="0" offset="0" sl="77" sc="5" el="80" ec="47" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="7" uspid="174" ordinal="1" offset="22" sl="82" sc="5" el="82" ec="30" bec="2" bev="2" fileid="1" />
+                <SequencePoint vc="3" uspid="173" ordinal="2" offset="38" sl="83" sc="17" el="83" ec="18" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="4" uspid="172" ordinal="3" offset="40" sl="84" sc="15" el="84" ec="75" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="4" uspid="42" ordinal="0" offset="25" sl="82" path="0" offsetchain="27" offsetend="40" fileid="1" />
+                <BranchPoint vc="3" uspid="43" ordinal="1" offset="25" sl="82" path="1" offsetend="29" fileid="1" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="7" uspid="175" ordinal="0" offset="0" sl="77" sc="5" el="80" ec="47" bec="0" bev="0" fileid="1" />
+            </Method>
+            <Method visited="true" cyclomaticComplexity="3" nPathComplexity="4" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="3">
+              <Summary numSequencePoints="4" visitedSequencePoints="4" numBranchPoints="5" visitedBranchPoints="5" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="3" minCyclomaticComplexity="3" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="3" maxCrapScore="3" />
+              <MetadataToken>100663486</MetadataToken>
+              <Name>BinaryDefense.Junit.Expecto.TestLogger.NameFormat BinaryDefense.Junit.Expecto.TestLogger.ParametersModule::getNameFormat(System.String)</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="4" uspid="179" ordinal="0" offset="0" sl="87" sc="5" el="87" ec="36" bec="4" bev="4" fileid="1" />
+                <SequencePoint vc="1" uspid="178" ordinal="1" offset="39" sl="88" sc="31" el="88" ec="50" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="177" ordinal="2" offset="45" sl="89" sc="31" el="89" ec="50" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="2" uspid="176" ordinal="3" offset="51" sl="90" sc="12" el="90" ec="31" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="1" uspid="44" ordinal="0" offset="18" sl="87" path="0" offsetchain="20" offsetend="39" fileid="1" />
+                <BranchPoint vc="3" uspid="45" ordinal="1" offset="18" sl="87" path="1" offsetend="22" fileid="1" />
+                <BranchPoint vc="1" uspid="46" ordinal="2" offset="33" sl="87" path="0" offsetchain="35" offsetend="45" fileid="1" />
+                <BranchPoint vc="2" uspid="47" ordinal="3" offset="33" sl="87" path="1" offsetchain="37" offsetend="51" fileid="1" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="4" uspid="179" ordinal="0" offset="0" sl="87" sc="5" el="87" ec="36" bec="4" bev="0" fileid="1" />
+            </Method>
+            <Method visited="false" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="false" isStatic="true" isGetter="false" isSetter="false" crapScore="0">
+              <Summary numSequencePoints="4" visitedSequencePoints="0" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" minCrapScore="0" maxCrapScore="0" />
+              <MetadataToken>100663487</MetadataToken>
+              <Name>BinaryDefense.Junit.Expecto.TestLogger.Parameters BinaryDefense.Junit.Expecto.TestLogger.ParametersModule::parseParameters(BinaryDefense.Junit.Expecto.TestLogger.Parameters)</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="0" uspid="183" ordinal="0" offset="0" sl="93" sc="5" el="93" ec="81" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="0" uspid="182" ordinal="1" offset="17" sl="94" sc="5" el="94" ec="108" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="0" uspid="181" ordinal="2" offset="44" sl="95" sc="5" el="95" ec="88" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="0" uspid="180" ordinal="3" offset="66" sl="97" sc="5" el="100" ec="6" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="0" uspid="183" ordinal="0" offset="0" sl="93" sc="5" el="93" ec="81" bec="0" bev="0" fileid="1" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" minCrapScore="1" maxCrapScore="1" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.ParametersModule/filePathOption@80</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="0" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="1">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="1" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="0" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="1" maxCrapScore="1" />
+              <MetadataToken>100663489</MetadataToken>
+              <Name>System.String BinaryDefense.Junit.Expecto.TestLogger.ParametersModule/filePathOption@80::Invoke(System.String)</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="3" uspid="184" ordinal="0" offset="0" sl="80" sc="21" el="80" ec="47" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints />
+              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="184" ordinal="0" offset="0" sl="80" sc="21" el="80" ec="47" bec="0" bev="0" fileid="1" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" minCrapScore="2" maxCrapScore="2" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.ParametersModule/filePathOption@79-1</FullName>
+          <Methods>
+            <Method visited="true" cyclomaticComplexity="2" nPathComplexity="2" sequenceCoverage="100" branchCoverage="100" isConstructor="false" isStatic="false" isGetter="false" isSetter="false" crapScore="2">
+              <Summary numSequencePoints="3" visitedSequencePoints="3" numBranchPoints="3" visitedBranchPoints="3" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" minCrapScore="2" maxCrapScore="2" />
+              <MetadataToken>100663491</MetadataToken>
+              <Name>System.String BinaryDefense.Junit.Expecto.TestLogger.ParametersModule/filePathOption@79-1::Invoke(System.String)</Name>
+              <FileRef uid="1" />
+              <SequencePoints>
+                <SequencePoint vc="3" uspid="187" ordinal="0" offset="0" sl="79" sc="31" el="79" ec="65" bec="2" bev="2" fileid="1" />
+                <SequencePoint vc="2" uspid="186" ordinal="1" offset="21" sl="79" sc="66" el="79" ec="95" bec="0" bev="0" fileid="1" />
+                <SequencePoint vc="1" uspid="185" ordinal="2" offset="33" sl="79" sc="101" el="79" ec="102" bec="0" bev="0" fileid="1" />
+              </SequencePoints>
+              <BranchPoints>
+                <BranchPoint vc="2" uspid="48" ordinal="0" offset="15" sl="79" path="0" offsetchain="17" offsetend="21" fileid="1" />
+                <BranchPoint vc="1" uspid="49" ordinal="1" offset="15" sl="79" path="1" offsetchain="19" offsetend="33" fileid="1" />
+              </BranchPoints>
+              <MethodPoint xsi:type="SequencePoint" vc="3" uspid="187" ordinal="0" offset="0" sl="79" sc="31" el="79" ec="65" bec="2" bev="0" fileid="1" />
+            </Method>
+          </Methods>
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>BinaryDefense.Junit.Expecto.TestLogger.Constants</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$Parameters</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>System.AssemblyVersionInformation</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$AssemblyInfo</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$BinaryDefense.Junit.Expecto.TestLogger.AssemblyInfo</FullName>
+          <Methods />
+        </Class>
+        <Class>
+          <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" minCrapScore="0" maxCrapScore="0" />
+          <FullName>&lt;StartupCode$BinaryDefense-Junit-Expecto-TestLogger&gt;.$.NETStandard,Version=v2.1.AssemblyAttributes</FullName>
+          <Methods />
+        </Class>
+      </Classes>
+    </Module>
+    <Module skippedDueTo="Filter" hash="CF-11-55-D9-5C-AB-76-D1-E1-74-EF-D7-18-47-7D-0F-E1-B5-0A-D5">
+      <ModulePath>/Users/maxpaige/git/ExpectoJunitTestLogger/tests/BinaryDefense.Junit.Expecto.TestLogger.Tests/bin/Debug/netcoreapp3.1/__Saved/BinaryDefense.Junit.Expecto.TestLogger.Tests.dll</ModulePath>
+      <ModuleTime>2021-01-08T19:20:04.4317154Z</ModuleTime>
+      <ModuleName>BinaryDefense.Junit.Expecto.TestLogger.Tests</ModuleName>
+      <Classes />
+    </Module>
+  </Modules>
+</CoverageSession>

@@ -2,7 +2,7 @@
 namespace System
 open System.Reflection
 
-[<assembly: AssemblyTitleAttribute("BinaryDefense.Junit.Expecto.TestLogger")>]
+[<assembly: AssemblyTitleAttribute("Example.Tests")>]
 [<assembly: AssemblyProductAttribute("BinaryDefense.Junit.Expecto.TestLogger")>]
 [<assembly: AssemblyVersionAttribute("0.1.0")>]
 [<assembly: AssemblyMetadataAttribute("ReleaseDate","2021-01-08T00:00:00.0000000-05:00")>]
@@ -13,7 +13,7 @@ open System.Reflection
 do ()
 
 module internal AssemblyVersionInformation =
-    let [<Literal>] AssemblyTitle = "BinaryDefense.Junit.Expecto.TestLogger"
+    let [<Literal>] AssemblyTitle = "Example.Tests"
     let [<Literal>] AssemblyProduct = "BinaryDefense.Junit.Expecto.TestLogger"
     let [<Literal>] AssemblyVersion = "0.1.0"
     let [<Literal>] AssemblyMetadata_ReleaseDate = "2021-01-08T00:00:00.0000000-05:00"
