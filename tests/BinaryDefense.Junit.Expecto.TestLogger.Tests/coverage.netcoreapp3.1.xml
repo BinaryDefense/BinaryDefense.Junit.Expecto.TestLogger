@@ -2,10 +2,10 @@
 <CoverageSession xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Summary numSequencePoints="124" visitedSequencePoints="100" numBranchPoints="83" visitedBranchPoints="52" sequenceCoverage="80.65" branchCoverage="62.65" maxCyclomaticComplexity="17" minCyclomaticComplexity="1" visitedClasses="12" numClasses="13" visitedMethods="25" numMethods="69" minCrapScore="1" maxCrapScore="17" />
   <Modules>
-    <Module hash="93-C9-1B-DD-BE-72-17-05-92-48-80-1D-8A-89-0F-4D-9E-AD-3D-B8">
+    <Module hash="91-8E-E7-65-55-5E-22-43-47-19-DA-57-79-99-7E-69-B1-A7-1B-D4">
       <Summary numSequencePoints="124" visitedSequencePoints="100" numBranchPoints="83" visitedBranchPoints="52" sequenceCoverage="80.65" branchCoverage="62.65" maxCyclomaticComplexity="17" minCyclomaticComplexity="1" visitedClasses="12" numClasses="13" visitedMethods="25" numMethods="69" minCrapScore="1" maxCrapScore="17" />
       <ModulePath>/Users/maxpaige/git/ExpectoJunitTestLogger/tests/BinaryDefense.Junit.Expecto.TestLogger.Tests/bin/Release/netcoreapp3.1/__Saved/BinaryDefense.Junit.Expecto.TestLogger.dll</ModulePath>
-      <ModuleTime>2021-01-08T20:35:04.15915Z</ModuleTime>
+      <ModuleTime>2021-01-08T21:03:54.1146141Z</ModuleTime>
       <ModuleName>BinaryDefense.Junit.Expecto.TestLogger</ModuleName>
       <Files>
         <File uid="1" fullPath="/Users/maxpaige/git/ExpectoJunitTestLogger/src/BinaryDefense.Junit.Expecto.TestLogger/Parameters.fs" />
@@ -1200,9 +1200,9 @@
         </Class>
       </Classes>
     </Module>
-    <Module skippedDueTo="Filter" hash="3E-91-0E-14-13-4C-04-54-DF-C6-73-92-A6-AE-83-E6-48-DD-03-FE">
+    <Module skippedDueTo="Filter" hash="0D-0B-54-0B-CC-4F-16-6B-C7-68-35-9D-1B-E2-87-D8-82-0F-9A-EF">
       <ModulePath>/Users/maxpaige/git/ExpectoJunitTestLogger/tests/BinaryDefense.Junit.Expecto.TestLogger.Tests/bin/Release/netcoreapp3.1/__Saved/BinaryDefense.Junit.Expecto.TestLogger.Tests.dll</ModulePath>
-      <ModuleTime>2021-01-08T20:35:07.1288186Z</ModuleTime>
+      <ModuleTime>2021-01-08T21:04:00.3188662Z</ModuleTime>
       <ModuleName>BinaryDefense.Junit.Expecto.TestLogger.Tests</ModuleName>
       <Classes />
     </Module>

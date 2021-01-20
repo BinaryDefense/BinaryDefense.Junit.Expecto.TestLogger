@@ -259,3 +259,4 @@ tools/BDS.FleetReporter/DataCollectionStream/
 tests/coverage
 .tye
 deploy/remote_ansible/ssh.cfg
+tests/BinaryDefense.Junit.Expecto.TestLogger.Tests/build-script-test-report.xml

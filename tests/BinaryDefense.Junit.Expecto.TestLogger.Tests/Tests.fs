@@ -162,6 +162,20 @@ module XmlBuilderTests =
             yield buildPropertiesTests
             yield buildSuiteTests
             yield buildTestCaseTests
+            yield testCase "Replaces {assembly} with assembly name" <| fun _ ->
+                let parameters = { Parameters.Empty() with OutputFilePath = "/some/dir/{assembly}/file-name.xml" }
+                let test = { buildTestReport (TestReportBuilder.Passed) "classnameValue" "nameValue" with
+                                Source = "/some/path/to/an/assembly.name.dll"
+                }
+                let output : Parameters = TestReportBuilder.replaceAssemblyName parameters test
+                Expect.equal (output.OutputFilePath) "/some/dir/assembly.name/file-name.xml" "Should replace {assembly} with assembly name"
+            yield testCase "Does not alter output path when {assembly} is not present" <| fun _ ->
+                let parameters = { Parameters.Empty() with OutputFilePath = "/some/dir/to/a/file/file-name.xml" }
+                let test = { buildTestReport (TestReportBuilder.Passed) "classnameValue" "nameValue" with
+                                Source = "/some/path/to/an/assembly.name.dll"
+                }
+                let output : Parameters = TestReportBuilder.replaceAssemblyName parameters test
+                Expect.equal (output.OutputFilePath) "/some/dir/to/a/file/file-name.xml" "Should not change path when {assembly} is not present"
         ]
 
 module XmlWriterTests =
@@ -218,7 +232,7 @@ module XmlWriterTests =
                 XmlWriter.writeXmlFile parameters (doc "Writes a directory") |> ignore
                 let isFileThere = File.Exists(path)
                 Expect.isTrue isFileThere "Should have written a file in relative directory"
-            // a stray , once produced an annoying bug with malformed xml, let's not do that again.
+            // a stray ',' once produced an annoying bug with malformed xml. let's not do that again.
             yield! testWithCleanup "Does not write &lt; (an escaped < symbol)" <| fun _ ->
                 let path = path([|FileName|])
                 let parameters = { parameters with OutputFilePath = path }

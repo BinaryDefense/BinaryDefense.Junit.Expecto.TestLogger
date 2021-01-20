@@ -38,6 +38,9 @@ type JunitTestLogger() =
           [||]
         else
           testResults.ToArray() |> Array.map (buildTestReport this.Parameters)
+      if Array.isEmpty reports |> not then
+        _parameters <- TestReportBuilder.replaceAssemblyName this.Parameters (Array.head reports)
+
       let suites = XmlBuilder.buildSuite (this.Parameters) reports
       let doc = XmlBuilder.buildDocument this.Parameters suites
       printfn "\n%s" (XmlWriter.writeXmlFile this.Parameters doc)
@@ -65,8 +68,7 @@ type JunitTestLogger() =
       printfn $"Initializing Junit Expecto logger with the test result dir path of {testResultsDirPath}."
       let paramsMap =
         Map.ofSeq [Constants.LogFilePath, testResultsDirPath]
-      //let outputFilePath = System.IO.Path.Combine(testResultsDirPath, Constants.DefaultFileName) |> System.IO.Path.GetFullPath
-      this.Parameters <- { this.Parameters with InputParameters = paramsMap } //; OutputFilePath = outputFilePath }
+      this.Parameters <- { this.Parameters with InputParameters = paramsMap }
       this.InitializeImpl events
       ()
 
@@ -79,7 +81,6 @@ type JunitTestLogger() =
       printfn $"Initializing Junit Expecto logger with multiple parameters."
       let paramsList = parameters :> seq<_> |> Seq.map (|KeyValue|)
 
-      printf "\n"
       paramsList
       |> Seq.iter (fun (k, v) -> printfn $"parameter: ({k}, {v})")
 
@@ -87,6 +88,7 @@ type JunitTestLogger() =
         paramsList
         |> Seq.map (fun (x, y) -> (x.ToLowerInvariant(), y))
         |> Map.ofSeq
+
       this.Parameters <- { this.Parameters with InputParameters = paramsMap}
 
       this.InitializeImpl events

@@ -1,6 +1,7 @@
 namespace BinaryDefense.Junit.Expecto.TestLogger
 
 module TestReportBuilder =
+  open System
   open BinaryDefense.Junit.Expecto.TestLogger.Parameters
   open Microsoft.VisualStudio.TestPlatform.ObjectModel
   open Microsoft.VisualStudio.TestPlatform.ObjectModel.Client
@@ -20,7 +21,7 @@ module TestReportBuilder =
     TestName : string
     ClassName : string
     /// The timespan for how long it took this test to run.
-    Duration : System.TimeSpan
+    Duration : TimeSpan
     /// The source assembly for this test. "/some/path/to/Tests.dll"
     Source : string
     /// The file path for this test. "/some/path/to/tests/MyTestFile.fs"
@@ -30,7 +31,7 @@ module TestReportBuilder =
         TestOutcome = Passed
         TestName = ""
         ClassName = ""
-        Duration = System.TimeSpan()
+        Duration = TimeSpan()
         Source = ""
         CodeFilePath = ""
       }
@@ -71,10 +72,18 @@ module TestReportBuilder =
     // covers cases of None & NotFound, plus any other enum values that shouldn't happen.
     | _ -> TestOutcome.NoOutcome
 
+  let replaceAssemblyName (parameters : Parameters) (test: TestReport) =
+    if parameters.OutputFilePath.Contains("{assembly}") then
+      let assembly = test.Source.Substring(test.Source.LastIndexOf("/") + 1).Replace(".dll", "")
+      { parameters with 
+          OutputFilePath = parameters.OutputFilePath.Replace("{assembly}", assembly)
+      }
+    else
+      parameters
 
   let buildTestReport (parameters: Parameters) (test : TestResult) =
     let outcome = parseTestOutcome test
-    let classname, name = test.TestCase.DisplayName |> ifNullThen "" |> splitClassName parameters.SplitOn parameters.NameFormat 
+    let classname, name = test.TestCase.DisplayName |> ifNullThen "" |> splitClassName parameters.SplitOn parameters.NameFormat
     { TestReport.Empty() with
         ClassName = classname
         TestName = name
