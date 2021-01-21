@@ -320,6 +320,52 @@ module TestReportingTests =
             Expect.equal classnameR classname "Should build the expected class name"
             Expect.equal nameR name "Should build the expected test name"
 
+    // let buildEscapedTestCase (nesting : Nesting) (nameFormat : NameFormat) (classname : string) (name : string) =
+    //     testCase (sprintf "Does not split names in quotes - %s - %s" (string nameFormat) (string nesting)) <| fun _ ->
+    //         let classnameR, nameR = TestReportBuilder.splitClassName "/" nameFormat nesting.value
+    //         Expect.equal classnameR classname "Should build the expected class name"
+    //         Expect.equal nameR name "Should build the expected test name"
+
+    // let quoteSplittingTests =
+    //     [
+    //         "\"this\"", [] //["\"this\""]
+    //         "single\".quote", []
+    //         "\"", [] // ["\""]
+    //         "\"\"", [ "" ]
+    //         "hello.\"world\"", ["hello."; "world"]
+    //         "\"hello\" world", ["hello"; " world"]
+    //         "lots.\"of\".\"quotes.used\".\"here\"", [ "lots."; "of"; "."; "quotes.used"; "."; "here"]
+    //     ] |> List.map (fun (input, expected) -> 
+    //         testCase $"Splitting on quotes input %s{input} splits as expected" <| fun _ ->
+    //             let result = TestReportBuilder.splitOnQuotes3 input // input None []
+    //             Expect.equal result expected "Did not split string on quotes as expected"
+    //     )
+
+    let quoteEscapedTests = 
+        [
+            "this/is/a/name", "/", NameFormat.AllLists, "this/is/a", "name"
+            "this/\"is\"/a/name", "/", NameFormat.AllLists, "this/\"is\"/a", "name"
+            "this/\"is/a/name\"", "/", NameFormat.AllLists, "this", "\"is/a/name\""
+            "this\"/is/a/name", "/", NameFormat.AllLists, "this\"/is/a", "name"
+            "this/\"is\"/a/name", "/", NameFormat.RootList, "this", "\"is\"/a/name"
+            "this/\"is/a/name\"", "/", NameFormat.RootList, "this", "\"is/a/name\""
+            "this\"/is/a/name", "/", NameFormat.RootList, "this\"", "is/a/name"
+            "this.is.a.name", ".", NameFormat.AllLists, "this.is.a", "name"
+            "this.\"is\".a.name", ".", NameFormat.AllLists, "this.\"is\".a", "name"
+            "this.\"is.a.name\"", ".", NameFormat.AllLists, "this", "\"is.a.name\""
+            "this\".is.a.name", ".", NameFormat.AllLists, "this\".is.a", "name"
+            "this.\"is\".a.name", ".", NameFormat.RootList, "this", "\"is\".a.name"
+            "this.\"is.a.name\"", ".", NameFormat.RootList, "this", "\"is.a.name\""
+            "this.\"is.a.name\" ", ".", NameFormat.RootList, "this", "\"is.a.name\" " //has a trailing space
+            "this\".is.a.name", ".", NameFormat.RootList, "this\"", "is.a.name"
+            "\"", ".", NameFormat.RootList, "\"", "\""
+        ] |> List.map (fun (input: string, splitter: string, format: NameFormat, expectedClassname: string, expectedName: string) ->
+            testCase $"\'%s{input}\' with format %s{format.ToString()} splits into \'%s{expectedClassname}\' and \'%s{expectedName}\'" <| fun _ ->
+                let classnameR, nameR = TestReportBuilder.splitClassName splitter format input
+                Expect.equal classnameR expectedClassname "Should have built the expected class name"
+                Expect.equal nameR expectedName "Should have built the expected name"
+        )
+
     let splitClassNameTests =
         testList "Split Class Name tests" [
             buildTestCase Nesting.NoNesting NameFormat.RootList NoNesting.value NoNesting.value
@@ -328,6 +374,21 @@ module TestReportingTests =
             buildTestCase Nesting.SomeNesting NameFormat.AllLists "Some Nesting" "A Test"
             buildTestCase Nesting.LotsOfNesting NameFormat.RootList "More Nesting" "Lots of Nesting/So much Nesting/A Test"
             buildTestCase Nesting.LotsOfNesting NameFormat.AllLists "More Nesting/Lots of Nesting/So much Nesting" "A Test"
+
+            yield! quoteEscapedTests
+            //yield! quoteSplittingTests
+
+            testCase "Does not split values in quotes when splitting on /" <| fun _ ->
+                let escapedName = "\"very/ long/ name\""
+                let classnameR, nameR = TestReportBuilder.splitClassName "/" NameFormat.AllLists $"this/is/a/%s{escapedName}"
+                Expect.equal classnameR "this/is/a" "Should have built the correct class name for an escaped name"
+                Expect.equal nameR escapedName "Should have built the correct name for an escaped name"
+
+            // testCase "Ignores a single quote when splitting on /" <| fun _ ->
+            //     let classnameR, nameR = TestReportBuilder.splitClassName "/" NameFormat.AllLists "this/is/a/\"very/long/name"
+            //     Expect.equal classnameR "this/is/a/\"very/long" "Should have built the correct class name for an escaped name"
+            //     Expect.equal nameR name "Should have built the correct name for an escaped name"
+
             testCase "Returns empty string tuple on empty input for root list formatting" <| fun _ -> 
                 let classnameR, nameR = TestReportBuilder.splitClassName "/" NameFormat.RootList ""
                 Expect.equal classnameR "" "Should return a blank classname on blank input"
@@ -347,7 +408,7 @@ module TestReportingTests =
         tr.Outcome <- outcome
         tr
 
-    let parseOutcomeTests = testList "Parse TestResult outcome tests" [
+    let parseOutcomeTests = ptestList "Parse TestResult outcome tests" [
         testCase "parseOutcome returns blank messages when failed test has no error message" <| fun _ ->
             let testValue = ""
             let input = buildTestResult TestOutcome.Failed [] testValue
@@ -404,7 +465,7 @@ module TestReportingTests =
 
     [<Tests>]
     let tests =
-        testList "Test Result Builder tests" [
+        ftestList "Test Result Builder tests" [
             yield splitClassNameTests
-            yield parseOutcomeTests
+            //yield parseOutcomeTests
         ]
