@@ -90,7 +90,7 @@ module TestReportBuilder =
         | Regular _ -> (Text current) :: blocks
         //string ended while we're in a quote block; turn the quote block into a Regular and return
         | Quote value -> (Regular value |> Text) :: blocks
-      | '\"' :: xs when lookAheadFor "\"" (xs) ->
+      | '\"' :: xs when (not (List.isEmpty xs)) && lookAheadFor "\"" (xs) ->
         //if we've found a quote that has a quote ahead...
         match current with
         // and there is no block being built, start a quote block, and continue
@@ -98,7 +98,7 @@ module TestReportBuilder =
           let next = Quote "\""
           traverse next xs blocks
         //and we're in a regular block, close the regular block, create a quote block, and continue
-        | Regular value -> 
+        | Regular value ->
           let next = Quote "\""
           let blocks = (Text current) :: blocks
           traverse next xs blocks
@@ -167,7 +167,13 @@ module TestReportBuilder =
         | Split :: xs -> xs
         | x :: xs -> bl
         | [] -> []
+      let trimEmpty bl =
+        match bl with
+        | Text (Regular "") :: xs -> xs
+        | x :: xs -> bl
+        | [] -> []
       blocks
+      //|> trimEmpty
       |> trimSplit
       |> List.rev
       |> trimSplit
@@ -184,16 +190,20 @@ module TestReportBuilder =
 
     match nf with
     | NameFormat.AllLists ->
-      if blocks.Length > 2 then
-
+      if blocks.Length > 3 then
+        // if we have more than 3 blocks, we need to traverse the list, 
+        // build the list of blocks for the class name, and grab the last block for the test name
         let rec buildNames (acc: Block list) (rem: Block list) =
           match rem with
-          | [] -> failwith "Should not get here"
+          | [] -> 
+            failwith "Traversed entire block list when building classname, name for NameFormat AllLists, but should have constructed names before this point."
           | [ x ] -> acc |> List.rev |> writeList, (x.toStr splitOn)
           | x :: [ Split ] -> acc |> List.rev |> writeList, (x.toStr splitOn)
           | x :: xs -> buildNames (x :: acc) xs
+
         blocks |> trimSplits |> buildNames []
-      elif blocks.Length = 2 then
+      elif blocks.Length = 3 then
+        // 3 blocks = head / split / tail
         let blocks' = trimSplits blocks
         let classname = blocks'.Head
         let name = blocks' |> List.last

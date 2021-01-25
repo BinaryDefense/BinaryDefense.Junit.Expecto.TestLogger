@@ -320,27 +320,6 @@ module TestReportingTests =
             Expect.equal classnameR classname "Should build the expected class name"
             Expect.equal nameR name "Should build the expected test name"
 
-    // let buildEscapedTestCase (nesting : Nesting) (nameFormat : NameFormat) (classname : string) (name : string) =
-    //     testCase (sprintf "Does not split names in quotes - %s - %s" (string nameFormat) (string nesting)) <| fun _ ->
-    //         let classnameR, nameR = TestReportBuilder.splitClassName "/" nameFormat nesting.value
-    //         Expect.equal classnameR classname "Should build the expected class name"
-    //         Expect.equal nameR name "Should build the expected test name"
-
-    // let quoteSplittingTests =
-    //     [
-    //         "\"this\"", [] //["\"this\""]
-    //         "single\".quote", []
-    //         "\"", [] // ["\""]
-    //         "\"\"", [ "" ]
-    //         "hello.\"world\"", ["hello."; "world"]
-    //         "\"hello\" world", ["hello"; " world"]
-    //         "lots.\"of\".\"quotes.used\".\"here\"", [ "lots."; "of"; "."; "quotes.used"; "."; "here"]
-    //     ] |> List.map (fun (input, expected) -> 
-    //         testCase $"Splitting on quotes input %s{input} splits as expected" <| fun _ ->
-    //             let result = TestReportBuilder.splitOnQuotes3 input // input None []
-    //             Expect.equal result expected "Did not split string on quotes as expected"
-    //     )
-
     let quoteEscapedTests = 
         [
             "this/is/a/name", "/", NameFormat.AllLists, "this/is/a", "name"
@@ -375,8 +354,7 @@ module TestReportingTests =
             buildTestCase Nesting.LotsOfNesting NameFormat.RootList "More Nesting" "Lots of Nesting/So much Nesting/A Test"
             buildTestCase Nesting.LotsOfNesting NameFormat.AllLists "More Nesting/Lots of Nesting/So much Nesting" "A Test"
 
-            yield! quoteEscapedTests
-            //yield! quoteSplittingTests
+            //yield! quoteEscapedTests
 
             testCase "Does not split values in quotes when splitting on /" <| fun _ ->
                 let escapedName = "\"very/ long/ name\""
@@ -465,7 +443,7 @@ module TestReportingTests =
 
     [<Tests>]
     let tests =
-        ftestList "Test Result Builder tests" [
+        testList "Test Result Builder tests" [
             yield splitClassNameTests
             //yield parseOutcomeTests
         ]
