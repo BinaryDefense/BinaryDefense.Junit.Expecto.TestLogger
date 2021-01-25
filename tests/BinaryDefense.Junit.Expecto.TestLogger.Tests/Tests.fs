@@ -338,6 +338,10 @@ module TestReportingTests =
             "this.\"is.a.name\" ", ".", NameFormat.RootList, "this", "\"is.a.name\" " //has a trailing space
             "this\".is.a.name", ".", NameFormat.RootList, "this\"", "is.a.name"
             "\"", ".", NameFormat.RootList, "\"", "\""
+            "\"this.is\".a.name", ".", NameFormat.RootList, "\"this.is\"", "a.name"
+            "\"this.is\".a.name", ".", NameFormat.AllLists, "\"this.is\".a", "name"
+            "\"this\".is.\"a\".name", ".", NameFormat.RootList, "\"this.\"", "is.\"a\".name"
+            "\"this\".is.\"a\".name", ".", NameFormat.AllLists, "\"this.\".is.\"a\"", "name"
         ] |> List.map (fun (input: string, splitter: string, format: NameFormat, expectedClassname: string, expectedName: string) ->
             testCase $"\'%s{input}\' with format %s{format.ToString()} splits into \'%s{expectedClassname}\' and \'%s{expectedName}\'" <| fun _ ->
                 let classnameR, nameR = TestReportBuilder.splitClassName splitter format input
