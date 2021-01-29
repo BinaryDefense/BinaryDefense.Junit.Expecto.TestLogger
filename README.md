@@ -90,6 +90,12 @@ This can be a relative or absolute path to a directory or specific file. If no s
 
 Expecto introduced the ability to specify the delimiter for test list names, with the options of `/` and `.`. This argumente lets you specify _any_ string as the delimiter to use to split test list names.
 
+### Keep Test Names Intact
+
+Use Quotes `""` around any text you want to avoid splitting on. For example, if you're testing URL parsing, you may have a test name like `Parsing Tests.URL Parsing.Parses http://www.google.com`. If you split on `.` or `/` and use AllLists naming format, this test name will not split correctly. 
+
+To avoid this, you can wrap text in quotes to escape being split. `Parsing Tests.URL Parsing.Parses "http://www.google.com"` using AllLists will split into `Parsing Tests.URL Parsing`, `Parses "http://www.google.com"`, as expected.
+
 ## Builds
 
 GitHub Actions |

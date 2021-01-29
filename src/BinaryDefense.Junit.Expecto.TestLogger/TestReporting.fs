@@ -1,7 +1,212 @@
 namespace BinaryDefense.Junit.Expecto.TestLogger
 
+open System
+
+module TestNameParsing =
+
+  type TextBlock =
+    | NoBlock
+    | Regular of str : string
+    | Quote of str : string
+      with
+        member this.AppendChar (x : char) =
+          match this with
+          | NoBlock -> Regular (string x)
+          | Regular value -> Regular (value + (string x))
+          | Quote value -> Quote (value + (string x))
+
+        override this.ToString() =
+                    match this with
+                    | NoBlock -> ""
+                    | Regular v -> v
+                    | Quote v -> v
+
+  type Block =
+  | Text of textBlock : TextBlock
+  | Split
+    // re-add the splitter character
+    with member this.toStr (splitter : string) =
+                  match this with
+                  | Text tb -> string tb
+                  | Split -> splitter
+
+  let rec readUntilMatch (splitOn : string) (chars : char list) (accChars : string) =
+    if accChars = splitOn then
+      true, accChars
+    elif splitOn.Contains(accChars) then
+      match chars with
+      | [] -> false, ""
+      | x :: xs -> readUntilMatch splitOn xs (accChars + (string x))
+    else
+      false, ""
+
+  let parseQuoteWithMatch (current : TextBlock) =
+    //if we've found a quote that has a quote ahead...
+    match current with
+    // and there is no block being built, start a quote block, and continue
+    | NoBlock ->
+      Quote "\"", None
+    //and we're in a regular block, close the regular block, create a quote block, and continue
+    | Regular value ->
+      Quote "\"", Some (Text current)
+    //and we're in a quote block, close the quote block and continue
+    | Quote value ->
+      let closed = current.AppendChar '\"'
+      let block = (Text closed)
+      NoBlock, Some block
+
+
+  let parseQuoteWithoutMatch (current : TextBlock) =
+    //we got a quote but the lookahead is false. If we're in a quote, close it; if not, proceed as normal
+    match current with 
+    | Quote value ->
+      //let closed = current.AppendChar '\"'
+      let closed = Regular (value + "\"")
+      let block = Text closed
+      let next = NoBlock
+      next, Some block
+    | NoBlock ->
+      let next = Regular "\""
+      next, None
+    | Regular value ->
+      let next = current.AppendChar '\"'
+      next, None
+
+
+  let parseSplitOnCharacter splitOn (current : TextBlock) currentChar remainingChars =
+    //if we've found a split character...
+    match current with
+    | Quote _ -> 
+      //and we're in a quote; add the split character to the quote & continue
+      let next = current.AppendChar currentChar
+      next, remainingChars, []
+    | NoBlock ->
+      //and we're not in a block, read ahead to see if we fully match our split string
+      match readUntilMatch splitOn remainingChars (string currentChar) with
+      | true, acc -> 
+        //we have a match, so create a split and continue
+        let length = acc.Length
+        
+        //let nextChars =  if length = 1 then List.skip (1) remainingChars else List.skip (length - 1) remainingChars
+        let nextChars =List.skip (acc.Length - 1) remainingChars
+        NoBlock, nextChars, [ Split ]
+      | false, _ ->
+        //not a match, add this character to a block and continue
+        let next = Regular (string currentChar)
+        next, remainingChars, []
+    | Regular value ->
+      //we're in a block but we may be entering a split. Check for a split, and if so, split; then continue
+      match readUntilMatch splitOn remainingChars (string currentChar) with
+      | true, acc ->
+        let b = Text current
+        let nextChars = List.skip (acc.Length - 1) remainingChars
+        NoBlock, nextChars, [ Split; b ]
+      | false, _ ->
+        //false alarm, add this character to the block and continue
+        let next = current.AppendChar currentChar
+        next, remainingChars, []
+
+
+  let parseTestNameToBlocks (splitOn : string) (str : string) : Block list =
+    let lookAheadFor (target : string) (chars : char list) =
+      let sb = Text.StringBuilder()
+      chars |> List.iter (fun c -> sb.Append(c) |> ignore)
+      let str = string sb
+      str.Contains target
+
+    let rec traverse (current : TextBlock) (chars : char list) (blocks : Block list) =
+      match chars with
+      | [] ->
+        match current with
+        | NoBlock -> blocks
+        | Regular _ -> (Text current) :: blocks
+        //string ended while we're in a quote block; turn the quote block into a Regular and return
+        | Quote value -> (Regular value |> Text) :: blocks
+      
+      | '\"' :: xs when (not (List.isEmpty xs)) && lookAheadFor "\"" (xs) ->
+        let next, block = parseQuoteWithMatch current
+        match block with
+        | Some b ->
+          traverse next xs (b :: blocks)
+        | None ->
+          traverse next xs blocks
+      
+      | '\"' :: xs -> 
+        let next, block = parseQuoteWithoutMatch current
+        match block with
+        | Some b ->
+          traverse next xs (b :: blocks)
+        | None ->
+          traverse next xs blocks
+
+      | x :: xs when splitOn.Contains(string x) ->
+        let next, remainingChars, newBlocks = parseSplitOnCharacter splitOn current x xs
+        traverse next remainingChars ( newBlocks @ blocks )
+
+      | x :: xs ->
+        let block = current.AppendChar x
+        traverse block xs blocks
+
+    let chars = str.ToCharArray() |> List.ofArray
+    traverse NoBlock chars [] |> List.rev
+
+
+  let splitClassName (splitOn : string) (nf : NameFormat) (str : string) : (string * string) =
+    let blocks = parseTestNameToBlocks splitOn str
+
+    let trimSplits (blocks: Block list) =
+      let trimSplit bl =
+        match bl with
+        | Split :: xs -> xs
+        | x :: xs -> bl
+        | [] -> []
+      blocks
+      |> trimSplit
+      |> List.rev
+      |> trimSplit
+      |> List.rev
+
+    let getSlice start last (list: 'a list) =
+      list.GetSlice(Some start, Some last)
+
+    let writeList (bl : Block list) =
+      bl
+      |> trimSplits
+      |> List.map (fun x -> x.toStr splitOn)
+      |> String.concat ""
+
+    match nf with
+    | NameFormat.AllLists ->
+      if blocks.Length > 3 then
+        // if we have more than 3 blocks, we need to traverse the list, 
+        // build the list of blocks for the class name, and grab the last block for the test name
+        let rec buildNames (acc: Block list) (rem: Block list) =
+          match rem with
+          | [] -> 
+            failwith "Traversed entire block list when building classname, name for NameFormat AllLists, but should have constructed names before this point."
+          | [ x ] -> acc |> List.rev |> writeList, (x.toStr splitOn)
+          | x :: [ Split ] -> acc |> List.rev |> writeList, (x.toStr splitOn)
+          | x :: xs -> buildNames (x :: acc) xs
+
+        blocks |> trimSplits |> buildNames []
+      elif blocks.Length = 3 then
+        // 3 blocks = head / split / tail
+        let blocks' = trimSplits blocks
+        let classname = blocks'.Head
+        let name = blocks' |> List.last
+        (classname.toStr splitOn), (name.toStr splitOn)
+      else
+        str, str
+    | NameFormat.RootList ->
+      if blocks.Length >= 2 then
+        //all elements go in the name except the first one
+        let classname = blocks.Head
+        let name = blocks |> List.tail |> writeList
+        (classname.toStr splitOn), name
+      else
+        str, str
+
 module TestReportBuilder =
-  open System
   open BinaryDefense.Junit.Expecto.TestLogger.Parameters
   open Microsoft.VisualStudio.TestPlatform.ObjectModel
   open Microsoft.VisualStudio.TestPlatform.ObjectModel.Client
@@ -40,19 +245,6 @@ module TestReportBuilder =
 
   let split (splitter : string) (source: string) = source.Split(splitter)
 
-  /// Splits a test into classname, name
-  let splitClassName (splitOn : string) (nf : NameFormat) (name : string) =
-    let firstSlash = name.IndexOf(splitOn)
-    let lastSlash = name.LastIndexOf(splitOn)
-    let maybeSplit i =
-      if i > 0 then
-        name.Substring(0, i), name.Substring(i + 1)
-      else 
-        name, name
-
-    match nf with
-    | NameFormat.RootList -> maybeSplit firstSlash
-    | NameFormat.AllLists -> maybeSplit lastSlash
 
   let parseTestOutcome (test : TestResult) =
     let tryFirstTestLine() =
@@ -83,7 +275,7 @@ module TestReportBuilder =
 
   let buildTestReport (parameters: Parameters) (test : TestResult) =
     let outcome = parseTestOutcome test
-    let classname, name = test.TestCase.DisplayName |> ifNullThen "" |> splitClassName parameters.SplitOn parameters.NameFormat
+    let classname, name = test.TestCase.DisplayName |> ifNullThen "" |> TestNameParsing.splitClassName parameters.SplitOn parameters.NameFormat
     { TestReport.Empty() with
         ClassName = classname
         TestName = name
