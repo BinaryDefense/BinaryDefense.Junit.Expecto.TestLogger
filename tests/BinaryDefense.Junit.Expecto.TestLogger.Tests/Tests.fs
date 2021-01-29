@@ -291,8 +291,63 @@ module ParametersTests =
                 Expect.isGreaterThan index 0 "Should contain the default file name"
         ]
 
-module TestReportingTests =
-    open BinaryDefense.Junit.Expecto.TestLogger
+module TestNameParsingTests =
+    open TestNameParsing
+
+    let parseQuoteTests = 
+        testList "Parsing Function Tests" [
+            testList "Parse quote with match tests" [
+                testCase "Returns starting quote block when current is not a block" <| fun _ ->
+                    let next, block = parseQuoteWithMatch NoBlock
+                    Expect.equal next (Quote "\"") "Did not start a new quote block"
+                    Expect.isNone block "Returned a block to add to the blocks list"
+                testCase "Returns starting quote block and block when current is a block with text" <| fun _ ->
+                    let next, block = parseQuoteWithMatch (Regular "hello world")
+                    Expect.equal next (Quote "\"") "Did not start a new quote block"
+                    Expect.equal block (Some (Text (Regular "hello world"))) "Did not return finished block"
+                testCase "Returns text block with ending quote when current block is a quote block" <| fun _ ->
+                    let next, block = parseQuoteWithMatch (Regular "\"hello world\"")
+                    Expect.equal next (Quote "\"") "Did not start a new quote block"
+                    let expected = Regular "\"hello world\"" |> Text |> Some
+                    Expect.equal block expected "Did not return finished block"
+            ]
+
+            testList "parse quote without match tests" [
+                testCase "returns Regular text with quote and no finished block when given no block" <| fun _ ->
+                    let next, block = parseQuoteWithoutMatch NoBlock
+                    Expect.equal next (Regular "\"") "Did not create regular block with quote"
+                    let completedBlock = None
+                    Expect.isNone completedBlock "Completed a block when it should not have"
+                testCase "returns NoBlock, closed Regular block when in a quote block" <| fun _ ->
+                    let next, block = parseQuoteWithoutMatch (Quote "\"hello world")
+                    Expect.equal next NoBlock "Did not return NoBlock when closing a quote block"
+                    let completedBlock = Regular "\"hello world\"" |> Text |> Some
+                    Expect.equal block completedBlock "Did not create regular text block"
+                testCase "returns Regular, NoBlock when given a regular block" <| fun _ ->
+                    let next, block = parseQuoteWithoutMatch (Regular "hello world")
+                    Expect.equal next (Regular "hello world\"") "Did not return regular text block with quote"
+                    let completedBlock = None
+                    Expect.equal block completedBlock "did not return NoBlock for completed block"
+            ]
+
+            testList "parse split on string tests" [
+                testCase "returns a quote with the character and does not complete a block when inside a quote" <| fun _ ->
+                    let next, chars, blocks = parseSplitOnCharacter "." (Quote "hello world") '.' ['h'; 'i';]
+                    Expect.equal next (Quote "hello world.") "did not continue a quote block on a split character"
+                    let expectedBlock = None
+                    Expect.equal blocks [] "Created completed blocks when it should not have."
+                testCase "returns Noblock, and 2 completed blocks (split & regular) when not inside a quote" <| fun _ ->
+                    let next, chars, blocks = parseSplitOnCharacter "." (Regular "hello world") '.'  ['h'; 'i';]
+                    Expect.equal next (NoBlock) "A block was returned when no block should have been created"
+                    let expectedBlocks = [ Split; Text (Regular "hello world") ]
+                    Expect.equal blocks expectedBlocks "Did not create expected split and text blocks"
+                testCase "returns a split when not inside a block" <| fun _ ->
+                    let next, chars, blocks = parseSplitOnCharacter "." (NoBlock) '.'  ['h'; 'i';]
+                    Expect.equal next (NoBlock) "A block was returned when no block should have been created"
+                    let expectedBlocks = [ Split ]
+                    Expect.equal blocks expectedBlocks "Did not create expected split block"
+            ]
+        ]
 
     type Nesting =
     | NoNesting
@@ -316,7 +371,7 @@ module TestReportingTests =
 
     let buildTestCase (nesting : Nesting) (nameFormat : NameFormat) (classname : string) (name : string) =
         testCase (sprintf "%s-%s" (string nameFormat) (nesting.name)) <| fun _ ->
-            let classnameR, nameR = TestReportBuilder.splitClassName "/" nameFormat nesting.value
+            let classnameR, nameR = TestNameParsing.splitClassName "/" nameFormat nesting.value
             Expect.equal classnameR classname "Should build the expected class name"
             Expect.equal nameR name "Should build the expected test name"
 
@@ -340,14 +395,15 @@ module TestReportingTests =
             "\"", ".", NameFormat.RootList, "\"", "\""
             "\"this.is\".a.name", ".", NameFormat.RootList, "\"this.is\"", "a.name"
             "\"this.is\".a.name", ".", NameFormat.AllLists, "\"this.is\".a", "name"
-            "\"this\".is.\"a\".name", ".", NameFormat.RootList, "\"this.\"", "is.\"a\".name"
-            "\"this\".is.\"a\".name", ".", NameFormat.AllLists, "\"this.\".is.\"a\"", "name"
+            "\"this\".is.\"a\".name", ".", NameFormat.RootList, "\"this\"", "is.\"a\".name"
+            "\"this\".is.\"a\".name", ".", NameFormat.AllLists, "\"this\".is.\"a\"", "name"
         ] |> List.map (fun (input: string, splitter: string, format: NameFormat, expectedClassname: string, expectedName: string) ->
             testCase $"\'%s{input}\' with format %s{format.ToString()} splits into \'%s{expectedClassname}\' and \'%s{expectedName}\'" <| fun _ ->
-                let classnameR, nameR = TestReportBuilder.splitClassName splitter format input
+                let classnameR, nameR = TestNameParsing.splitClassName splitter format input
                 Expect.equal classnameR expectedClassname "Should have built the expected class name"
                 Expect.equal nameR expectedName "Should have built the expected name"
-        )
+        ) |> testList "Quote Escaped Tests"
+
 
     let splitClassNameTests =
         testList "Split Class Name tests" [
@@ -358,28 +414,35 @@ module TestReportingTests =
             buildTestCase Nesting.LotsOfNesting NameFormat.RootList "More Nesting" "Lots of Nesting/So much Nesting/A Test"
             buildTestCase Nesting.LotsOfNesting NameFormat.AllLists "More Nesting/Lots of Nesting/So much Nesting" "A Test"
 
-            //yield! quoteEscapedTests
-
             testCase "Does not split values in quotes when splitting on /" <| fun _ ->
                 let escapedName = "\"very/ long/ name\""
-                let classnameR, nameR = TestReportBuilder.splitClassName "/" NameFormat.AllLists $"this/is/a/%s{escapedName}"
+                let classnameR, nameR = TestNameParsing.splitClassName "/" NameFormat.AllLists $"this/is/a/%s{escapedName}"
                 Expect.equal classnameR "this/is/a" "Should have built the correct class name for an escaped name"
                 Expect.equal nameR escapedName "Should have built the correct name for an escaped name"
 
-            // testCase "Ignores a single quote when splitting on /" <| fun _ ->
-            //     let classnameR, nameR = TestReportBuilder.splitClassName "/" NameFormat.AllLists "this/is/a/\"very/long/name"
-            //     Expect.equal classnameR "this/is/a/\"very/long" "Should have built the correct class name for an escaped name"
-            //     Expect.equal nameR name "Should have built the correct name for an escaped name"
+            testCase "Splits \"this test name\" correctly." <| fun _ ->
+                Expect.isTrue true ""
 
             testCase "Returns empty string tuple on empty input for root list formatting" <| fun _ -> 
-                let classnameR, nameR = TestReportBuilder.splitClassName "/" NameFormat.RootList ""
+                let classnameR, nameR = TestNameParsing.splitClassName "/" NameFormat.RootList ""
                 Expect.equal classnameR "" "Should return a blank classname on blank input"
                 Expect.equal nameR "" "Should return a blank name on blank input"
             testCase "Returns empty string tuple on empty input for all list formatting" <| fun _ -> 
-                let classnameR, nameR = TestReportBuilder.splitClassName "/" NameFormat.AllLists ""
+                let classnameR, nameR = TestNameParsing.splitClassName "/" NameFormat.AllLists ""
                 Expect.equal classnameR "" "Should return a blank classname on blank input"
                 Expect.equal nameR "" "Should return a blank name on blank input"
         ]
+
+    [<Tests>]
+    let tests = 
+        testList "Test Name Parsing Tests" [
+            yield quoteEscapedTests
+            yield splitClassNameTests
+            yield parseQuoteTests
+        ]
+
+module TestReportingTests =
+    open BinaryDefense.Junit.Expecto.TestLogger
 
     let buildTestResult outcome messages errorMessage =
         let mutable tr = TestResult(TestCase())
@@ -390,7 +453,7 @@ module TestReportingTests =
         tr.Outcome <- outcome
         tr
 
-    let parseOutcomeTests = ptestList "Parse TestResult outcome tests" [
+    let parseOutcomeTests = testList "Parse TestResult outcome tests" [
         testCase "parseOutcome returns blank messages when failed test has no error message" <| fun _ ->
             let testValue = ""
             let input = buildTestResult TestOutcome.Failed [] testValue
@@ -448,6 +511,5 @@ module TestReportingTests =
     [<Tests>]
     let tests =
         testList "Test Result Builder tests" [
-            yield splitClassNameTests
-            //yield parseOutcomeTests
+            yield parseOutcomeTests
         ]
